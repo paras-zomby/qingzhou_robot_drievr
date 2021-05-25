@@ -38,7 +38,6 @@ int main()
     CImu imu(&debug);
     CControl control(&debug, &encoder, &motor);
     
-    
     debug.InfoHandle("debug", "Into While");
     debug.OLED_Clear();
     while(1)
