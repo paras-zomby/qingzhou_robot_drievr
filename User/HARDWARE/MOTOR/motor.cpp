@@ -9,7 +9,7 @@
 
 #define SERVO   TIM1->CCR1  //¶æ»úÒý½Å
 
-#define SERVO_INIT 1650
+#define SERVO_INIT 1510
 #define K 10.00f
 
 static void Motor_PWM_Init(u16 arr,u16 psc)
@@ -131,6 +131,6 @@ void CMotor::MotorBrake()
 void CMotor::ServoCompareSet(float angle)
 {
     float Servo = SERVO_INIT - angle*K;
-    INSHEREHOLD(1320,Servo,1980)
+    INSHEREHOLD(1160,Servo,1880)
     SERVO = Servo;
 }
