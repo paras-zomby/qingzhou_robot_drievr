@@ -770,7 +770,7 @@ I (..\User\HARDWARE\PS2\pstwo-cpp.h)(0x60AC724B)
 I (..\User\HARDWARE\MOTOR\motor-cpp.h)(0x60AC724B)
 I (..\User\HARDWARE\ENCODER\encoder-cpp.h)(0x60AC724B)
 I (..\User\HARDWARE\TIMER\timer-cpp.h)(0x60AC724B)
-I (..\User\HARDWARE\USART\usart-cpp.h)(0x60AC724B)
+I (..\User\HARDWARE\USART\usart-cpp.h)(0x60B628CE)
 I (..\User\imu\imu-cpp.h)(0x60AC724B)
 I (..\User\imu\iic.h)(0x60AC724B)
 I (..\User\imu\sim-iic.h)(0x60AC724B)
@@ -1050,8 +1050,8 @@ I (..\User\HARDWARE\oled\oled.h)(0x60AC724B)
 I (..\User\HARDWARE\oled\oledfont.h)(0x60AC724B)
 I (..\User\HARDWARE\LED\led.h)(0x60AC724B)
 I (..\User\HARDWARE\key\key-cpp.h)(0x60AC724B)
-F (..\User\HARDWARE\USART\usart.cpp)(0x60AC724B)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\Libraries\CMSIS -I ..\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\User -I ..\User\imu -I ..\User\HARDWARE\key -I ..\User\HARDWARE\oled -I ..\User\Sys\delay -I ..\User\Sys\sys -I ..\User\Sys\usart -I ..\User\Sys\debug -I ..\User\Control -I ..\User\Communication -I ..\User\HARDWARE\ENCODER -I ..\User\HARDWARE\LED -I ..\User\HARDWARE\MOTOR -I ..\User\HARDWARE\PS2 -I ..\User\HARDWARE\TIMER -I ..\User\HARDWARE\USART-I.\RTE\_STM32F103RCT6-I"D:\Program Files (x86)\Keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"D:\Program Files (x86)\Keil5\ARM\CMSIS\Include"-D__UVISION_VERSION="526" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\usart.o --omf_browse .\objects\usart.crf --depend .\objects\usart.d)
-I (..\User\HARDWARE\USART\usart-cpp.h)(0x60AC724B)
+F (..\User\HARDWARE\USART\usart.cpp)(0x60B5A968)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\Libraries\CMSIS -I ..\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\User -I ..\User\imu -I ..\User\HARDWARE\key -I ..\User\HARDWARE\oled -I ..\User\Sys\delay -I ..\User\Sys\sys -I ..\User\Sys\usart -I ..\User\Sys\debug -I ..\User\Control -I ..\User\Communication -I ..\User\HARDWARE\ENCODER -I ..\User\HARDWARE\LED -I ..\User\HARDWARE\MOTOR -I ..\User\HARDWARE\PS2 -I ..\User\HARDWARE\TIMER -I ..\User\HARDWARE\USART-I.\RTE\_STM32F103RCT6-I"D:\Program Files (x86)\Keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"D:\Program Files (x86)\Keil5\ARM\CMSIS\Include"-D__UVISION_VERSION="526" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\usart.o --omf_browse .\objects\usart.crf --depend .\objects\usart.d)
+I (..\User\HARDWARE\USART\usart-cpp.h)(0x60B628CE)
 I (..\User\Sys\sys\sys.h)(0x60AC724B)
 I (..\Libraries\CMSIS\stm32f10x.h)(0x60AC724B)
 I (..\Libraries\CMSIS\core_cm3.h)(0x60AC724B)

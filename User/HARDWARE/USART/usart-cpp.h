@@ -12,17 +12,17 @@ private:
     CDebug* const debug;
 public:
     struct Data_Sended{
-        
+        float data[9];
     };
     struct Data_Recieved{
-        
+        float Speed, Angle;
     };
     
     CUSART(CDebug* const _debug);
     ~CUSART();
     
     void SendData(const Data_Sended& data);
-    void SendData(u8* dataptr, u16 datasize = 0);
+    void SendData(const u8* dataptr, u16 datasize = 0);
     
     Data_Recieved RecvData(void);
     bool IsDataRefreshed(void);

@@ -32,6 +32,7 @@ CUSART::CUSART(CDebug* const _debug)
         GPIO_Init(GPIOA, &GPIO_InitStructure);//初始化GPIOA.10  
         //USART 初始化设置
         //UsartNVIC 配置
+        NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
         NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
         NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=0 ;//抢占优先级
         NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;      //子优先级
@@ -61,7 +62,7 @@ CUSART::~CUSART()
     is_unique = 1;
 }
 
-void CUSART::SendData(u8* dataptr, u16 datasize)
+void CUSART::SendData(const u8* dataptr, u16 datasize)
 {
     while(datasize--)
     {
@@ -94,24 +95,34 @@ bool CUSART::IsDataRefreshed(void)
     return is_datarefreshed;
 }
 
+extern "C"{
+
 void USART1_IRQHandler(void)
 {
-    static u16 index = 1;               //表示ptr正在指向recvdata的第几个字节
-    static u8* ptr = (u8*)&recvdata;    //指向recvdata的下一个待写入的字节
-    if(USART_GetITStatus(USART1, USART_IT_RXNE) == SET)
+    if(USART_GetITStatus(USART1, USART_IT_RXNE)==SET)
     {
-        u8 data = (USART1->DR&0xFF);
-        if(index < sizeof(recvdata))    //当ptr还没有指向recvdata的最后一个字节时
+        static u16 index = 1;               //表示ptr正在指向recvdata的第几个字节
+        static u8* ptr = (u8*)&recvdata;    //指向recvdata的下一个待写入的字节   
+        
+        if(USART_GetITStatus(USART1, USART_IT_RXNE) == SET)
         {
-            *ptr = data;
-            ++ptr; ++index;
+            u8 data = (USART1->DR&0xFF);
+            if(index < sizeof(recvdata))    //当ptr还没有指向recvdata的最后一个字节时
+            {
+                *ptr = data;
+                ++ptr; ++index;
+            }
+            else
+            {
+                PBout(13) = CDebug::LED_CLOSE;
+                *ptr = data;
+                ptr = (u8*)&recvdata;
+                index = 1;
+                is_datarefreshed = 1;
+            }
         }
-        else
-        {
-            *ptr = data;
-            ptr = (u8*)&recvdata;
-            index = 1;
-            is_datarefreshed = 1;
-        }
+        USART_ClearITPendingBit(USART1, USART_IT_RXNE);
     }
+}
+
 }
