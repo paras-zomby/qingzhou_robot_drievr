@@ -2,8 +2,10 @@
 
 bool CUSART::is_unique = 1;
 
-static CUSART::Data_Recieved recvdata;
+const u8 CUSART::std[] = {'7', '1', '8'};
+const u8 CUSART::reverse_std[] = {'8', '1', '7'};
 
+static CUSART::Data_Recieved recvdata;
 static bool is_datarefreshed = 0;   //数据是否更新的标志位，
                                     //接收数据的中断函数会把他置1
                                     //调用读数据函数会把他置0
@@ -13,6 +15,25 @@ CUSART::CUSART(CDebug* const _debug)
 {
     if(is_unique)
     {
+//		GPIO_InitTypeDef GPIO_InitStructure;
+//		USART_InitTypeDef USART_InitStructure;
+
+//		// 打开串口GPIO、AFIO的时钟
+//		RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
+//		RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA , ENABLE);
+
+//		// 将USART Tx的GPIO配置为推挽复用模式
+//		GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
+//		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+//		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+//		GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+//		// 将USART Rx的GPIO配置为浮空输入模式
+//		GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+//		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+//		GPIO_Init(GPIOA, &GPIO_InitStructure);
+//			
+			
         //======================USART配置部分==============================
         //GPIO端口设置
         GPIO_InitTypeDef GPIO_InitStructure;
@@ -99,27 +120,50 @@ extern "C"{
 
 void USART1_IRQHandler(void)
 {
-    if(USART_GetITStatus(USART1, USART_IT_RXNE)==SET)
+    static u8 index = 1;               //表示ptr正在指向recvdata的第几个字节
+    static u8* ptr = (u8*)&recvdata;    //指向recvdata的下一个待写入的字节
+    
+    static u8 is_recving = 0, cnt = 0;//用于标准头、标准尾协议判断。
+    
+    if(USART_GetITStatus(USART1, USART_IT_RXNE) == SET) //如果真的进中断了
     {
-        static u16 index = 1;               //表示ptr正在指向recvdata的第几个字节
-        static u8* ptr = (u8*)&recvdata;    //指向recvdata的下一个待写入的字节   
-        
-        if(USART_GetITStatus(USART1, USART_IT_RXNE) == SET)
+        u8 data = (USART1->DR&0xFF);
+        if(!is_recving)
         {
-            u8 data = (USART1->DR&0xFF);
-            if(index < sizeof(recvdata))    //当ptr还没有指向recvdata的最后一个字节时
+            if(data == CUSART::std[0]) cnt = 1;         //只要接收到的是标准头开头，就把cnt置一（标准头第二个）
+            else if(cnt != 0 && data == CUSART::std[cnt])//如果cnt不是0且数据等于std[cnt]
             {
-                *ptr = data;
-                ++ptr; ++index;
+                if (cnt < 2) ++cnt;         //如果cnt没到std标准头的最后一位，则++cnt
+                else                        //cnt已经走到标准头最后一位，接收信息开始
+                {
+                    is_recving = 1;
+                    ptr = (u8*)&recvdata;
+                    index = 1;
+                }
             }
-            else
+            else cnt = 0;                       //如果上面两种判断都不是，那么cnt回归0
+        }
+        else
+        {
+            if(index <= sizeof(recvdata))          //当ptr还指向recvdata的字节，
+            {                                      //且正在接收消息
+                *ptr = data;
+                ++ptr;
+            }
+             ++index;                               //只要接收到消息就++index
+            
+            if(data == CUSART::std[2]) cnt = 1;             //只要数据符合数据尾的第一位，就把cnt置1
+            else if(cnt != 2 && data == CUSART::std[cnt])   //如果cnt不是2且数据等于std[cnt]
             {
-                PBout(13) = CDebug::LED_CLOSE;
-                *ptr = data;
-                ptr = (u8*)&recvdata;
-                index = 1;
-                is_datarefreshed = 1;
+                if (cnt > 0) --cnt;             //如果cnt没有到标准尾的最后一位，--cnt
+                else                            //cnt已经走完标准尾，接收信息结束
+                {
+                    is_recving = 0;
+                    if(index-1 == sizeof(recvdata)+3)
+                        is_datarefreshed = 1;
+                }
             }
+            else cnt = 2;                           //其余结果把cnt恢复到2
         }
         USART_ClearITPendingBit(USART1, USART_IT_RXNE);
     }

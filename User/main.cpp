@@ -56,9 +56,9 @@ int main()
         {
             //读取遥控器按键
             ps2.PS2_ReadData();
-            //如果select按键按下切换模式
-            if(PSB_SELECT & ps2.PS2_ReturnPressedKey())
-                debug.mode = 2;
+//            //如果select按键按下切换模式
+//            if(PSB_SELECT & ps2.PS2_ReturnPressedKey())
+//                debug.mode = 2;
             //执行遥控器命令
             control.Kinematic_Analysis(control.SpeedPretreat(ps2.PS2_AnologData(PSS_LY)),
                                         control.AnglePretreat(ps2.PS2_AnologData(PSS_RX)));
@@ -75,19 +75,19 @@ int main()
         {
             if(usart.IsDataRefreshed()) rdata = usart.RecvData();
             
-            if(time_flag == 9)// 100ms per time: 9
-            {
-                ps2.PS2_ReadData();
-                //如果select按键按下切换模式
-                if(PSB_SELECT & ps2.PS2_ReturnPressedKey())
-                    debug.mode = 1;
-            }
+//            if(time_flag == 9)// 100ms per time: 9
+//            {
+//                ps2.PS2_ReadData();
+//                //如果select按键按下切换模式
+//                if(PSB_SELECT & ps2.PS2_ReturnPressedKey())
+//                    debug.mode = 1;
+//            }
             
             if(time_flag%2 == 0)//20ms per time: 2,4,6,8,10
                 control.Kinematic_Analysis(rdata.Speed, rdata.Angle);
             
             if(time_flag == 3)// 100ms per time: 3
-                {debug.OLED_ShowString(00,00,"Auto Control Mode");debug.OLED_Refresh_Gram();}
+                {debug.OLED_ShowString(00,00,"Nano Control");imu.ShowData_OLED();}
             
             if(time_flag == 1 || time_flag == 5)// ~~50ms per time: 1,5
             {
@@ -97,7 +97,11 @@ int main()
             }
             
             if(time_flag %5 == 2)//50ms per time: 2,7
+            {
+                usart.SendData(CUSART::std, sizeof(CUSART::std));
                 usart.SendData(sdata);
+                usart.SendData(CUSART::std, sizeof(CUSART::reverse_std));
+            }
             
             time_flag = time_flag>=10?1:time_flag+1;
             tim.WaitForTime(CTim::CNT_END, 10);         //单次周期10ms

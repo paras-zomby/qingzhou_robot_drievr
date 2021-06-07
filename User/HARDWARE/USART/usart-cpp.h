@@ -11,6 +11,7 @@ private:
     
     CDebug* const debug;
 public:
+    const static u8 std[3], reverse_std[3];
     struct Data_Sended{
         float data[9];
     };

@@ -61,15 +61,15 @@ CImu::~CImu()
 
 void CImu::ShowData_OLED()
 {
-    debug->OLED_ShowString(00,00,"AcX:");debug->OLED_ShowNumber(15,00,ABS(data[0])*160/32767,5,12);
-    debug->OLED_ShowString(00,10,"AcY:");debug->OLED_ShowNumber(15,10,ABS(data[1])*160/32767,5,12);
-    debug->OLED_ShowString(00,20,"AcZ:");debug->OLED_ShowNumber(15,20,ABS(data[2])*160/32767,5,12);
-    debug->OLED_ShowString(00,30,"GyX:");debug->OLED_ShowNumber(15,30,ABS(data[3])*200/32767,5,12);
-    debug->OLED_ShowString(00,40,"GyY:");debug->OLED_ShowNumber(15,40,ABS(data[4])*200/32767,5,12);
-    debug->OLED_ShowString(00,50,"GyZ:");debug->OLED_ShowNumber(15,50,ABS(data[5])*200/32767,5,12);
-    debug->OLED_ShowString(80,00,"MaX:");debug->OLED_ShowNumber(95,00,ABS(data[6])/20,5,12);
-    debug->OLED_ShowString(80,10,"MaY:");debug->OLED_ShowNumber(95,10,ABS(data[7])/20,5,12);
-    debug->OLED_ShowString(80,20,"MaZ:");debug->OLED_ShowNumber(95,20,ABS(data[8])/20,5,12);
+    debug->OLED_ShowString(00,00,"AcX:");debug->OLED_ShowNumber(20,00,(u32)ABS(raw_data[0])*160/32767,5,12);
+    debug->OLED_ShowString(00,10,"AcY:");debug->OLED_ShowNumber(20,10,(u32)ABS(raw_data[1])*160/32767,5,12);
+    debug->OLED_ShowString(00,20,"AcZ:");debug->OLED_ShowNumber(20,20,(u32)ABS(raw_data[2])*160/32767,5,12);
+    debug->OLED_ShowString(00,30,"GyX:");debug->OLED_ShowNumber(20,30,(u32)ABS(raw_data[3])*200/32767,5,12);
+    debug->OLED_ShowString(00,40,"GyY:");debug->OLED_ShowNumber(20,40,(u32)ABS(raw_data[4])*200/32767,5,12);
+    debug->OLED_ShowString(00,50,"GyZ:");debug->OLED_ShowNumber(20,50,(u32)ABS(raw_data[5])*200/32767,5,12);
+    debug->OLED_ShowString(80,00,"MaX:");debug->OLED_ShowNumber(100,00,(u32)ABS(raw_data[6])/20,5,12);
+    debug->OLED_ShowString(80,10,"MaY:");debug->OLED_ShowNumber(100,10,(u32)ABS(raw_data[7])/20,5,12);
+    debug->OLED_ShowString(80,20,"MaZ:");debug->OLED_ShowNumber(100,20,(u32)ABS(raw_data[8])/20,5,12);
 
     debug->OLED_Refresh_Gram();    //刷新
 }
@@ -106,17 +106,17 @@ ErrorStatus CImu::MPU9250_Write_Reg(u8 Slave_add,u8 reg_add,u8 reg_dat)
 u8 CImu::MPU9250_Read_Reg(u8 Slave_add,u8 reg_add)
 {
     ErrorStatus ret = SUCCESS;
-    u8 data;
+    u8 raw_data;
 #ifndef USE_HARDWARE_IIC
     IIC_Start(); //开始
     IIC_Send_Byte(Slave_add); //发送 I2C 写地址
-    data=IIC_Wait_Ack(); //响应
+    raw_data=IIC_Wait_Ack(); //响应
     IIC_Send_Byte(reg_add); //发送寄存器地址
-    data=IIC_Wait_Ack(); //响应
+    raw_data=IIC_Wait_Ack(); //响应
     IIC_Start(); //在此发送开始信号
     IIC_Send_Byte(Slave_add+1); //发送 I2C 读地址
-    data=IIC_Wait_Ack(); //响应
-    data=IIC_Read_Byte(0); //读取 1 字节
+    raw_data=IIC_Wait_Ack(); //响应
+    raw_data=IIC_Read_Byte(0); //读取 1 字节
     IIC_Stop();
 #else
     I2C2_START//发送起始信号，检测EV5
@@ -134,27 +134,27 @@ u8 CImu::MPU9250_Read_Reg(u8 Slave_add,u8 reg_add)
     I2C2_SENDADDR_R(Slave_add)//发送从机地址，检测EV6
     ret = I2C2_WaitForSuc(I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED, timeout);
     if(ret == ERROR) PRINT_ERROR_INFO("Read RegError 5");
-    data = I2C2_RECEIVEDATA//接收数据，检测EV7
+    raw_data = I2C2_RECEIVEDATA//接收数据，检测EV7
     ret = I2C2_WaitForSuc(I2C_EVENT_MASTER_BYTE_RECEIVED, timeout);
     if(ret == ERROR) PRINT_ERROR_INFO("Read RegError 6");
     I2C2_STOP//发送停止信号
 #endif
-    return (ret==ERROR)?0xFF:data;
+    return (ret==ERROR)?0xFF:raw_data;
 }
 
 //读取加速度数据的函数
 void CImu::MPU9250_READ_ACCEL()
-{ 
+{
     u8 BUF[6];
     BUF[0]=MPU9250_Read_Reg(ACCEL_ADDRESS,ACCEL_XOUT_L); //读 X 加速度低字节
     BUF[1]=MPU9250_Read_Reg(ACCEL_ADDRESS,ACCEL_XOUT_H); //读 X 加速度高字节
-    data[0]=(BUF[1]<<8)|BUF[0];
+    raw_data[0]=(BUF[1]<<8)|BUF[0];
     BUF[2]=MPU9250_Read_Reg(ACCEL_ADDRESS,ACCEL_YOUT_L); //读 Y 加速度低字节
     BUF[3]=MPU9250_Read_Reg(ACCEL_ADDRESS,ACCEL_YOUT_H); //读 Y 加速度高字节
-    data[1]=(BUF[3]<<8)|BUF[2];
+    raw_data[1]=(BUF[3]<<8)|BUF[2];
     BUF[4]=MPU9250_Read_Reg(ACCEL_ADDRESS,ACCEL_ZOUT_L); //读 Z 加速度低字节
     BUF[5]=MPU9250_Read_Reg(ACCEL_ADDRESS,ACCEL_ZOUT_H); //读 Z 加速度高字节
-    data[2]=(BUF[5]<<8)|BUF[4];
+    raw_data[2]=(BUF[5]<<8)|BUF[4];
 }
 //读取角速度数据的函数
 void CImu::MPU9250_READ_GYRO()
@@ -162,13 +162,13 @@ void CImu::MPU9250_READ_GYRO()
     u8 BUF[8];
     BUF[0]=MPU9250_Read_Reg(GYRO_ADDRESS,GYRO_XOUT_L); //读 X 角速度低字节
     BUF[1]=MPU9250_Read_Reg(GYRO_ADDRESS,GYRO_XOUT_H); //读 X 角速度高字节
-    data[3]=(BUF[1]<<8)|BUF[0];
+    raw_data[3]=(BUF[1]<<8)|BUF[0];
     BUF[2]=MPU9250_Read_Reg(GYRO_ADDRESS,GYRO_YOUT_L); //读 Y 角速度低字节
     BUF[3]=MPU9250_Read_Reg(GYRO_ADDRESS,GYRO_YOUT_H); //读 Y 角速度高字节
-    data[4]=(BUF[3]<<8)|BUF[2];
+    raw_data[4]=(BUF[3]<<8)|BUF[2];
     BUF[4]=MPU9250_Read_Reg(GYRO_ADDRESS,GYRO_ZOUT_L); //读 Z 角速度低字节
     BUF[5]=MPU9250_Read_Reg(GYRO_ADDRESS,GYRO_ZOUT_H); //读 Z 角速度高字节
-    data[5]=(BUF[5]<<8)|BUF[4];
+    raw_data[5]=(BUF[5]<<8)|BUF[4];
 }
 //读取磁力计数据的函数
 void CImu::MPU9250_READ_MAG() 
@@ -180,19 +180,31 @@ void CImu::MPU9250_READ_MAG()
     delay_ms(10);
     BUF[0]=MPU9250_Read_Reg(MAG_ADDRESS,MAG_XOUT_L); //读 X 磁力计低字节
     BUF[1]=MPU9250_Read_Reg(MAG_ADDRESS,MAG_XOUT_H); //读 X 磁力计高字节
-    data[6]=(BUF[1]<<8)|BUF[0];
+    raw_data[6]=(BUF[1]<<8)|BUF[0];
     BUF[2]=MPU9250_Read_Reg(MAG_ADDRESS,MAG_YOUT_L); //读 Y 磁力计低字节
     BUF[3]=MPU9250_Read_Reg(MAG_ADDRESS,MAG_YOUT_H); //读 Y 磁力计高字节
-    data[7]=(BUF[3]<<8)|BUF[2];
+    raw_data[7]=(BUF[3]<<8)|BUF[2];
     BUF[4]=MPU9250_Read_Reg(MAG_ADDRESS,MAG_ZOUT_L); //读 Z 磁力计低字节
     BUF[5]=MPU9250_Read_Reg(MAG_ADDRESS,MAG_ZOUT_H); //读 Z 磁力计高字节
-    data[8]=(BUF[5]<<8)|BUF[4];
+    raw_data[8]=(BUF[5]<<8)|BUF[4];
 }
 const float* CImu::ReadData() //读取 IMU 数据函数
 {
     MPU9250_READ_ACCEL(); //读取加速度
     MPU9250_READ_GYRO(); //读取角速度
     MPU9250_READ_MAG(); //读取磁力计
+    
+    data[0] = raw_data[0]*160/32767;
+    data[1] = raw_data[1]*160/32767;
+    data[2] = raw_data[2]*160/32767;
+    
+    data[3] = raw_data[3]*200/32767;
+    data[4] = raw_data[4]*200/32767;
+    data[5] = raw_data[5]*200/32767;
+    
+    data[6] = raw_data[6]/20;
+    data[7] = raw_data[7]/20;
+    data[8] = raw_data[8]/20;
     return data;
 }
 

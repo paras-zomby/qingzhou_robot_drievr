@@ -69,6 +69,7 @@ private:
     CDebug* const debug;
     u16 timeout;
 
+    short raw_data[9];
     float data[9];
 
 //    Accel_Data _accel;//加速度计
