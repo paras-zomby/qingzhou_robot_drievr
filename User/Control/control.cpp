@@ -61,8 +61,16 @@ short CControl::Incremental_PI_Right(int Encoder,int Target)
     return (short)Pwm;                         //增量输出
 }
 
+/*
+ *
+ *
+ */
+
 void CControl::Kinematic_Analysis(float velocity,float angle)
 {
+    INSHEREHOLD(-5500, velocity, 5500)  //为了保证差速的有效性而进行的限幅
+    INSHEREHOLD(-36.0f, angle, 36.0f)   //同时限制了输入的电机速度和舵机角度。
+    
     int Lencoder,Rencoder;
     int velocity_lf,velocity_rt;
     
@@ -128,7 +136,6 @@ void CControl::Kinematic_Analysis(float velocity,float angle)
                        debug->OLED_ShowNumber(95,50,-angle,4,12);
     else                debug->OLED_ShowString(80,50,"+"),
                        debug->OLED_ShowNumber(95,50, angle,4,12);
-    debug->OLED_Refresh_Gram();
 }
 
 int CControl::SpeedPretreat(u8 PSS)

@@ -46,30 +46,30 @@ CImu::~CImu()
     is_unique = 1;
 }
 
-const CImu::Accel_Data& CImu::Get_Accel()
-{
-    return _accel;
-}
-const CImu::Gyro_Data& CImu::Get_Gyro()
-{
-    return _gyro;
-}
-const CImu::Mag_Data& CImu::Get_Mag()
-{
-    return _mag;
-}
+//const CImu::Accel_Data& CImu::Get_Accel()
+//{
+//    return _accel;
+//}
+//const CImu::Gyro_Data& CImu::Get_Gyro()
+//{
+//    return _gyro;
+//}
+//const CImu::Mag_Data& CImu::Get_Mag()
+//{
+//    return _mag;
+//}
 
 void CImu::ShowData_OLED()
 {
-    debug->OLED_ShowString(00,00,"AcX:");debug->OLED_ShowNumber(15,00,ABS(_accel.accelX)*160/32767,5,12);
-    debug->OLED_ShowString(00,10,"AcY:");debug->OLED_ShowNumber(15,10,ABS(_accel.accelY)*160/32767,5,12);
-    debug->OLED_ShowString(00,20,"AcZ:");debug->OLED_ShowNumber(15,20,ABS(_accel.accelZ)*160/32767,5,12);
-    debug->OLED_ShowString(00,30,"GyX:");debug->OLED_ShowNumber(15,30,ABS(_gyro.gyroX)*200/32767,5,12);
-    debug->OLED_ShowString(00,40,"GyY:");debug->OLED_ShowNumber(15,40,ABS(_gyro.gyroY)*200/32767,5,12);
-    debug->OLED_ShowString(00,50,"GyZ:");debug->OLED_ShowNumber(15,50,ABS(_gyro.gyroZ)*200/32767,5,12);
-    debug->OLED_ShowString(80,00,"MaX:");debug->OLED_ShowNumber(95,00,ABS(_mag.magX)/20,5,12);
-    debug->OLED_ShowString(80,10,"MaY:");debug->OLED_ShowNumber(95,10,ABS(_mag.magY)/20,5,12);
-    debug->OLED_ShowString(80,20,"MaZ:");debug->OLED_ShowNumber(95,20,ABS(_mag.magZ)/20,5,12);
+    debug->OLED_ShowString(00,00,"AcX:");debug->OLED_ShowNumber(15,00,ABS(data[0])*160/32767,5,12);
+    debug->OLED_ShowString(00,10,"AcY:");debug->OLED_ShowNumber(15,10,ABS(data[1])*160/32767,5,12);
+    debug->OLED_ShowString(00,20,"AcZ:");debug->OLED_ShowNumber(15,20,ABS(data[2])*160/32767,5,12);
+    debug->OLED_ShowString(00,30,"GyX:");debug->OLED_ShowNumber(15,30,ABS(data[3])*200/32767,5,12);
+    debug->OLED_ShowString(00,40,"GyY:");debug->OLED_ShowNumber(15,40,ABS(data[4])*200/32767,5,12);
+    debug->OLED_ShowString(00,50,"GyZ:");debug->OLED_ShowNumber(15,50,ABS(data[5])*200/32767,5,12);
+    debug->OLED_ShowString(80,00,"MaX:");debug->OLED_ShowNumber(95,00,ABS(data[6])/20,5,12);
+    debug->OLED_ShowString(80,10,"MaY:");debug->OLED_ShowNumber(95,10,ABS(data[7])/20,5,12);
+    debug->OLED_ShowString(80,20,"MaZ:");debug->OLED_ShowNumber(95,20,ABS(data[8])/20,5,12);
 
     debug->OLED_Refresh_Gram();    //刷新
 }
@@ -148,13 +148,13 @@ void CImu::MPU9250_READ_ACCEL()
     u8 BUF[6];
     BUF[0]=MPU9250_Read_Reg(ACCEL_ADDRESS,ACCEL_XOUT_L); //读 X 加速度低字节
     BUF[1]=MPU9250_Read_Reg(ACCEL_ADDRESS,ACCEL_XOUT_H); //读 X 加速度高字节
-    _accel.accelX=(BUF[1]<<8)|BUF[0];
+    data[0]=(BUF[1]<<8)|BUF[0];
     BUF[2]=MPU9250_Read_Reg(ACCEL_ADDRESS,ACCEL_YOUT_L); //读 Y 加速度低字节
     BUF[3]=MPU9250_Read_Reg(ACCEL_ADDRESS,ACCEL_YOUT_H); //读 Y 加速度高字节
-    _accel.accelY=(BUF[3]<<8)|BUF[2];
+    data[1]=(BUF[3]<<8)|BUF[2];
     BUF[4]=MPU9250_Read_Reg(ACCEL_ADDRESS,ACCEL_ZOUT_L); //读 Z 加速度低字节
     BUF[5]=MPU9250_Read_Reg(ACCEL_ADDRESS,ACCEL_ZOUT_H); //读 Z 加速度高字节
-    _accel.accelZ=(BUF[5]<<8)|BUF[4];
+    data[2]=(BUF[5]<<8)|BUF[4];
 }
 //读取角速度数据的函数
 void CImu::MPU9250_READ_GYRO()
@@ -162,13 +162,13 @@ void CImu::MPU9250_READ_GYRO()
     u8 BUF[8];
     BUF[0]=MPU9250_Read_Reg(GYRO_ADDRESS,GYRO_XOUT_L); //读 X 角速度低字节
     BUF[1]=MPU9250_Read_Reg(GYRO_ADDRESS,GYRO_XOUT_H); //读 X 角速度高字节
-    _gyro.gyroX=(BUF[1]<<8)|BUF[0];
+    data[3]=(BUF[1]<<8)|BUF[0];
     BUF[2]=MPU9250_Read_Reg(GYRO_ADDRESS,GYRO_YOUT_L); //读 Y 角速度低字节
     BUF[3]=MPU9250_Read_Reg(GYRO_ADDRESS,GYRO_YOUT_H); //读 Y 角速度高字节
-    _gyro.gyroY=(BUF[3]<<8)|BUF[2];
+    data[4]=(BUF[3]<<8)|BUF[2];
     BUF[4]=MPU9250_Read_Reg(GYRO_ADDRESS,GYRO_ZOUT_L); //读 Z 角速度低字节
     BUF[5]=MPU9250_Read_Reg(GYRO_ADDRESS,GYRO_ZOUT_H); //读 Z 角速度高字节
-    _gyro.gyroZ=(BUF[5]<<8)|BUF[4];
+    data[5]=(BUF[5]<<8)|BUF[4];
 }
 //读取磁力计数据的函数
 void CImu::MPU9250_READ_MAG() 
@@ -180,18 +180,19 @@ void CImu::MPU9250_READ_MAG()
     delay_ms(10);
     BUF[0]=MPU9250_Read_Reg(MAG_ADDRESS,MAG_XOUT_L); //读 X 磁力计低字节
     BUF[1]=MPU9250_Read_Reg(MAG_ADDRESS,MAG_XOUT_H); //读 X 磁力计高字节
-    _mag.magX=(BUF[1]<<8)|BUF[0];
+    data[6]=(BUF[1]<<8)|BUF[0];
     BUF[2]=MPU9250_Read_Reg(MAG_ADDRESS,MAG_YOUT_L); //读 Y 磁力计低字节
     BUF[3]=MPU9250_Read_Reg(MAG_ADDRESS,MAG_YOUT_H); //读 Y 磁力计高字节
-    _mag.magY=(BUF[3]<<8)|BUF[2];
+    data[7]=(BUF[3]<<8)|BUF[2];
     BUF[4]=MPU9250_Read_Reg(MAG_ADDRESS,MAG_ZOUT_L); //读 Z 磁力计低字节
     BUF[5]=MPU9250_Read_Reg(MAG_ADDRESS,MAG_ZOUT_H); //读 Z 磁力计高字节
-    _mag.magZ=(BUF[5]<<8)|BUF[4];
+    data[8]=(BUF[5]<<8)|BUF[4];
 }
-void CImu::ReadData() //读取 IMU 数据函数
+const float* CImu::ReadData() //读取 IMU 数据函数
 {
     MPU9250_READ_ACCEL(); //读取加速度
     MPU9250_READ_GYRO(); //读取角速度
     MPU9250_READ_MAG(); //读取磁力计
+    return data;
 }
 

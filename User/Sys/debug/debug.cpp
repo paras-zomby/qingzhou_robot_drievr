@@ -77,6 +77,15 @@ void CDebug::InfoHandle(const char* name, const char* _info)
     OLED_Refresh_Gram();
 }
 
+void CDebug::ShowInfo(const char* name, const char* _info)
+{
+    OLED_Clear();
+    OLED_ShowString(00,05,name);
+    OLED_ShowString(50,05,"Info:");
+    OLED_ShowString(05,20,_info);
+    OLED_Refresh_Gram();
+}
+
 void CDebug::DEBUG_GPIO_Init(void)
 {
     GPIO_InitTypeDef GPIO_InitStructure;

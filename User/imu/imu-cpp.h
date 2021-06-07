@@ -52,30 +52,28 @@ class CImu
 private:
     static bool is_unique;
 public:
-    struct Euler_Angle{
-        float pitch, yaw, roll;//三个欧拉角
-    };
-    struct Accel_Data
-    {
-        short accelX,accelY,accelZ; //三个轴加速度计
-    };
-    struct Gyro_Data
-    {
-        short gyroX,gyroY,gyroZ; //三个轴陀螺仪
-    };
-    struct Mag_Data
-    {
-        short magX,magY,magZ; //三个轴磁力计
-    };
+//    struct Accel_Data
+//    {
+//        short accelX,accelY,accelZ; //三个轴加速度计
+//    };
+//    struct Gyro_Data
+//    {
+//        short gyroX,gyroY,gyroZ; //三个轴陀螺仪
+//    };
+//    struct Mag_Data
+//    {
+//        short magX,magY,magZ; //三个轴磁力计
+//    };
     
 private:
     CDebug* const debug;
     u16 timeout;
 
-    Euler_Angle _eulerangle;//欧拉角
-    Accel_Data _accel;//加速度计
-    Gyro_Data _gyro; // 陀螺仪
-    Mag_Data _mag; // 磁力计
+    float data[9];
+
+//    Accel_Data _accel;//加速度计
+//    Gyro_Data _gyro; // 陀螺仪
+//    Mag_Data _mag; // 磁力计
 
     ErrorStatus MPU9250_Write_Reg(u8 Slave_add,u8 reg_add,u8 reg_dat); //写寄存器
     u8 MPU9250_Read_Reg(u8 Slave_add,u8 reg_add); //读寄存器
@@ -87,11 +85,12 @@ public:
     CImu(CDebug* const _debug);
     ~CImu();
     
-    void ReadData(void); //读 imu
+    const float* ReadData(void); //读 imu
     void ShowData_OLED(void); //把数据显示在OLED
-    const CImu::Accel_Data& Get_Accel(void);//获取Accel数据
-    const CImu::Gyro_Data& Get_Gyro(void);//获取Gyro数据
-    const CImu::Mag_Data& Get_Mag(void);//获取Mag数据
+
+//    const CImu::Accel_Data& Get_Accel(void);//获取Accel数据
+//    const CImu::Gyro_Data& Get_Gyro(void);//获取Gyro数据
+//    const CImu::Mag_Data& Get_Mag(void);//获取Mag数据
 };
 
 #endif  //__IMU_H__

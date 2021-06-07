@@ -36,6 +36,7 @@ public:
     //DEBUG部分
     void ErrorHandle(const char* name, const char* _error);
     void InfoHandle(const char* name, const char* _info);
+    void ShowInfo(const char* name, const char* _info);
     void DEBUG_GPIO_Init(void);
     void DEBUG_GPIO_Change(void);
     //LED部分
