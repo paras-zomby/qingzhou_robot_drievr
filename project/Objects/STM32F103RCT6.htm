@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Objects\STM32F103RCT6.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\STM32F103RCT6.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Jun 07 22:19:13 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Jun 27 11:21:53 2021
 <BR><P>
-<H3>Maximum Stack Usage =       1488 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =       1496 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; CControl::Kinematic_Analysis(float, float) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
+__rt_entry_main &rArr; main &rArr; CControl::Kinematic_Analysis(float, float, int, int) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
 <P>
 <H3>
 Functions with no stack information
@@ -117,9 +117,9 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
 </UL>
 
-<P><STRONG><a name="[176]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[177]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
-<P><STRONG><a name="[177]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[178]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
 <P><STRONG><a name="[58]"></a>__scatterload_copy</STRONG> (Thumb, 26 bytes, Stack size unknown bytes, __scatter_copy.o(!!handler_copy), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
@@ -127,7 +127,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
 </UL>
 
-<P><STRONG><a name="[178]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
+<P><STRONG><a name="[179]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
 
 <P><STRONG><a name="[59]"></a>_printf_n</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_n.o(.ARM.Collect$$_printf_percent$$00000001))
 <BR><BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_charcount
@@ -172,7 +172,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex
 </UL>
 
-<P><STRONG><a name="[179]"></a>_printf_ll</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_ll.o(.ARM.Collect$$_printf_percent$$00000007))
+<P><STRONG><a name="[17a]"></a>_printf_ll</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_ll.o(.ARM.Collect$$_printf_percent$$00000007))
 
 <P><STRONG><a name="[63]"></a>_printf_i</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_i.o(.ARM.Collect$$_printf_percent$$00000008))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72 + Unknown Stack Size
@@ -244,7 +244,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_ll_hex
 </UL>
 
-<P><STRONG><a name="[17a]"></a>_printf_l</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_l.o(.ARM.Collect$$_printf_percent$$00000012))
+<P><STRONG><a name="[17b]"></a>_printf_l</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_l.o(.ARM.Collect$$_printf_percent$$00000012))
 
 <P><STRONG><a name="[73]"></a>_printf_c</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_c.o(.ARM.Collect$$_printf_percent$$00000013))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40 + Unknown Stack Size
@@ -274,13 +274,13 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_wstring
 </UL>
 
-<P><STRONG><a name="[17b]"></a>_printf_percent_end</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_percent_end.o(.ARM.Collect$$_printf_percent$$00000017))
+<P><STRONG><a name="[17c]"></a>_printf_percent_end</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_percent_end.o(.ARM.Collect$$_printf_percent$$00000017))
 
 <P><STRONG><a name="[85]"></a>__rt_lib_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit.o(.ARM.Collect$$libinit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_li
 </UL>
 
-<P><STRONG><a name="[17c]"></a>__rt_lib_init_fp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000002))
+<P><STRONG><a name="[17d]"></a>__rt_lib_init_fp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000002))
 
 <P><STRONG><a name="[7b]"></a>__rt_lib_init_heap_2</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000005))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64 + Unknown Stack Size
@@ -289,19 +289,19 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_init_alloc
 </UL>
 
-<P><STRONG><a name="[17d]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
+<P><STRONG><a name="[17e]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
 
-<P><STRONG><a name="[17e]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
+<P><STRONG><a name="[17f]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
 
 <P><STRONG><a name="[7d]"></a>__rt_lib_init_lc_common</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000F))
 <BR><BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_locale
 </UL>
 
-<P><STRONG><a name="[17f]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
+<P><STRONG><a name="[180]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
 
-<P><STRONG><a name="[180]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
+<P><STRONG><a name="[181]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
 
-<P><STRONG><a name="[181]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
+<P><STRONG><a name="[182]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
 
 <P><STRONG><a name="[7f]"></a>__rt_lib_init_lc_ctype_2</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000012))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
@@ -310,9 +310,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_ctype
 </UL>
 
-<P><STRONG><a name="[182]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
+<P><STRONG><a name="[183]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
 
-<P><STRONG><a name="[183]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
+<P><STRONG><a name="[184]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
 
 <P><STRONG><a name="[80]"></a>__rt_lib_init_lc_numeric_2</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000016))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
@@ -321,56 +321,56 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_numeric
 </UL>
 
-<P><STRONG><a name="[184]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
+<P><STRONG><a name="[185]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
 
-<P><STRONG><a name="[185]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
+<P><STRONG><a name="[186]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
 
-<P><STRONG><a name="[186]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
+<P><STRONG><a name="[187]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
 
-<P><STRONG><a name="[187]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
+<P><STRONG><a name="[188]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
 
-<P><STRONG><a name="[188]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
+<P><STRONG><a name="[189]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
 
-<P><STRONG><a name="[189]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
+<P><STRONG><a name="[18a]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
 
-<P><STRONG><a name="[18a]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
+<P><STRONG><a name="[18b]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
 
-<P><STRONG><a name="[18b]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
+<P><STRONG><a name="[18c]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
 
-<P><STRONG><a name="[18c]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
+<P><STRONG><a name="[18d]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
 
-<P><STRONG><a name="[18d]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
+<P><STRONG><a name="[18e]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
 
-<P><STRONG><a name="[18e]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000033))
+<P><STRONG><a name="[18f]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000033))
 
-<P><STRONG><a name="[18f]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
+<P><STRONG><a name="[190]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
 
-<P><STRONG><a name="[190]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
+<P><STRONG><a name="[191]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
 
 <P><STRONG><a name="[8a]"></a>__rt_lib_shutdown</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown.o(.ARM.Collect$$libshutdown$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_ls
 </UL>
 
-<P><STRONG><a name="[191]"></a>__rt_lib_shutdown_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
+<P><STRONG><a name="[192]"></a>__rt_lib_shutdown_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
 
-<P><STRONG><a name="[192]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000007))
+<P><STRONG><a name="[193]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000007))
 
-<P><STRONG><a name="[193]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
+<P><STRONG><a name="[194]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
 
-<P><STRONG><a name="[194]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000010))
+<P><STRONG><a name="[195]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000010))
 
-<P><STRONG><a name="[195]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A))
+<P><STRONG><a name="[196]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A))
 
-<P><STRONG><a name="[196]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000004))
+<P><STRONG><a name="[197]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000004))
 
-<P><STRONG><a name="[197]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
+<P><STRONG><a name="[198]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
 
 <P><STRONG><a name="[56]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry.o(.ARM.Collect$$rtentry$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
 </UL>
 
-<P><STRONG><a name="[198]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
+<P><STRONG><a name="[199]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
 
 <P><STRONG><a name="[82]"></a>__rt_entry_sh</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry4.o(.ARM.Collect$$rtentry$$00000004))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
@@ -383,17 +383,17 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init
 </UL>
 
-<P><STRONG><a name="[199]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
+<P><STRONG><a name="[19a]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[86]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1488 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; CControl::Kinematic_Analysis(float, float) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
+<BR><BR>[Stack]<UL><LI>Max Depth = 1496 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; CControl::Kinematic_Analysis(float, float, int, int) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 </UL>
 
-<P><STRONG><a name="[19a]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
+<P><STRONG><a name="[19b]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
 
 <P><STRONG><a name="[ba]"></a>__rt_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -403,7 +403,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_shutdown
 </UL>
 
-<P><STRONG><a name="[19b]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
+<P><STRONG><a name="[19c]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
 
 <P><STRONG><a name="[8b]"></a>__rt_exit_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
@@ -412,7 +412,7 @@ Global Symbols
 <P><STRONG><a name="[9]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32f10x_hd.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
-<P><STRONG><a name="[19c]"></a>_maybe_terminate_alloc</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, maybetermalloc1.o(.emb_text), UNUSED)
+<P><STRONG><a name="[19d]"></a>_maybe_terminate_alloc</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, maybetermalloc1.o(.emb_text), UNUSED)
 
 <P><STRONG><a name="[25]"></a>ADC1_2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f10x_hd.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC1_2_IRQHandler
@@ -604,7 +604,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_heap_descriptor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::CImu(CDebug*)
+<BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::CImu(CDebug*)
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_ProvideMemory
 </UL>
 
@@ -615,36 +615,36 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vsnprintf
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::CImu(CDebug*)
+<BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::CImu(CDebug*)
 </UL>
 
-<P><STRONG><a name="[14f]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text))
+<P><STRONG><a name="[14d]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = __aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[19d]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
+<P><STRONG><a name="[19e]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
 
-<P><STRONG><a name="[19e]"></a>__rt_memclr_w</STRONG> (Thumb, 78 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
+<P><STRONG><a name="[19f]"></a>__rt_memclr_w</STRONG> (Thumb, 78 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
 
-<P><STRONG><a name="[19f]"></a>_memset_w</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr_w.o(.text), UNUSED)
+<P><STRONG><a name="[1a0]"></a>_memset_w</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr_w.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a0]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[1a1]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
 <P><STRONG><a name="[1]"></a>__rt_heap_escrow</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
 <P><STRONG><a name="[0]"></a>__rt_heap_expand</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
 <P><STRONG><a name="[8e]"></a>__rt_heap_descriptor</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_heap_descriptor_intlibspace.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
+<BR><BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_init_alloc
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
 </UL>
 
-<P><STRONG><a name="[1a1]"></a>__use_no_heap</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, hguard.o(.text), UNUSED)
+<P><STRONG><a name="[1a2]"></a>__use_no_heap</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, hguard.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a2]"></a>__heap$guard</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, hguard.o(.text), UNUSED)
+<P><STRONG><a name="[1a3]"></a>__heap$guard</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, hguard.o(.text), UNUSED)
 
 <P><STRONG><a name="[7]"></a>_terminate_user_alloc</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, init_alloc.o(.text), UNUSED)
 
@@ -665,10 +665,10 @@ Global Symbols
 <P><STRONG><a name="[7c]"></a>_init_alloc</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, init_alloc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = _init_alloc &rArr; __rt_SIGRTMEM &rArr; __rt_SIGRTMEM_inner &rArr; __default_signal_display &rArr; _ttywrch
 </UL>
-<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_ProvideMemory
+<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_ProvideMemory
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_Initialize
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_heap_descriptor
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_heap_2
 </UL>
@@ -691,7 +691,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tan
+<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tan
 </UL>
 
 <P><STRONG><a name="[90]"></a>vsnprintf</STRONG> (Thumb, 48 bytes, Stack size 24 bytes, vsnprintf.o(.text))
@@ -764,9 +764,9 @@ Global Symbols
 <P><STRONG><a name="[a2]"></a>_printf_wctomb</STRONG> (Thumb, 182 bytes, Stack size 56 bytes, _printf_wctomb.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = _printf_wctomb &rArr; _wcrtomb &rArr; __rt_ctype_table
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_wcrtomb
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_wcrtomb
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_lcs_common
 </UL>
@@ -853,22 +853,22 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
 </UL>
 
-<P><STRONG><a name="[1a3]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[1a4]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
 <P><STRONG><a name="[b8]"></a>__user_perproc_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
-<P><STRONG><a name="[1a4]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[1a5]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
 <P><STRONG><a name="[98]"></a>__aeabi_errno_addr</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_errno_addr_intlibspace.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__read_errno
 </UL>
 
-<P><STRONG><a name="[1a5]"></a>__errno$intlibspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_errno_addr_intlibspace.o(.text), UNUSED)
+<P><STRONG><a name="[1a6]"></a>__errno$intlibspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_errno_addr_intlibspace.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a6]"></a>__rt_errno_addr$intlibspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_errno_addr_intlibspace.o(.text), UNUSED)
+<P><STRONG><a name="[1a7]"></a>__rt_errno_addr$intlibspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_errno_addr_intlibspace.o(.text), UNUSED)
 
 <P><STRONG><a name="[96]"></a>__Heap_Initialize</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, h1_init.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_init_alloc
@@ -904,7 +904,7 @@ Global Symbols
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_dec
 </UL>
 
-<P><STRONG><a name="[1a7]"></a>__lib_sel_fp_printf</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, _printf_fp_dec.o(.text), UNUSED)
+<P><STRONG><a name="[1a8]"></a>__lib_sel_fp_printf</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, _printf_fp_dec.o(.text), UNUSED)
 
 <P><STRONG><a name="[af]"></a>_printf_fp_dec_real</STRONG> (Thumb, 620 bytes, Stack size 104 bytes, _printf_fp_dec.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 324<LI>Call Chain = _printf_fp_dec_real &rArr; _fp_digits &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
@@ -1033,9 +1033,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[7e]"></a>__rt_locale</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_locale_intlibspace.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_lc_common
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
+<BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_ctype_table
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_lc_common
 </UL>
 
 <P><STRONG><a name="[b1]"></a>_printf_fp_infnan</STRONG> (Thumb, 112 bytes, Stack size 24 bytes, _printf_fp_infnan.o(.text))
@@ -1085,9 +1085,9 @@ Global Symbols
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sig_exit
 </UL>
 
-<P><STRONG><a name="[1a8]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[1a9]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a9]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[1aa]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
 <P><STRONG><a name="[bb]"></a>__default_signal_display</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, defsig_general.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __default_signal_display &rArr; _ttywrch
@@ -1097,7 +1097,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM_inner
 </UL>
 
-<P><STRONG><a name="[1aa]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, indicate_semi.o(.text), UNUSED)
+<P><STRONG><a name="[1ab]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, indicate_semi.o(.text), UNUSED)
 
 <P><STRONG><a name="[157]"></a>strcmp</STRONG> (Thumb, 128 bytes, Stack size 0 bytes, strcmpv7m.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_ctype
@@ -1165,8 +1165,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_emul
 </UL>
 
-<P><STRONG><a name="[11d]"></a>BKP_TamperPinCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_bkp.o(i.BKP_TamperPinCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
+<P><STRONG><a name="[11f]"></a>BKP_TamperPinCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_bkp.o(i.BKP_TamperPinCmd))
+<BR><BR>[Called By]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
 </UL>
 
 <P><STRONG><a name="[d]"></a>BusFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(i.BusFault_Handler))
@@ -1178,17 +1178,17 @@ Global Symbols
 <P><STRONG><a name="[c6]"></a>GPIO_Init</STRONG> (Thumb, 278 bytes, Stack size 24 bytes, stm32f10x_gpio.o(i.GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_GPIO_Init()
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_GPIO_Init()
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_GPIO_Config()
+<BR>[Called By]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_GPIO_Config()
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Servo_PWM_Init(unsigned short, unsigned short)
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM3()
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
-<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::CControl(CDebug*, CEncoder*, CMotor*)
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::CKey()
+<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::CControl(CDebug*, CEncoder*, CMotor*)
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::CKey()
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_GPIO_Init()
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_GPIO_Init()
 </UL>
 
 <P><STRONG><a name="[f1]"></a>GPIO_PinRemapConfig</STRONG> (Thumb, 138 bytes, Stack size 20 bytes, stm32f10x_gpio.o(i.GPIO_PinRemapConfig))
@@ -1214,7 +1214,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::CImu(CDebug*)
+<BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::CImu(CDebug*)
 </UL>
 
 <P><STRONG><a name="[c7]"></a>IIC_NAck</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, sim-iic.o(i.IIC_NAck))
@@ -1232,7 +1232,7 @@ Global Symbols
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Ack
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
+<BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
 </UL>
 
 <P><STRONG><a name="[c9]"></a>IIC_Send_Byte</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, sim-iic.o(i.IIC_Send_Byte))
@@ -1240,8 +1240,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Write_Reg(unsigned char, unsigned char, unsigned char)
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
+<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Write_Reg(unsigned char, unsigned char, unsigned char)
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
 </UL>
 
 <P><STRONG><a name="[ca]"></a>IIC_Start</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, sim-iic.o(i.IIC_Start))
@@ -1249,8 +1249,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Write_Reg(unsigned char, unsigned char, unsigned char)
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
+<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Write_Reg(unsigned char, unsigned char, unsigned char)
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
 </UL>
 
 <P><STRONG><a name="[cb]"></a>IIC_Stop</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, sim-iic.o(i.IIC_Stop))
@@ -1259,8 +1259,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Write_Reg(unsigned char, unsigned char, unsigned char)
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Write_Reg(unsigned char, unsigned char, unsigned char)
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
 </UL>
 
 <P><STRONG><a name="[cc]"></a>IIC_Wait_Ack</STRONG> (Thumb, 86 bytes, Stack size 8 bytes, sim-iic.o(i.IIC_Wait_Ack))
@@ -1269,8 +1269,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Stop
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Write_Reg(unsigned char, unsigned char, unsigned char)
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
+<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Write_Reg(unsigned char, unsigned char, unsigned char)
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
 </UL>
 
 <P><STRONG><a name="[c]"></a>MemManage_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(i.MemManage_Handler))
@@ -1279,18 +1279,18 @@ Global Symbols
 <P><STRONG><a name="[a]"></a>NMI_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x_it.o(i.NMI_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
-<P><STRONG><a name="[12d]"></a>NVIC_Init</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, misc.o(i.NVIC_Init))
+<P><STRONG><a name="[12f]"></a>NVIC_Init</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, misc.o(i.NVIC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = NVIC_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
+<BR>[Called By]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
 </UL>
 
-<P><STRONG><a name="[12c]"></a>NVIC_PriorityGroupConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, misc.o(i.NVIC_PriorityGroupConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
+<P><STRONG><a name="[12e]"></a>NVIC_PriorityGroupConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, misc.o(i.NVIC_PriorityGroupConfig))
+<BR><BR>[Called By]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
 </UL>
 
-<P><STRONG><a name="[11b]"></a>PWR_BackupAccessCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_pwr.o(i.PWR_BackupAccessCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
+<P><STRONG><a name="[11d]"></a>PWR_BackupAccessCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_pwr.o(i.PWR_BackupAccessCmd))
+<BR><BR>[Called By]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
 </UL>
 
 <P><STRONG><a name="[11]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x_it.o(i.PendSV_Handler))
@@ -1303,17 +1303,17 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[c5]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_GPIO_Init()
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_GPIO_Init()
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_GPIO_Config()
+<BR><BR>[Called By]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_GPIO_Config()
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Servo_PWM_Init(unsigned short, unsigned short)
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM3()
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
-<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::CControl(CDebug*, CEncoder*, CMotor*)
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::CKey()
+<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::CControl(CDebug*, CEncoder*, CMotor*)
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::CKey()
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_GPIO_Init()
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_GPIO_Init()
 </UL>
 
 <P><STRONG><a name="[db]"></a>RCC_GetClocksFreq</STRONG> (Thumb, 192 bytes, Stack size 12 bytes, stm32f10x_rcc.o(i.RCC_GetClocksFreq))
@@ -1322,14 +1322,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
 </UL>
 
-<P><STRONG><a name="[11c]"></a>RCC_LSEConfig</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, stm32f10x_rcc.o(i.RCC_LSEConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
+<P><STRONG><a name="[11e]"></a>RCC_LSEConfig</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, stm32f10x_rcc.o(i.RCC_LSEConfig))
+<BR><BR>[Called By]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
 </UL>
 
 <P><STRONG><a name="[f]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x_it.o(i.SVC_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
-<P><STRONG><a name="[14e]"></a>SysTick_CLKSourceConfig</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, misc.o(i.SysTick_CLKSourceConfig))
+<P><STRONG><a name="[14c]"></a>SysTick_CLKSourceConfig</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, misc.o(i.SysTick_CLKSourceConfig))
 <BR><BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
 </UL>
 
@@ -1475,7 +1475,7 @@ Global Symbols
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
 </UL>
 
-<P><STRONG><a name="[38]"></a>USART1_IRQHandler</STRONG> (Thumb, 246 bytes, Stack size 8 bytes, usart.o(i.USART1_IRQHandler))
+<P><STRONG><a name="[38]"></a>USART1_IRQHandler</STRONG> (Thumb, 244 bytes, Stack size 8 bytes, usart.o(i.USART1_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = USART1_IRQHandler &rArr; USART_GetITStatus
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetITStatus
@@ -1489,13 +1489,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[12f]"></a>USART_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(i.USART_Cmd))
-<BR><BR>[Called By]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
+<P><STRONG><a name="[131]"></a>USART_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(i.USART_Cmd))
+<BR><BR>[Called By]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
 </UL>
 
-<P><STRONG><a name="[129]"></a>USART_GetFlagStatus</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_usart.o(i.USART_GetFlagStatus))
-<BR><BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::SendData(const CUSART::Data_Sended&)
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::SendData(const unsigned char*, unsigned short)
+<P><STRONG><a name="[12b]"></a>USART_GetFlagStatus</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_usart.o(i.USART_GetFlagStatus))
+<BR><BR>[Called By]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::SendData(const CUSART::Data_Sended&)
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::SendData(const unsigned char*, unsigned short)
 </UL>
 
 <P><STRONG><a name="[d8]"></a>USART_GetITStatus</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, stm32f10x_usart.o(i.USART_GetITStatus))
@@ -1504,10 +1504,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[12e]"></a>USART_ITConfig</STRONG> (Thumb, 74 bytes, Stack size 20 bytes, stm32f10x_usart.o(i.USART_ITConfig))
+<P><STRONG><a name="[130]"></a>USART_ITConfig</STRONG> (Thumb, 74 bytes, Stack size 20 bytes, stm32f10x_usart.o(i.USART_ITConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = USART_ITConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
+<BR>[Called By]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
 </UL>
 
 <P><STRONG><a name="[da]"></a>USART_Init</STRONG> (Thumb, 210 bytes, Stack size 56 bytes, stm32f10x_usart.o(i.USART_Init))
@@ -1515,38 +1515,28 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetClocksFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
+<BR>[Called By]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
 </UL>
 
-<P><STRONG><a name="[128]"></a>USART_SendData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_usart.o(i.USART_SendData))
-<BR><BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::SendData(const CUSART::Data_Sended&)
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::SendData(const unsigned char*, unsigned short)
+<P><STRONG><a name="[12a]"></a>USART_SendData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_usart.o(i.USART_SendData))
+<BR><BR>[Called By]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::SendData(const CUSART::Data_Sended&)
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::SendData(const unsigned char*, unsigned short)
 </UL>
 
 <P><STRONG><a name="[e]"></a>UsageFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(i.UsageFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
-<P><STRONG><a name="[f9]"></a>CImu::ShowData_OLED()</STRONG> (Thumb, 576 bytes, Stack size 24 bytes, imu.o(i._ZN4CImu13ShowData_OLEDEv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = CImu::ShowData_OLED() &rArr; CDebug::OLED_ShowNumber(unsigned char, unsigned char, unsigned, unsigned char, unsigned char) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
-</UL>
-<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Refresh_Gram()
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowNumber(unsigned char, unsigned char, unsigned, unsigned char, unsigned char)
-</UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[fd]"></a>CImu::MPU9250_READ_MAG()</STRONG> (Thumb, 174 bytes, Stack size 16 bytes, imu.o(i._ZN4CImu16MPU9250_READ_MAGEv))
+<P><STRONG><a name="[f9]"></a>CImu::MPU9250_READ_MAG()</STRONG> (Thumb, 174 bytes, Stack size 16 bytes, imu.o(i._ZN4CImu16MPU9250_READ_MAGEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = CImu::MPU9250_READ_MAG() &rArr; CImu::MPU9250_Read_Reg(unsigned char, unsigned char) &rArr; IIC_Read_Byte &rArr; IIC_NAck
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Write_Reg(unsigned char, unsigned char, unsigned char)
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
+<BR>[Calls]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Write_Reg(unsigned char, unsigned char, unsigned char)
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ReadData()
+<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ReadData()
 </UL>
 
-<P><STRONG><a name="[100]"></a>CImu::MPU9250_Read_Reg(unsigned char, unsigned char)</STRONG> (Thumb, 82 bytes, Stack size 24 bytes, imu.o(i._ZN4CImu16MPU9250_Read_RegEhh))
+<P><STRONG><a name="[fc]"></a>CImu::MPU9250_Read_Reg(unsigned char, unsigned char)</STRONG> (Thumb, 82 bytes, Stack size 24 bytes, imu.o(i._ZN4CImu16MPU9250_Read_RegEhh))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = CImu::MPU9250_Read_Reg(unsigned char, unsigned char) &rArr; IIC_Read_Byte &rArr; IIC_NAck
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
@@ -1555,21 +1545,21 @@ Global Symbols
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_ACCEL()
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_GYRO()
-<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_MAG()
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::CImu(CDebug*)
+<BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_ACCEL()
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_GYRO()
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_MAG()
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::CImu(CDebug*)
 </UL>
 
-<P><STRONG><a name="[101]"></a>CImu::MPU9250_READ_GYRO()</STRONG> (Thumb, 138 bytes, Stack size 16 bytes, imu.o(i._ZN4CImu17MPU9250_READ_GYROEv))
+<P><STRONG><a name="[fd]"></a>CImu::MPU9250_READ_GYRO()</STRONG> (Thumb, 138 bytes, Stack size 16 bytes, imu.o(i._ZN4CImu17MPU9250_READ_GYROEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = CImu::MPU9250_READ_GYRO() &rArr; CImu::MPU9250_Read_Reg(unsigned char, unsigned char) &rArr; IIC_Read_Byte &rArr; IIC_NAck
 </UL>
-<BR>[Calls]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
+<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ReadData()
+<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ReadData()
 </UL>
 
-<P><STRONG><a name="[fe]"></a>CImu::MPU9250_Write_Reg(unsigned char, unsigned char, unsigned char)</STRONG> (Thumb, 58 bytes, Stack size 24 bytes, imu.o(i._ZN4CImu17MPU9250_Write_RegEhhh))
+<P><STRONG><a name="[fa]"></a>CImu::MPU9250_Write_Reg(unsigned char, unsigned char, unsigned char)</STRONG> (Thumb, 58 bytes, Stack size 24 bytes, imu.o(i._ZN4CImu17MPU9250_Write_RegEhhh))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = CImu::MPU9250_Write_Reg(unsigned char, unsigned char, unsigned char) &rArr; IIC_Wait_Ack &rArr; IIC_Stop
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
@@ -1577,54 +1567,57 @@ Global Symbols
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_MAG()
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::CImu(CDebug*)
+<BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_MAG()
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::CImu(CDebug*)
 </UL>
 
-<P><STRONG><a name="[102]"></a>CImu::MPU9250_READ_ACCEL()</STRONG> (Thumb, 138 bytes, Stack size 16 bytes, imu.o(i._ZN4CImu18MPU9250_READ_ACCELEv))
+<P><STRONG><a name="[fe]"></a>CImu::MPU9250_READ_ACCEL()</STRONG> (Thumb, 138 bytes, Stack size 16 bytes, imu.o(i._ZN4CImu18MPU9250_READ_ACCELEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = CImu::MPU9250_READ_ACCEL() &rArr; CImu::MPU9250_Read_Reg(unsigned char, unsigned char) &rArr; IIC_Read_Byte &rArr; IIC_NAck
 </UL>
-<BR>[Calls]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
+<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ReadData()
+<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ReadData()
 </UL>
 
-<P><STRONG><a name="[103]"></a>CImu::ReadData()</STRONG> (Thumb, 232 bytes, Stack size 16 bytes, imu.o(i._ZN4CImu8ReadDataEv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = CImu::ReadData() &rArr; CImu::MPU9250_READ_ACCEL() &rArr; CImu::MPU9250_Read_Reg(unsigned char, unsigned char) &rArr; IIC_Read_Byte &rArr; IIC_NAck
+<P><STRONG><a name="[ff]"></a>CImu::ReadData()</STRONG> (Thumb, 224 bytes, Stack size 40 bytes, imu.o(i._ZN4CImu8ReadDataEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = CImu::ReadData() &rArr; CImu::MPU9250_READ_ACCEL() &rArr; CImu::MPU9250_Read_Reg(unsigned char, unsigned char) &rArr; IIC_Read_Byte &rArr; IIC_NAck
 </UL>
-<BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_ACCEL()
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_GYRO()
-<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_MAG()
-<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_ACCEL()
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_GYRO()
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_MAG()
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[105]"></a>CImu::CImu(CDebug*)</STRONG> (Thumb, 172 bytes, Stack size 16 bytes, imu.o(i._ZN4CImuC1EP6CDebug))
+<P><STRONG><a name="[104]"></a>CImu::CImu(CDebug*)</STRONG> (Thumb, 172 bytes, Stack size 16 bytes, imu.o(i._ZN4CImuC1EP6CDebug))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176 + Unknown Stack Size
 <LI>Call Chain = CImu::CImu(CDebug*) &rArr; asprintf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
+<BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Write_Reg(unsigned char, unsigned char, unsigned char)
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Write_Reg(unsigned char, unsigned char, unsigned char)
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asprintf
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1ab]"></a>CImu::CImu__sub_object(CDebug*)</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, imu.o(i._ZN4CImuC1EP6CDebug), UNUSED)
+<P><STRONG><a name="[1ac]"></a>CImu::CImu__sub_object(CDebug*)</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, imu.o(i._ZN4CImuC1EP6CDebug), UNUSED)
 
-<P><STRONG><a name="[150]"></a>CKey::KEY_Long_Press_Support()</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, key.o(i._ZN4CKey22KEY_Long_Press_SupportEv))
+<P><STRONG><a name="[14e]"></a>CKey::KEY_Long_Press_Support()</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, key.o(i._ZN4CKey22KEY_Long_Press_SupportEv))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[152]"></a>CKey::KEY_Click()</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, key.o(i._ZN4CKey9KEY_ClickEv))
+<P><STRONG><a name="[150]"></a>CKey::KEY_Click()</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, key.o(i._ZN4CKey9KEY_ClickEv))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[107]"></a>CKey::CKey()</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, key.o(i._ZN4CKeyC1Ev))
+<P><STRONG><a name="[106]"></a>CKey::CKey()</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, key.o(i._ZN4CKeyC1Ev))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = CKey::CKey() &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
@@ -1633,286 +1626,283 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1ac]"></a>CKey::CKey__sub_object()</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, key.o(i._ZN4CKeyC1Ev), UNUSED)
+<P><STRONG><a name="[1ad]"></a>CKey::CKey__sub_object()</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, key.o(i._ZN4CKeyC1Ev), UNUSED)
 
-<P><STRONG><a name="[108]"></a>CPS2::PS2_SetInit()</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, pstwo.o(i._ZN4CPS211PS2_SetInitEv))
+<P><STRONG><a name="[107]"></a>CPS2::PS2_SetInit()</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, pstwo.o(i._ZN4CPS211PS2_SetInitEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = CPS2::PS2_SetInit() &rArr; CPS2::PS2_TurnOnAnalogMode() &rArr; CPS2::PS2_Cmd(unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_TurnOnAnalogMode()
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_EnterConfing()
-<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ExitConfing()
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ShortPoll()
+<BR>[Calls]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_TurnOnAnalogMode()
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_EnterConfing()
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ExitConfing()
+<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ShortPoll()
 </UL>
-<BR>[Called By]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::CPS2(CDebug*)
+<BR>[Called By]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::CPS2(CDebug*)
 </UL>
 
-<P><STRONG><a name="[10d]"></a>CPS2::PS2_ReadData()</STRONG> (Thumb, 186 bytes, Stack size 16 bytes, pstwo.o(i._ZN4CPS212PS2_ReadDataEv))
+<P><STRONG><a name="[10c]"></a>CPS2::PS2_ReadData()</STRONG> (Thumb, 186 bytes, Stack size 16 bytes, pstwo.o(i._ZN4CPS212PS2_ReadDataEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = CPS2::PS2_ReadData() &rArr; CPS2::PS2_Cmd(unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_Cmd(unsigned char)
-<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ClearData()
+<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_Cmd(unsigned char)
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ClearData()
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[10e]"></a>CPS2::PS2_ClearData()</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, pstwo.o(i._ZN4CPS213PS2_ClearDataEv))
-<BR><BR>[Called By]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ReadData()
+<P><STRONG><a name="[10d]"></a>CPS2::PS2_ClearData()</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, pstwo.o(i._ZN4CPS213PS2_ClearDataEv))
+<BR><BR>[Called By]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ReadData()
 </UL>
 
-<P><STRONG><a name="[109]"></a>CPS2::PS2_ShortPoll()</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, pstwo.o(i._ZN4CPS213PS2_ShortPollEv))
+<P><STRONG><a name="[108]"></a>CPS2::PS2_ShortPoll()</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, pstwo.o(i._ZN4CPS213PS2_ShortPollEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = CPS2::PS2_ShortPoll() &rArr; CPS2::PS2_Cmd(unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_Cmd(unsigned char)
+<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_Cmd(unsigned char)
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
-<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_SetInit()
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_SetInit()
 </UL>
 
 <P><STRONG><a name="[153]"></a>CPS2::PS2_AnologData(unsigned char)</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, pstwo.o(i._ZN4CPS214PS2_AnologDataEh))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[10c]"></a>CPS2::PS2_ExitConfing()</STRONG> (Thumb, 104 bytes, Stack size 8 bytes, pstwo.o(i._ZN4CPS215PS2_ExitConfingEv))
+<P><STRONG><a name="[10b]"></a>CPS2::PS2_ExitConfing()</STRONG> (Thumb, 104 bytes, Stack size 8 bytes, pstwo.o(i._ZN4CPS215PS2_ExitConfingEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = CPS2::PS2_ExitConfing() &rArr; CPS2::PS2_Cmd(unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_Cmd(unsigned char)
+<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_Cmd(unsigned char)
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
-<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_SetInit()
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_SetInit()
 </UL>
 
-<P><STRONG><a name="[110]"></a>CPS2::PS2_GPIO_Config()</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, pstwo.o(i._ZN4CPS215PS2_GPIO_ConfigEv))
+<P><STRONG><a name="[10f]"></a>CPS2::PS2_GPIO_Config()</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, pstwo.o(i._ZN4CPS215PS2_GPIO_ConfigEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = CPS2::PS2_GPIO_Config() &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::CPS2(CDebug*)
+<BR>[Called By]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::CPS2(CDebug*)
 </UL>
 
-<P><STRONG><a name="[10a]"></a>CPS2::PS2_EnterConfing()</STRONG> (Thumb, 104 bytes, Stack size 8 bytes, pstwo.o(i._ZN4CPS216PS2_EnterConfingEv))
+<P><STRONG><a name="[109]"></a>CPS2::PS2_EnterConfing()</STRONG> (Thumb, 104 bytes, Stack size 8 bytes, pstwo.o(i._ZN4CPS216PS2_EnterConfingEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = CPS2::PS2_EnterConfing() &rArr; CPS2::PS2_Cmd(unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_Cmd(unsigned char)
+<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_Cmd(unsigned char)
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
-<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_SetInit()
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_SetInit()
 </UL>
 
-<P><STRONG><a name="[10b]"></a>CPS2::PS2_TurnOnAnalogMode()</STRONG> (Thumb, 98 bytes, Stack size 8 bytes, pstwo.o(i._ZN4CPS220PS2_TurnOnAnalogModeEv))
+<P><STRONG><a name="[10a]"></a>CPS2::PS2_TurnOnAnalogMode()</STRONG> (Thumb, 98 bytes, Stack size 8 bytes, pstwo.o(i._ZN4CPS220PS2_TurnOnAnalogModeEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = CPS2::PS2_TurnOnAnalogMode() &rArr; CPS2::PS2_Cmd(unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_Cmd(unsigned char)
+<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_Cmd(unsigned char)
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
-<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_SetInit()
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_SetInit()
 </UL>
 
-<P><STRONG><a name="[10f]"></a>CPS2::PS2_Cmd(unsigned char)</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, pstwo.o(i._ZN4CPS27PS2_CmdEh))
+<P><STRONG><a name="[10e]"></a>CPS2::PS2_Cmd(unsigned char)</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, pstwo.o(i._ZN4CPS27PS2_CmdEh))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CPS2::PS2_Cmd(unsigned char)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
-<BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_TurnOnAnalogMode()
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_EnterConfing()
-<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ExitConfing()
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ShortPoll()
-<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ReadData()
+<BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_TurnOnAnalogMode()
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_EnterConfing()
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ExitConfing()
+<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ShortPoll()
+<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ReadData()
 </UL>
 
-<P><STRONG><a name="[111]"></a>CPS2::CPS2(CDebug*)</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, pstwo.o(i._ZN4CPS2C1EP6CDebug))
+<P><STRONG><a name="[110]"></a>CPS2::CPS2(CDebug*)</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, pstwo.o(i._ZN4CPS2C1EP6CDebug))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = CPS2::CPS2(CDebug*) &rArr; CDebug::ErrorHandle(const char*, const char*) &rArr; CDebug::OLED_ShowString(unsigned char, unsigned char, const char*) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_GPIO_Config()
-<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_SetInit()
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
+<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_GPIO_Config()
+<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_SetInit()
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1ad]"></a>CPS2::CPS2__sub_object(CDebug*)</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, pstwo.o(i._ZN4CPS2C1EP6CDebug), UNUSED)
+<P><STRONG><a name="[1ae]"></a>CPS2::CPS2__sub_object(CDebug*)</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, pstwo.o(i._ZN4CPS2C1EP6CDebug), UNUSED)
 
-<P><STRONG><a name="[112]"></a>CTim::WaitForTime(CTim::CNT_STATE, unsigned char)</STRONG> (Thumb, 112 bytes, Stack size 16 bytes, timer.o(i._ZN4CTim11WaitForTimeENS_9CNT_STATEEh))
+<P><STRONG><a name="[111]"></a>CTim::WaitForTime(CTim::CNT_STATE, unsigned char)</STRONG> (Thumb, 112 bytes, Stack size 16 bytes, timer.o(i._ZN4CTim11WaitForTimeENS_9CNT_STATEEh))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = CTim::WaitForTime(CTim::CNT_STATE, unsigned char) &rArr; CDebug::ErrorHandle(const char*, const char*) &rArr; CDebug::OLED_ShowString(unsigned char, unsigned char, const char*) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
+<BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[113]"></a>CTim::CTim(CDebug*)</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, timer.o(i._ZN4CTimC1EP6CDebug))
+<P><STRONG><a name="[112]"></a>CTim::CTim(CDebug*)</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, timer.o(i._ZN4CTimC1EP6CDebug))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = CTim::CTim(CDebug*) &rArr; CDebug::ErrorHandle(const char*, const char*) &rArr; CDebug::OLED_ShowString(unsigned char, unsigned char, const char*) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_Int_Init(unsigned short, unsigned short)
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1ae]"></a>CTim::CTim__sub_object(CDebug*)</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, timer.o(i._ZN4CTimC1EP6CDebug), UNUSED)
+<P><STRONG><a name="[1af]"></a>CTim::CTim__sub_object(CDebug*)</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, timer.o(i._ZN4CTimC1EP6CDebug), UNUSED)
 
-<P><STRONG><a name="[114]"></a>CDebug::OLED_Clear()</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, debug.o(i._ZN6CDebug10OLED_ClearEv))
+<P><STRONG><a name="[113]"></a>CDebug::OLED_Clear()</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, debug.o(i._ZN6CDebug10OLED_ClearEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CDebug::OLED_Clear()
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
-<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ShowInfo(const char*, const char*)
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)
+<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ShowInfo(const char*, const char*)
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
 </UL>
 
-<P><STRONG><a name="[106]"></a>CDebug::ErrorHandle(const char*, const char*)</STRONG> (Thumb, 66 bytes, Stack size 0 bytes, debug.o(i._ZN6CDebug11ErrorHandleEPKcS1_))
+<P><STRONG><a name="[105]"></a>CDebug::ErrorHandle(const char*, const char*)</STRONG> (Thumb, 66 bytes, Stack size 0 bytes, debug.o(i._ZN6CDebug11ErrorHandleEPKcS1_))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = CDebug::ErrorHandle(const char*, const char*) &rArr; CDebug::OLED_ShowString(unsigned char, unsigned char, const char*) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Refresh_Gram()
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Clear()
+<BR>[Calls]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Refresh_Gram()
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Clear()
 </UL>
-<BR>[Called By]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::CEncoder(CDebug*)
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::CMotor(CDebug*)
-<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::CDebug(CKey*)
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CTim::CTim(CDebug*)
-<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CTim::WaitForTime(CTim::CNT_STATE, unsigned char)
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::CPS2(CDebug*)
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::CImu(CDebug*)
-</UL>
-
-<P><STRONG><a name="[11f]"></a>CDebug::LED_Control(CDebug::LED_STATE, unsigned char)</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, debug.o(i._ZN6CDebug11LED_ControlENS_9LED_STATEEh))
-<BR><BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::CDebug(CKey*)
+<BR>[Called By]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::CEncoder(CDebug*)
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::CMotor(CDebug*)
+<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::CDebug(CKey*)
+<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CTim::CTim(CDebug*)
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CTim::WaitForTime(CTim::CNT_STATE, unsigned char)
+<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::CPS2(CDebug*)
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::CImu(CDebug*)
 </UL>
 
-<P><STRONG><a name="[118]"></a>CDebug::OLED_WR_Byte(unsigned char, unsigned char)</STRONG> (Thumb, 82 bytes, Stack size 12 bytes, debug.o(i._ZN6CDebug12OLED_WR_ByteEhh))
+<P><STRONG><a name="[121]"></a>CDebug::LED_Control(CDebug::LED_STATE, unsigned char)</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, debug.o(i._ZN6CDebug11LED_ControlENS_9LED_STATEEh))
+<BR><BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::CDebug(CKey*)
+</UL>
+
+<P><STRONG><a name="[11a]"></a>CDebug::OLED_WR_Byte(unsigned char, unsigned char)</STRONG> (Thumb, 82 bytes, Stack size 12 bytes, debug.o(i._ZN6CDebug12OLED_WR_ByteEhh))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = CDebug::OLED_WR_Byte(unsigned char, unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Refresh_Gram()
+<BR>[Called By]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Refresh_Gram()
+<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
 </UL>
 
-<P><STRONG><a name="[115]"></a>CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)</STRONG> (Thumb, 170 bytes, Stack size 56 bytes, debug.o(i._ZN6CDebug13OLED_ShowCharEhhhhh))
+<P><STRONG><a name="[116]"></a>CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)</STRONG> (Thumb, 170 bytes, Stack size 56 bytes, debug.o(i._ZN6CDebug13OLED_ShowCharEhhhhh))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
+<BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowNumber(unsigned char, unsigned char, unsigned, unsigned char, unsigned char)
+<BR>[Called By]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowNumber(unsigned char, unsigned char, unsigned, unsigned char, unsigned char)
 </UL>
 
-<P><STRONG><a name="[116]"></a>CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)</STRONG> (Thumb, 110 bytes, Stack size 20 bytes, debug.o(i._ZN6CDebug14OLED_DrawPointEhhh))
+<P><STRONG><a name="[117]"></a>CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)</STRONG> (Thumb, 110 bytes, Stack size 20 bytes, debug.o(i._ZN6CDebug14OLED_DrawPointEhhh))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
+<BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
 
-<P><STRONG><a name="[fb]"></a>CDebug::OLED_ShowNumber(unsigned char, unsigned char, unsigned, unsigned char, unsigned char)</STRONG> (Thumb, 152 bytes, Stack size 64 bytes, debug.o(i._ZN6CDebug15OLED_ShowNumberEhhjhh))
+<P><STRONG><a name="[118]"></a>CDebug::OLED_ShowNumber(unsigned char, unsigned char, unsigned, unsigned char, unsigned char)</STRONG> (Thumb, 152 bytes, Stack size 64 bytes, debug.o(i._ZN6CDebug15OLED_ShowNumberEhhjhh))
 <BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = CDebug::OLED_ShowNumber(unsigned char, unsigned char, unsigned, unsigned char, unsigned char) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
-<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;oled_pow(unsigned char, unsigned char)
+<BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
+<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;oled_pow(unsigned char, unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
-<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ShowData_OLED()
+<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[fa]"></a>CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)</STRONG> (Thumb, 76 bytes, Stack size 28 bytes, debug.o(i._ZN6CDebug15OLED_ShowStringEhhPKc))
+<P><STRONG><a name="[114]"></a>CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)</STRONG> (Thumb, 76 bytes, Stack size 28 bytes, debug.o(i._ZN6CDebug15OLED_ShowStringEhhPKc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = CDebug::OLED_ShowString(unsigned char, unsigned char, const char*) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Clear()
+<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Clear()
+<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
-<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ShowInfo(const char*, const char*)
-<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ShowData_OLED()
+<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ShowInfo(const char*, const char*)
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[151]"></a>CDebug::LED_Flash_Support()</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, debug.o(i._ZN6CDebug17LED_Flash_SupportEv))
+<P><STRONG><a name="[14f]"></a>CDebug::LED_Flash_Support()</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, debug.o(i._ZN6CDebug17LED_Flash_SupportEv))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[fc]"></a>CDebug::OLED_Refresh_Gram()</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, debug.o(i._ZN6CDebug17OLED_Refresh_GramEv))
+<P><STRONG><a name="[115]"></a>CDebug::OLED_Refresh_Gram()</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, debug.o(i._ZN6CDebug17OLED_Refresh_GramEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = CDebug::OLED_Refresh_Gram() &rArr; CDebug::OLED_WR_Byte(unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_WR_Byte(unsigned char, unsigned char)
+<BR>[Calls]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_WR_Byte(unsigned char, unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
-<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ShowInfo(const char*, const char*)
-<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ShowData_OLED()
+<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ShowInfo(const char*, const char*)
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[119]"></a>CDebug::ShowInfo(const char*, const char*)</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, debug.o(i._ZN6CDebug8ShowInfoEPKcS1_))
+<P><STRONG><a name="[11b]"></a>CDebug::ShowInfo(const char*, const char*)</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, debug.o(i._ZN6CDebug8ShowInfoEPKcS1_))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = CDebug::ShowInfo(const char*, const char*) &rArr; CDebug::OLED_ShowString(unsigned char, unsigned char, const char*) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Refresh_Gram()
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Clear()
+<BR>[Calls]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Refresh_Gram()
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Clear()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[11a]"></a>CDebug::OLED_Init()</STRONG> (Thumb, 306 bytes, Stack size 8 bytes, debug.o(i._ZN6CDebug9OLED_InitEv))
+<P><STRONG><a name="[11c]"></a>CDebug::OLED_Init()</STRONG> (Thumb, 306 bytes, Stack size 8 bytes, debug.o(i._ZN6CDebug9OLED_InitEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = CDebug::OLED_Init() &rArr; CDebug::OLED_WR_Byte(unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BKP_TamperPinCmd
-<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_LSEConfig
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWR_BackupAccessCmd
-<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_WR_Byte(unsigned char, unsigned char)
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Clear()
+<BR>[Calls]<UL><LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BKP_TamperPinCmd
+<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_LSEConfig
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWR_BackupAccessCmd
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Clear()
+<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_WR_Byte(unsigned char, unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::CDebug(CKey*)
+<BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::CDebug(CKey*)
 </UL>
 
-<P><STRONG><a name="[11e]"></a>CDebug::CDebug(CKey*)</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, debug.o(i._ZN6CDebugC1EP4CKey))
+<P><STRONG><a name="[120]"></a>CDebug::CDebug(CKey*)</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, debug.o(i._ZN6CDebugC1EP4CKey))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = CDebug::CDebug(CKey*) &rArr; CDebug::ErrorHandle(const char*, const char*) &rArr; CDebug::OLED_ShowString(unsigned char, unsigned char, const char*) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
-<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::LED_Control(CDebug::LED_STATE, unsigned char)
+<BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
+<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
+<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::LED_Control(CDebug::LED_STATE, unsigned char)
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_GPIO_Init()
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_GPIO_Init()
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1af]"></a>CDebug::CDebug__sub_object(CKey*)</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, debug.o(i._ZN6CDebugC1EP4CKey), UNUSED)
+<P><STRONG><a name="[1b0]"></a>CDebug::CDebug__sub_object(CKey*)</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, debug.o(i._ZN6CDebugC1EP4CKey), UNUSED)
 
-<P><STRONG><a name="[13e]"></a>CMotor::MotorSpeedSet(short, short)</STRONG> (Thumb, 126 bytes, Stack size 8 bytes, motor.o(i._ZN6CMotor13MotorSpeedSetEss))
+<P><STRONG><a name="[13d]"></a>CMotor::MotorSpeedSet(short, short)</STRONG> (Thumb, 126 bytes, Stack size 8 bytes, motor.o(i._ZN6CMotor13MotorSpeedSetEss))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CMotor::MotorSpeedSet(short, short)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
+<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
 </UL>
 
-<P><STRONG><a name="[120]"></a>CMotor::ServoCompareSet(float)</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, motor.o(i._ZN6CMotor15ServoCompareSetEf))
+<P><STRONG><a name="[122]"></a>CMotor::ServoCompareSet(float)</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, motor.o(i._ZN6CMotor15ServoCompareSetEf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = CMotor::ServoCompareSet(float) &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
+<BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::CMotor(CDebug*)
+<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::CMotor(CDebug*)
 </UL>
 
-<P><STRONG><a name="[126]"></a>CMotor::CMotor(CDebug*)</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, motor.o(i._ZN6CMotorC1EP6CDebug))
+<P><STRONG><a name="[128]"></a>CMotor::CMotor(CDebug*)</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, motor.o(i._ZN6CMotorC1EP6CDebug))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = CMotor::CMotor(CDebug*) &rArr; CDebug::ErrorHandle(const char*, const char*) &rArr; CDebug::OLED_ShowString(unsigned char, unsigned char, const char*) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
+<BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Servo_PWM_Init(unsigned short, unsigned short)
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1b0]"></a>CMotor::CMotor__sub_object(CDebug*)</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, motor.o(i._ZN6CMotorC1EP6CDebug), UNUSED)
+<P><STRONG><a name="[1b1]"></a>CMotor::CMotor__sub_object(CDebug*)</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, motor.o(i._ZN6CMotorC1EP6CDebug), UNUSED)
 
 <P><STRONG><a name="[155]"></a>CUSART::IsDataRefreshed()</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, usart.o(i._ZN6CUSART15IsDataRefreshedEv))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1922,46 +1912,46 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[127]"></a>CUSART::SendData(const unsigned char*, unsigned short)</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, usart.o(i._ZN6CUSART8SendDataEPKht))
+<P><STRONG><a name="[129]"></a>CUSART::SendData(const unsigned char*, unsigned short)</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, usart.o(i._ZN6CUSART8SendDataEPKht))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CUSART::SendData(const unsigned char*, unsigned short)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendData
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetFlagStatus
+<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendData
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetFlagStatus
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[12a]"></a>CUSART::SendData(const CUSART::Data_Sended&)</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, usart.o(i._ZN6CUSART8SendDataERKNS_11Data_SendedE))
+<P><STRONG><a name="[12c]"></a>CUSART::SendData(const CUSART::Data_Sended&)</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, usart.o(i._ZN6CUSART8SendDataERKNS_11Data_SendedE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = CUSART::SendData(const CUSART::Data_Sended&)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendData
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetFlagStatus
+<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendData
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetFlagStatus
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[12b]"></a>CUSART::CUSART(CDebug*)</STRONG> (Thumb, 196 bytes, Stack size 40 bytes, usart.o(i._ZN6CUSARTC1EP6CDebug))
+<P><STRONG><a name="[12d]"></a>CUSART::CUSART(CDebug*)</STRONG> (Thumb, 196 bytes, Stack size 40 bytes, usart.o(i._ZN6CUSARTC1EP6CDebug))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = CUSART::CUSART(CDebug*) &rArr; CDebug::ErrorHandle(const char*, const char*) &rArr; CDebug::OLED_ShowString(unsigned char, unsigned char, const char*) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
+<BR>[Calls]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
+<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
-<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1b1]"></a>CUSART::CUSART__sub_object(CDebug*)</STRONG> (Thumb, 0 bytes, Stack size 40 bytes, usart.o(i._ZN6CUSARTC1EP6CDebug), UNUSED)
+<P><STRONG><a name="[1b2]"></a>CUSART::CUSART__sub_object(CDebug*)</STRONG> (Thumb, 0 bytes, Stack size 40 bytes, usart.o(i._ZN6CUSARTC1EP6CDebug), UNUSED)
 
-<P><STRONG><a name="[130]"></a>CControl::AnglePretreat(unsigned char)</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, control.o(i._ZN8CControl13AnglePretreatEh))
+<P><STRONG><a name="[132]"></a>CControl::AnglePretreat(unsigned char)</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, control.o(i._ZN8CControl13AnglePretreatEh))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = CControl::AnglePretreat(unsigned char) &rArr; __aeabi_fdiv
 </UL>
-<BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<BR>[Calls]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1970,55 +1960,53 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[132]"></a>CControl::Kinematic_Analysis(float, float)</STRONG> (Thumb, 1274 bytes, Stack size 88 bytes, control.o(i._ZN8CControl18Kinematic_AnalysisEff))
-<BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = CControl::Kinematic_Analysis(float, float) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
+<P><STRONG><a name="[135]"></a>CControl::Kinematic_Analysis(float, float, int, int)</STRONG> (Thumb, 1248 bytes, Stack size 88 bytes, control.o(i._ZN8CControl18Kinematic_AnalysisEffii))
+<BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = CControl::Kinematic_Analysis(float, float, int, int) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Left(int, int)
-<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
-<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::MotorSpeedSet(short, short)
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::Read_REncoder()
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::Read_LEncoder()
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowNumber(unsigned char, unsigned char, unsigned, unsigned char, unsigned char)
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tan
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
-<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
+<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::MotorSpeedSet(short, short)
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowNumber(unsigned char, unsigned char, unsigned, unsigned char, unsigned char)
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tan
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
+<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Left(int, int)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[13c]"></a>CControl::Incremental_PI_Left(int, int)</STRONG> (Thumb, 156 bytes, Stack size 48 bytes, control.o(i._ZN8CControl19Incremental_PI_LeftEii))
+<P><STRONG><a name="[13b]"></a>CControl::Incremental_PI_Left(int, int)</STRONG> (Thumb, 156 bytes, Stack size 48 bytes, control.o(i._ZN8CControl19Incremental_PI_LeftEii))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = CControl::Incremental_PI_Left(int, int) &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
-<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
-<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
+<BR>[Calls]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
+<LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
+<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
 </UL>
 
-<P><STRONG><a name="[13d]"></a>CControl::Incremental_PI_Right(int, int)</STRONG> (Thumb, 170 bytes, Stack size 40 bytes, control.o(i._ZN8CControl20Incremental_PI_RightEii))
+<P><STRONG><a name="[13c]"></a>CControl::Incremental_PI_Right(int, int)</STRONG> (Thumb, 170 bytes, Stack size 40 bytes, control.o(i._ZN8CControl20Incremental_PI_RightEii))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = CControl::Incremental_PI_Right(int, int) &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
-<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
-<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
+<BR>[Calls]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
+<LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
+<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
 </UL>
 
-<P><STRONG><a name="[142]"></a>CControl::CControl(CDebug*, CEncoder*, CMotor*)</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, control.o(i._ZN8CControlC1EP6CDebugP8CEncoderP6CMotor))
+<P><STRONG><a name="[141]"></a>CControl::CControl(CDebug*, CEncoder*, CMotor*)</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, control.o(i._ZN8CControlC1EP6CDebugP8CEncoderP6CMotor))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = CControl::CControl(CDebug*, CEncoder*, CMotor*) &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
@@ -2027,94 +2015,94 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1b2]"></a>CControl::CControl__sub_object(CDebug*, CEncoder*, CMotor*)</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, control.o(i._ZN8CControlC1EP6CDebugP8CEncoderP6CMotor), UNUSED)
+<P><STRONG><a name="[1b3]"></a>CControl::CControl__sub_object(CDebug*, CEncoder*, CMotor*)</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, control.o(i._ZN8CControlC1EP6CDebugP8CEncoderP6CMotor), UNUSED)
 
-<P><STRONG><a name="[136]"></a>CEncoder::Read_LEncoder()</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, encoder.o(i._ZN8CEncoder13Read_LEncoderEv))
-<BR><BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
+<P><STRONG><a name="[151]"></a>CEncoder::Read_LEncoder()</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, encoder.o(i._ZN8CEncoder13Read_LEncoderEv))
+<BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[137]"></a>CEncoder::Read_REncoder()</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, encoder.o(i._ZN8CEncoder13Read_REncoderEv))
-<BR><BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
+<P><STRONG><a name="[152]"></a>CEncoder::Read_REncoder()</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, encoder.o(i._ZN8CEncoder13Read_REncoderEv))
+<BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[143]"></a>CEncoder::CEncoder(CDebug*)</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, encoder.o(i._ZN8CEncoderC1EP6CDebug))
+<P><STRONG><a name="[142]"></a>CEncoder::CEncoder(CDebug*)</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, encoder.o(i._ZN8CEncoderC1EP6CDebug))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = CEncoder::CEncoder(CDebug*) &rArr; CDebug::ErrorHandle(const char*, const char*) &rArr; CDebug::OLED_ShowString(unsigned char, unsigned char, const char*) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM3()
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1b3]"></a>CEncoder::CEncoder__sub_object(CDebug*)</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, encoder.o(i._ZN8CEncoderC1EP6CDebug), UNUSED)
+<P><STRONG><a name="[1b4]"></a>CEncoder::CEncoder__sub_object(CDebug*)</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, encoder.o(i._ZN8CEncoderC1EP6CDebug), UNUSED)
 
 <P><STRONG><a name="[b0]"></a>__ARM_fpclassify</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, fpclassify.o(i.__ARM_fpclassify))
 <BR><BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
 </UL>
 
-<P><STRONG><a name="[144]"></a>__ieee754_rem_pio2</STRONG> (Thumb, 828 bytes, Stack size 128 bytes, rred.o(i.__ieee754_rem_pio2))
+<P><STRONG><a name="[143]"></a>__ieee754_rem_pio2</STRONG> (Thumb, 828 bytes, Stack size 128 bytes, rred.o(i.__ieee754_rem_pio2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = __ieee754_rem_pio2 &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
-<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
-<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tan
+<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tan
 </UL>
 
-<P><STRONG><a name="[149]"></a>__kernel_poly</STRONG> (Thumb, 170 bytes, Stack size 24 bytes, poly.o(i.__kernel_poly))
+<P><STRONG><a name="[147]"></a>__kernel_poly</STRONG> (Thumb, 170 bytes, Stack size 24 bytes, poly.o(i.__kernel_poly))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = __kernel_poly &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
+<BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
 </UL>
 
-<P><STRONG><a name="[14a]"></a>__kernel_tan</STRONG> (Thumb, 586 bytes, Stack size 80 bytes, tan_i.o(i.__kernel_tan))
+<P><STRONG><a name="[148]"></a>__kernel_tan</STRONG> (Thumb, 586 bytes, Stack size 80 bytes, tan_i.o(i.__kernel_tan))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = __kernel_tan &rArr; __kernel_poly &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<BR>[Calls]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
+<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
-<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tan
-</UL>
-
-<P><STRONG><a name="[14c]"></a>__mathlib_dbl_infnan</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dunder.o(i.__mathlib_dbl_infnan))
-<BR><BR>[Calls]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
-</UL>
-<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tan
+<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tan
 </UL>
 
-<P><STRONG><a name="[14d]"></a>__mathlib_dbl_invalid</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, dunder.o(i.__mathlib_dbl_invalid))
+<P><STRONG><a name="[14a]"></a>__mathlib_dbl_infnan</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dunder.o(i.__mathlib_dbl_infnan))
+<BR><BR>[Calls]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
+</UL>
+<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tan
+</UL>
+
+<P><STRONG><a name="[14b]"></a>__mathlib_dbl_invalid</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, dunder.o(i.__mathlib_dbl_invalid))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __mathlib_dbl_invalid &rArr; __aeabi_ddiv
 </UL>
-<BR>[Calls]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tan
+<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tan
 </UL>
 
-<P><STRONG><a name="[14b]"></a>__mathlib_dbl_underflow</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, dunder.o(i.__mathlib_dbl_underflow))
-<BR><BR>[Calls]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
+<P><STRONG><a name="[149]"></a>__mathlib_dbl_underflow</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, dunder.o(i.__mathlib_dbl_underflow))
+<BR><BR>[Calls]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
+<BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
 </UL>
 
 <P><STRONG><a name="[a8]"></a>_is_digit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, __printf_wp.o(i._is_digit))
@@ -2124,23 +2112,23 @@ Global Symbols
 <P><STRONG><a name="[dd]"></a>delay_init</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, delay.o(i.delay_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = delay_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_CLKSourceConfig
+<BR>[Calls]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_CLKSourceConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_init()
 </UL>
 
-<P><STRONG><a name="[ff]"></a>delay_ms</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(i.delay_ms))
-<BR><BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
-<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_MAG()
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::CMotor(CDebug*)
+<P><STRONG><a name="[fb]"></a>delay_ms</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(i.delay_ms))
+<BR><BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_MAG()
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::CMotor(CDebug*)
+<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
 </UL>
 
 <P><STRONG><a name="[c3]"></a>delay_us</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(i.delay_us))
-<BR><BR>[Called By]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_Cmd(unsigned char)
-<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_TurnOnAnalogMode()
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_EnterConfing()
-<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ExitConfing()
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ShortPoll()
+<BR><BR>[Called By]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_Cmd(unsigned char)
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_TurnOnAnalogMode()
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_EnterConfing()
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ExitConfing()
+<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ShortPoll()
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_NAck
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Ack
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
@@ -2148,59 +2136,62 @@ Global Symbols
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
-<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ReadData()
+<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ReadData()
 </UL>
 
-<P><STRONG><a name="[87]"></a>main</STRONG> (Thumb, 526 bytes, Stack size 1208 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1488 + Unknown Stack Size
-<LI>Call Chain = main &rArr; CControl::Kinematic_Analysis(float, float) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
+<P><STRONG><a name="[87]"></a>main</STRONG> (Thumb, 748 bytes, Stack size 1216 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1496 + Unknown Stack Size
+<LI>Call Chain = main &rArr; CControl::Kinematic_Analysis(float, float, int, int) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::CEncoder(CDebug*)
-<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::CControl(CDebug*, CEncoder*, CMotor*)
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
+<BR>[Calls]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::CEncoder(CDebug*)
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::Read_REncoder()
+<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::Read_LEncoder()
+<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::CControl(CDebug*, CEncoder*, CMotor*)
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
 <LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::SpeedPretreat(unsigned char)
-<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::AnglePretreat(unsigned char)
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::SendData(const CUSART::Data_Sended&)
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::SendData(const unsigned char*, unsigned short)
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::AnglePretreat(unsigned char)
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
+<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::SendData(const CUSART::Data_Sended&)
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::SendData(const unsigned char*, unsigned short)
 <LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::RecvData()
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::IsDataRefreshed()
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::CMotor(CDebug*)
-<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::CDebug(CKey*)
-<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ShowInfo(const char*, const char*)
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Refresh_Gram()
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::LED_Flash_Support()
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowNumber(unsigned char, unsigned char, unsigned, unsigned char, unsigned char)
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Clear()
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CTim::CTim(CDebug*)
-<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CTim::WaitForTime(CTim::CNT_STATE, unsigned char)
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::CPS2(CDebug*)
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::CMotor(CDebug*)
+<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::CDebug(CKey*)
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ShowInfo(const char*, const char*)
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Refresh_Gram()
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::LED_Flash_Support()
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowNumber(unsigned char, unsigned char, unsigned, unsigned char, unsigned char)
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Clear()
+<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CTim::CTim(CDebug*)
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CTim::WaitForTime(CTim::CNT_STATE, unsigned char)
+<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::CPS2(CDebug*)
 <LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_AnologData(unsigned char)
-<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ReadData()
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::CKey()
-<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::KEY_Click()
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::KEY_Long_Press_Support()
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::CImu(CDebug*)
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ReadData()
-<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ShowData_OLED()
+<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ReadData()
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::CKey()
+<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::KEY_Click()
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::KEY_Long_Press_Support()
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::CImu(CDebug*)
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ReadData()
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_init()
-<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
-<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
+<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[135]"></a>tan</STRONG> (Thumb, 90 bytes, Stack size 32 bytes, tan.o(i.tan))
+<P><STRONG><a name="[137]"></a>tan</STRONG> (Thumb, 90 bytes, Stack size 32 bytes, tan.o(i.tan))
 <BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
-<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
+<BR>[Calls]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
+<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
 </UL>
 
 <P><STRONG><a name="[81]"></a>_get_lc_numeric</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, lc_numeric_c.o(locale$$code))
@@ -2220,270 +2211,287 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> rt_ctype_table.o(.text)
 </UL>
-<P><STRONG><a name="[13b]"></a>__aeabi_dadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd))
+<P><STRONG><a name="[103]"></a>__aeabi_d2f</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2f
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ReadData()
+</UL>
+
+<P><STRONG><a name="[158]"></a>_d2f</STRONG> (Thumb, 98 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fretinf
+<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
+</UL>
+
+<P><STRONG><a name="[13a]"></a>__aeabi_dadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 </UL>
 
-<P><STRONG><a name="[158]"></a>_dadd</STRONG> (Thumb, 332 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dretinf
-<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
-<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub1
+<P><STRONG><a name="[15b]"></a>_dadd</STRONG> (Thumb, 332 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dretinf
+<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
+<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub1
 </UL>
 
-<P><STRONG><a name="[15c]"></a>__fpl_dcheck_NaN1</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, dcheck1.o(x$fpl$dcheck1))
-<BR><BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
+<P><STRONG><a name="[15e]"></a>__fpl_dcheck_NaN1</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, dcheck1.o(x$fpl$dcheck1))
+<BR><BR>[Calls]<UL><LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
 </UL>
-<BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
+<BR>[Called By]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 </UL>
 
-<P><STRONG><a name="[134]"></a>__aeabi_ddiv</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, ddiv.o(x$fpl$ddiv))
+<P><STRONG><a name="[102]"></a>__aeabi_ddiv</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, ddiv.o(x$fpl$ddiv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_ddiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
+<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ReadData()
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
 </UL>
 
-<P><STRONG><a name="[15e]"></a>_ddiv</STRONG> (Thumb, 552 bytes, Stack size 32 bytes, ddiv.o(x$fpl$ddiv), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dretinf
-<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
+<P><STRONG><a name="[160]"></a>_ddiv</STRONG> (Thumb, 552 bytes, Stack size 32 bytes, ddiv.o(x$fpl$ddiv), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dretinf
+<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
 </UL>
 
-<P><STRONG><a name="[13a]"></a>__aeabi_d2iz</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dfix.o(x$fpl$dfix))
+<P><STRONG><a name="[139]"></a>__aeabi_d2iz</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dfix.o(x$fpl$dfix))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2iz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 </UL>
 
-<P><STRONG><a name="[15f]"></a>_dfix</STRONG> (Thumb, 94 bytes, Stack size 32 bytes, dfix.o(x$fpl$dfix), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
+<P><STRONG><a name="[161]"></a>_dfix</STRONG> (Thumb, 94 bytes, Stack size 32 bytes, dfix.o(x$fpl$dfix), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
 </UL>
 
-<P><STRONG><a name="[13f]"></a>__aeabi_d2uiz</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dfixu.o(x$fpl$dfixu))
+<P><STRONG><a name="[13e]"></a>__aeabi_d2uiz</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dfixu.o(x$fpl$dfixu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2uiz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
+<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
 </UL>
 
-<P><STRONG><a name="[160]"></a>_dfixu</STRONG> (Thumb, 90 bytes, Stack size 32 bytes, dfixu.o(x$fpl$dfixu), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
+<P><STRONG><a name="[162]"></a>_dfixu</STRONG> (Thumb, 90 bytes, Stack size 32 bytes, dfixu.o(x$fpl$dfixu), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
 </UL>
 
-<P><STRONG><a name="[146]"></a>__aeabi_i2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt))
-<BR><BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<P><STRONG><a name="[100]"></a>__aeabi_i2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt))
+<BR><BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ReadData()
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 </UL>
 
-<P><STRONG><a name="[1b4]"></a>_dflt</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt), UNUSED)
+<P><STRONG><a name="[1b5]"></a>_dflt</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt), UNUSED)
 
-<P><STRONG><a name="[147]"></a>__aeabi_ui2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu))
-<BR><BR>[Called By]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<P><STRONG><a name="[145]"></a>__aeabi_ui2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu))
+<BR><BR>[Called By]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 </UL>
 
-<P><STRONG><a name="[1b5]"></a>_dfltu</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu), UNUSED)
+<P><STRONG><a name="[1b6]"></a>_dfltu</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu), UNUSED)
 
-<P><STRONG><a name="[138]"></a>__aeabi_dmul</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul))
+<P><STRONG><a name="[101]"></a>__aeabi_dmul</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ReadData()
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 </UL>
 
-<P><STRONG><a name="[161]"></a>_dmul</STRONG> (Thumb, 332 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dretinf
-<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
+<P><STRONG><a name="[163]"></a>_dmul</STRONG> (Thumb, 332 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dretinf
+<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
 </UL>
 
-<P><STRONG><a name="[15b]"></a>__fpl_dnaninf</STRONG> (Thumb, 156 bytes, Stack size 16 bytes, dnaninf.o(x$fpl$dnaninf), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
-<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dfixu
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dfix
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ddiv
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub
-<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
+<P><STRONG><a name="[15a]"></a>__fpl_dnaninf</STRONG> (Thumb, 156 bytes, Stack size 16 bytes, dnaninf.o(x$fpl$dnaninf), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dfixu
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dfix
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ddiv
+<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
 </UL>
 
-<P><STRONG><a name="[15a]"></a>__fpl_dretinf</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, dretinf.o(x$fpl$dretinf), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
-<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ddiv
-<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
+<P><STRONG><a name="[15d]"></a>__fpl_dretinf</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, dretinf.o(x$fpl$dretinf), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ddiv
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
 </UL>
 
-<P><STRONG><a name="[139]"></a>__aeabi_drsub</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, daddsub_clz.o(x$fpl$drsb))
+<P><STRONG><a name="[138]"></a>__aeabi_drsub</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, daddsub_clz.o(x$fpl$drsb))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_drsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 </UL>
 
-<P><STRONG><a name="[162]"></a>_drsb</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, daddsub_clz.o(x$fpl$drsb), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub1
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd1
+<P><STRONG><a name="[164]"></a>_drsb</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, daddsub_clz.o(x$fpl$drsb), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub1
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd1
 </UL>
 
-<P><STRONG><a name="[145]"></a>__aeabi_dsub</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub))
+<P><STRONG><a name="[144]"></a>__aeabi_dsub</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 </UL>
 
-<P><STRONG><a name="[164]"></a>_dsub</STRONG> (Thumb, 464 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd1
+<P><STRONG><a name="[166]"></a>_dsub</STRONG> (Thumb, 464 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd1
 </UL>
 
-<P><STRONG><a name="[133]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
+<P><STRONG><a name="[136]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2d
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
+<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
 </UL>
 
-<P><STRONG><a name="[165]"></a>_f2d</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
-<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dretinf
+<P><STRONG><a name="[167]"></a>_f2d</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
+<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dretinf
 </UL>
 
-<P><STRONG><a name="[140]"></a>__aeabi_fadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fadd))
+<P><STRONG><a name="[13f]"></a>__aeabi_fadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fadd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Left(int, int)
+<BR>[Called By]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Left(int, int)
 </UL>
 
-<P><STRONG><a name="[167]"></a>_fadd</STRONG> (Thumb, 196 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fadd), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fretinf
-<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
-<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub1
+<P><STRONG><a name="[169]"></a>_fadd</STRONG> (Thumb, 196 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fadd), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fretinf
+<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
+<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub1
 </UL>
 
-<P><STRONG><a name="[16e]"></a>__fpl_fcmp_Inf</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, fcmpi.o(x$fpl$fcmpinf), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fcmple
+<P><STRONG><a name="[16f]"></a>__fpl_fcmp_Inf</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, fcmpi.o(x$fpl$fcmpinf), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fcmple
 </UL>
 
-<P><STRONG><a name="[131]"></a>__aeabi_fdiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fdiv.o(x$fpl$fdiv))
+<P><STRONG><a name="[134]"></a>__aeabi_fdiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fdiv.o(x$fpl$fdiv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fdiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::AnglePretreat(unsigned char)
+<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::AnglePretreat(unsigned char)
 </UL>
 
-<P><STRONG><a name="[16a]"></a>_fdiv</STRONG> (Thumb, 384 bytes, Stack size 16 bytes, fdiv.o(x$fpl$fdiv), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fretinf
-<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
+<P><STRONG><a name="[16b]"></a>_fdiv</STRONG> (Thumb, 384 bytes, Stack size 16 bytes, fdiv.o(x$fpl$fdiv), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fretinf
+<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
 </UL>
 
-<P><STRONG><a name="[141]"></a>__aeabi_f2iz</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, ffix.o(x$fpl$ffix))
+<P><STRONG><a name="[140]"></a>__aeabi_f2iz</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, ffix.o(x$fpl$ffix))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2iz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Left(int, int)
+<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Left(int, int)
 </UL>
 
-<P><STRONG><a name="[16b]"></a>_ffix</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, ffix.o(x$fpl$ffix), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
+<P><STRONG><a name="[16c]"></a>_ffix</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, ffix.o(x$fpl$ffix), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
 </UL>
 
-<P><STRONG><a name="[125]"></a>__aeabi_f2uiz</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, ffixu.o(x$fpl$ffixu))
+<P><STRONG><a name="[127]"></a>__aeabi_f2uiz</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, ffixu.o(x$fpl$ffixu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2uiz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
+<BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
 </UL>
 
-<P><STRONG><a name="[16c]"></a>_ffixu</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, ffixu.o(x$fpl$ffixu), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
+<P><STRONG><a name="[16d]"></a>_ffixu</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, ffixu.o(x$fpl$ffixu), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
 </UL>
 
-<P><STRONG><a name="[104]"></a>__aeabi_i2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt))
-<BR><BR>[Called By]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Left(int, int)
-<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::AnglePretreat(unsigned char)
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ReadData()
+<P><STRONG><a name="[133]"></a>__aeabi_i2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt))
+<BR><BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::AnglePretreat(unsigned char)
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Left(int, int)
+</UL>
+
+<P><STRONG><a name="[1b7]"></a>_fflt</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt), UNUSED)
+
+<P><STRONG><a name="[125]"></a>__aeabi_cfcmple</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fleqf.o(x$fpl$fleqf))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_cfcmple
+</UL>
+<BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1b6]"></a>_fflt</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt), UNUSED)
-
-<P><STRONG><a name="[123]"></a>__aeabi_cfcmple</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fleqf.o(x$fpl$fleqf))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_cfcmple
-</UL>
-<BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
+<P><STRONG><a name="[16e]"></a>_fcmple</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, fleqf.o(x$fpl$fleqf), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
+<LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcmp_Inf
 </UL>
 
-<P><STRONG><a name="[16d]"></a>_fcmple</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, fleqf.o(x$fpl$fleqf), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
-<LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcmp_Inf
+<P><STRONG><a name="[172]"></a>__fpl_fcmple_InfNaN</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fleqf.o(x$fpl$fleqf), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_frcmple
 </UL>
 
-<P><STRONG><a name="[171]"></a>__fpl_fcmple_InfNaN</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fleqf.o(x$fpl$fleqf), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_frcmple
-</UL>
-
-<P><STRONG><a name="[121]"></a>__aeabi_fmul</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul))
+<P><STRONG><a name="[123]"></a>__aeabi_fmul</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Left(int, int)
-<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
+<BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Left(int, int)
 </UL>
 
-<P><STRONG><a name="[16f]"></a>_fmul</STRONG> (Thumb, 258 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fretinf
-<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
+<P><STRONG><a name="[170]"></a>_fmul</STRONG> (Thumb, 258 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fretinf
+<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
 </UL>
 
-<P><STRONG><a name="[166]"></a>__fpl_fnaninf</STRONG> (Thumb, 140 bytes, Stack size 8 bytes, fnaninf.o(x$fpl$fnaninf), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fmul
-<LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fcmple
-<LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ffixu
-<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ffix
-<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fdiv
-<LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub
-<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
+<P><STRONG><a name="[168]"></a>__fpl_fnaninf</STRONG> (Thumb, 140 bytes, Stack size 8 bytes, fnaninf.o(x$fpl$fnaninf), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fmul
+<LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fcmple
+<LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ffixu
+<LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ffix
+<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fdiv
+<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub
+<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd
+<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
 </UL>
 
-<P><STRONG><a name="[169]"></a>__fpl_fretinf</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, fretinf.o(x$fpl$fretinf), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fmul
-<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fdiv
-<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd
+<P><STRONG><a name="[159]"></a>__fpl_fretinf</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, fretinf.o(x$fpl$fretinf), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fmul
+<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fdiv
+<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
 </UL>
 
-<P><STRONG><a name="[124]"></a>__aeabi_cfrcmple</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, frleqf.o(x$fpl$frleqf))
-<BR><BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float)
+<P><STRONG><a name="[126]"></a>__aeabi_cfrcmple</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, frleqf.o(x$fpl$frleqf))
+<BR><BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
 </UL>
 
-<P><STRONG><a name="[170]"></a>_frcmple</STRONG> (Thumb, 98 bytes, Stack size 0 bytes, frleqf.o(x$fpl$frleqf), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcmple_InfNaN
+<P><STRONG><a name="[171]"></a>_frcmple</STRONG> (Thumb, 98 bytes, Stack size 0 bytes, frleqf.o(x$fpl$frleqf), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcmple_InfNaN
 </UL>
 
-<P><STRONG><a name="[122]"></a>__aeabi_frsub</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, faddsub_clz.o(x$fpl$frsb))
-<BR><BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
+<P><STRONG><a name="[124]"></a>__aeabi_frsub</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, faddsub_clz.o(x$fpl$frsb))
+<BR><BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
 </UL>
 
-<P><STRONG><a name="[172]"></a>_frsb</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, faddsub_clz.o(x$fpl$frsb), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub1
-<LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd1
+<P><STRONG><a name="[173]"></a>_frsb</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, faddsub_clz.o(x$fpl$frsb), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub1
+<LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd1
 </UL>
 
-<P><STRONG><a name="[1b7]"></a>__aeabi_fsub</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fsub), UNUSED)
+<P><STRONG><a name="[1b8]"></a>__aeabi_fsub</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fsub), UNUSED)
 
-<P><STRONG><a name="[174]"></a>_fsub</STRONG> (Thumb, 234 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fsub), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
-<LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd1
+<P><STRONG><a name="[175]"></a>_fsub</STRONG> (Thumb, 234 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fsub), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
+<LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd1
 </UL>
 
 <P><STRONG><a name="[5e]"></a>_printf_fp_dec</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, printf1.o(x$fpl$printf1))
@@ -2504,23 +2512,23 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_a
 </UL>
 
-<P><STRONG><a name="[15d]"></a>__fpl_return_NaN</STRONG> (Thumb, 100 bytes, Stack size 0 bytes, retnan.o(x$fpl$retnan))
-<BR><BR>[Calls]<UL><LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_cmpreturn
+<P><STRONG><a name="[15f]"></a>__fpl_return_NaN</STRONG> (Thumb, 100 bytes, Stack size 0 bytes, retnan.o(x$fpl$retnan))
+<BR><BR>[Calls]<UL><LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_cmpreturn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN1
-</UL>
-
-<P><STRONG><a name="[148]"></a>__ARM_scalbn</STRONG> (Thumb, 92 bytes, Stack size 0 bytes, scalbn.o(x$fpl$scalbn))
-<BR><BR>[Calls]<UL><LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN1
-</UL>
-<BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
-<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
-<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
+<BR>[Called By]<UL><LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN1
 </UL>
 
-<P><STRONG><a name="[175]"></a>__fpl_cmpreturn</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, trapv.o(x$fpl$trapveneer))
-<BR><BR>[Called By]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
+<P><STRONG><a name="[146]"></a>__ARM_scalbn</STRONG> (Thumb, 92 bytes, Stack size 0 bytes, scalbn.o(x$fpl$scalbn))
+<BR><BR>[Calls]<UL><LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN1
+</UL>
+<BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
+</UL>
+
+<P><STRONG><a name="[176]"></a>__fpl_cmpreturn</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, trapv.o(x$fpl$trapveneer))
+<BR><BR>[Called By]<UL><LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
 </UL>
 <P>
 <H3>
@@ -2589,7 +2597,7 @@ Local Symbols
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearFlag
 </UL>
-<BR>[Called By]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::CEncoder(CDebug*)
+<BR>[Called By]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::CEncoder(CDebug*)
 </UL>
 
 <P><STRONG><a name="[f8]"></a>Encoder_Init_TIM3()</STRONG> (Thumb, 148 bytes, Stack size 32 bytes, encoder.o(i._Z17Encoder_Init_TIM3v))
@@ -2608,7 +2616,7 @@ Local Symbols
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearFlag
 </UL>
-<BR>[Called By]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::CEncoder(CDebug*)
+<BR>[Called By]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::CEncoder(CDebug*)
 </UL>
 
 <P><STRONG><a name="[e3]"></a>Motor_PWM_Init(unsigned short, unsigned short)</STRONG> (Thumb, 192 bytes, Stack size 48 bytes, motor.o(i._Z14Motor_PWM_Inittt))
@@ -2629,7 +2637,7 @@ Local Symbols
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ARRPreloadConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::CMotor(CDebug*)
+<BR>[Called By]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::CMotor(CDebug*)
 </UL>
 
 <P><STRONG><a name="[ef]"></a>Servo_PWM_Init(unsigned short, unsigned short)</STRONG> (Thumb, 148 bytes, Stack size 48 bytes, motor.o(i._Z14Servo_PWM_Inittt))
@@ -2644,7 +2652,7 @@ Local Symbols
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ARRPreloadConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::CMotor(CDebug*)
+<BR>[Called By]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::CMotor(CDebug*)
 </UL>
 
 <P><STRONG><a name="[df]"></a>TIM6_Int_Init(unsigned short, unsigned short)</STRONG> (Thumb, 50 bytes, Stack size 24 bytes, timer.o(i._Z13TIM6_Int_Inittt))
@@ -2654,7 +2662,7 @@ Local Symbols
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CTim::CTim(CDebug*)
+<BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CTim::CTim(CDebug*)
 </UL>
 
 <P><STRONG><a name="[de]"></a>LED_GPIO_Init()</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, debug.o(i._Z13LED_GPIO_Initv))
@@ -2663,7 +2671,7 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::CDebug(CKey*)
+<BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::CDebug(CKey*)
 </UL>
 
 <P><STRONG><a name="[ee]"></a>OLED_GPIO_Init()</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, debug.o(i._Z14OLED_GPIO_Initv))
@@ -2672,33 +2680,33 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::CDebug(CKey*)
+<BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::CDebug(CKey*)
 </UL>
 
-<P><STRONG><a name="[117]"></a>oled_pow(unsigned char, unsigned char)</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, debug.o(i._Z8oled_powhh))
+<P><STRONG><a name="[119]"></a>oled_pow(unsigned char, unsigned char)</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, debug.o(i._Z8oled_powhh))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = oled_pow(unsigned char, unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowNumber(unsigned char, unsigned char, unsigned, unsigned char, unsigned char)
+<BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowNumber(unsigned char, unsigned char, unsigned, unsigned char, unsigned char)
 </UL>
 
-<P><STRONG><a name="[163]"></a>_dadd1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, daddsub_clz.o(x$fpl$dadd), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_drsb
+<P><STRONG><a name="[165]"></a>_dadd1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, daddsub_clz.o(x$fpl$dadd), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_drsb
 </UL>
 
-<P><STRONG><a name="[159]"></a>_dsub1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, daddsub_clz.o(x$fpl$dsub), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_drsb
-<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
+<P><STRONG><a name="[15c]"></a>_dsub1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, daddsub_clz.o(x$fpl$dsub), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_drsb
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
 </UL>
 
-<P><STRONG><a name="[173]"></a>_fadd1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, faddsub_clz.o(x$fpl$fadd), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub
-<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_frsb
+<P><STRONG><a name="[174]"></a>_fadd1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, faddsub_clz.o(x$fpl$fadd), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub
+<LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_frsb
 </UL>
 
-<P><STRONG><a name="[168]"></a>_fsub1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, faddsub_clz.o(x$fpl$fsub), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_frsb
-<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd
+<P><STRONG><a name="[16a]"></a>_fsub1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, faddsub_clz.o(x$fpl$fsub), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_frsb
+<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd
 </UL>
 
 <P><STRONG><a name="[aa]"></a>_fp_digits</STRONG> (Thumb, 432 bytes, Stack size 96 bytes, _printf_fp_dec.o(.text))

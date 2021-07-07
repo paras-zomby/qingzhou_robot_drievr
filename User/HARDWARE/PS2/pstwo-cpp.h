@@ -72,7 +72,7 @@ public:
     CPS2(CDebug* const _debug);
     ~CPS2();
     void PS2_ReadData(void); //读手柄数据
-    u16 PS2_ReturnPressedKey(void);   //按键值读取
+    bool PS2_KeyPressed(u16 key);   //指定按键是否按下
     u8 PS2_AnologData(u8 button); //得到一个摇杆的模拟量
 };
 

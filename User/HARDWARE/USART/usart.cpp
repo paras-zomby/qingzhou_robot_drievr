@@ -2,8 +2,8 @@
 
 bool CUSART::is_unique = 1;
 
-const u8 CUSART::std[] = {'7', '1', '8'};
-const u8 CUSART::reverse_std[] = {'8', '1', '7'};
+const u8 CUSART::std_head[] = {0xb5, 0x02, 0xfb};
+const u8 CUSART::std_tail[] = {0xc4, 0x03, 0x0d};
 
 static CUSART::Data_Recieved recvdata;
 static bool is_datarefreshed = 0;   //数据是否更新的标志位，
@@ -123,17 +123,17 @@ void USART1_IRQHandler(void)
     static u8 index = 1;               //表示ptr正在指向recvdata的第几个字节
     static u8* ptr = (u8*)&recvdata;    //指向recvdata的下一个待写入的字节
     
-    static u8 is_recving = 0, cnt = 0;//用于标准头、标准尾协议判断。
+    static u8 is_recving = 0, cnt_head = 0, cnt_tail = 0;//用于标准头、标准尾协议判断。
     
     if(USART_GetITStatus(USART1, USART_IT_RXNE) == SET) //如果真的进中断了
     {
         u8 data = (USART1->DR&0xFF);
         if(!is_recving)
         {
-            if(data == CUSART::std[0]) cnt = 1;         //只要接收到的是标准头开头，就把cnt置一（标准头第二个）
-            else if(cnt != 0 && data == CUSART::std[cnt])//如果cnt不是0且数据等于std[cnt]
+            if(data == CUSART::std_head[0]) cnt_head = 1;         //只要接收到的是标准头开头，就把cnt置一（标准头第二个）
+            else if(cnt_head != 0 && data == CUSART::std_head[cnt_head])//如果cnt不是0且数据等于std[cnt]
             {
-                if (cnt < 2) ++cnt;         //如果cnt没到std标准头的最后一位，则++cnt
+                if (cnt_head < 2) ++cnt_head;         //如果cnt没到std标准头的最后一位，则++cnt
                 else                        //cnt已经走到标准头最后一位，接收信息开始
                 {
                     is_recving = 1;
@@ -141,7 +141,7 @@ void USART1_IRQHandler(void)
                     index = 1;
                 }
             }
-            else cnt = 0;                       //如果上面两种判断都不是，那么cnt回归0
+            else cnt_head = 0;                       //如果上面两种判断都不是，那么cnt回归0
         }
         else
         {
@@ -152,10 +152,10 @@ void USART1_IRQHandler(void)
             }
              ++index;                               //只要接收到消息就++index
             
-            if(data == CUSART::std[2]) cnt = 1;             //只要数据符合数据尾的第一位，就把cnt置1
-            else if(cnt != 2 && data == CUSART::std[cnt])   //如果cnt不是2且数据等于std[cnt]
+            if(data == CUSART::std_tail[0]) cnt_tail = 1;             //只要数据符合数据尾的第一位，就把cnt置1
+            else if(cnt_tail != 0 && data == CUSART::std_tail[cnt_tail])   //如果cnt不是2且数据等于std[cnt]
             {
-                if (cnt > 0) --cnt;             //如果cnt没有到标准尾的最后一位，--cnt
+                if (cnt_tail < 2) ++cnt_tail;             //如果cnt没有到标准尾的最后一位，--cnt
                 else                            //cnt已经走完标准尾，接收信息结束
                 {
                     is_recving = 0;
@@ -163,7 +163,7 @@ void USART1_IRQHandler(void)
                         is_datarefreshed = 1;
                 }
             }
-            else cnt = 2;                           //其余结果把cnt恢复到2
+            else cnt_tail = 0;                           //其余结果把cnt恢复到2
         }
         USART_ClearITPendingBit(USART1, USART_IT_RXNE);
     }

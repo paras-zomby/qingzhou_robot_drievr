@@ -123,9 +123,13 @@ void CPS2::PS2_ReadData(void)
 
 //对读出来的PS2的数据进行处理,只处理按键部分  
 //只有一个按键按下时按下为0， 未按下为1
-u16 CPS2::PS2_ReturnPressedKey()
+ bool CPS2::PS2_KeyPressed(u16 key)
 {
-    return HandKey;
+    static bool flag_key = 0; //按键标志
+    if(HandKey&key)
+        return flag_key?0:flag_key = 1;
+    else
+        return flag_key = 0;
 }
 
 //得到一个摇杆的模拟量  范围0~256

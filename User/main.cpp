@@ -38,21 +38,26 @@ int main()
     CImu imu(&debug);
     CControl control(&debug, &encoder, &motor);
     
+    //临时变量初始化
     CUSART::Data_Recieved rdata = {0.0f, 0.0f};
     CUSART::Data_Sended sdata = {0};
     u8 time_flag = 1;
-    
+
     debug.ShowInfo("debug", "Into While");
     while(1)
     {
         tim.WaitForTime(CTim::CNT_START);
-        debug.OLED_Clear();
         //按键和LED的支持函数
         key.KEY_Long_Press_Support();
         debug.LED_Flash_Support();
         if(key.KEY_Click())
+        {
             debug.mode = (debug.mode>=2)? 1:(debug.mode+1);
-        if(debug.mode == 1)
+            time_flag = 1;
+            debug.OLED_Clear();
+            debug.OLED_Refresh_Gram();
+        }
+            if(debug.mode == 1)
         {
             //读取遥控器按键
             ps2.PS2_ReadData();
@@ -60,8 +65,11 @@ int main()
 //            if(PSB_SELECT & ps2.PS2_ReturnPressedKey())
 //                debug.mode = 2;
             //执行遥控器命令
+            int Lencoder = encoder.Read_LEncoder();
+            int Rencoder = encoder.Read_REncoder();
             control.Kinematic_Analysis(control.SpeedPretreat(ps2.PS2_AnologData(PSS_LY)),
-                                        control.AnglePretreat(ps2.PS2_AnologData(PSS_RX)));
+                                        control.AnglePretreat(ps2.PS2_AnologData(PSS_RX)),
+                                         Lencoder, Rencoder);
             //=============第1行显示遥控器接收值=======================//
             debug.OLED_ShowString(00,00,"LY");
             debug.OLED_ShowNumber(15,00,ps2.PS2_AnologData(PSS_LY),5,12);
@@ -69,6 +77,8 @@ int main()
             debug.OLED_ShowNumber(95,00,ps2.PS2_AnologData(PSS_RX),4,12);
             
             debug.OLED_Refresh_Gram();
+            debug.OLED_Clear();
+            
             tim.WaitForTime(CTim::CNT_END, 20);         //总周期20ms
         }
         else if(debug.mode == 2)
@@ -83,13 +93,33 @@ int main()
 //                    debug.mode = 1;
 //            }
             
-            if(time_flag%2 == 0)//20ms per time: 2,4,6,8,10
-                control.Kinematic_Analysis(rdata.Speed, rdata.Angle);
-            
+//            if(time_flag%2 == 0)//20ms per time: 2,4,6,8,10
+//            {
+//                int Lencoder = encoder.Read_LEncoder();
+//                int Rencoder = encoder.Read_REncoder();
+//                control.Kinematic_Analysis(rdata.Speed, rdata.Angle, Lencoder, Rencoder);
+//                sdata.Lencoder += Lencoder;
+//                sdata.Rencoder += Rencoder;
+//            }
             if(time_flag == 3)// 100ms per time: 3
-                {debug.OLED_ShowString(00,00,"Nano Control");imu.ShowData_OLED();}
+            {
+                //debug.ShowInfo("Nano Control", "");imu.ShowData_OLED();
+//                //第三行显示收到的Speed和Angle数据。
+                debug.OLED_ShowString(0,10,"Nano Control");
+                if(rdata.Angle<0) debug.OLED_ShowString(00,30,"-"),
+                     debug.OLED_ShowNumber(15,30,-(int)rdata.Angle,5,12);
+                else debug.OLED_ShowString(0,30,"+"),
+                     debug.OLED_ShowNumber(15,30, (int)rdata.Angle,5,12);
+                if(rdata.Speed<0) debug.OLED_ShowString(80,30,"-"),
+                      debug.OLED_ShowNumber(95,30,-(int)rdata.Speed,4,12);
+                else  debug.OLED_ShowString(80,30,"+"),
+                      debug.OLED_ShowNumber(95,30, (int)rdata.Speed,4,12);
+                
+                debug.OLED_Refresh_Gram();
+                debug.OLED_Clear();
+            }
             
-            if(time_flag == 1 || time_flag == 5)// ~~50ms per time: 1,5
+             if(time_flag == 1 || time_flag == 5)// ~~50ms per time: 1,5
             {
                 const float* p = imu.ReadData();
                 for(u8 i = 0; i < 9; ++i)
@@ -98,16 +128,19 @@ int main()
             
             if(time_flag %5 == 2)//50ms per time: 2,7
             {
-                usart.SendData(CUSART::std, sizeof(CUSART::std));
+//                debug.LED_Control(CDebug::LED_OPEN);
+                sdata.Lencoder = encoder.Read_LEncoder();
+                sdata.Rencoder = encoder.Read_REncoder();
+                usart.SendData(CUSART::std_head, sizeof(CUSART::std_head));
                 usart.SendData(sdata);
-                usart.SendData(CUSART::std, sizeof(CUSART::reverse_std));
-            }
+                usart.SendData(CUSART::std_tail, sizeof(CUSART::std_tail));
+                sdata.Lencoder = sdata.Rencoder = 0;
+//                debug.LED_Control(CDebug::LED_CLOSE);
+            }  
             
             time_flag = time_flag>=10?1:time_flag+1;
             tim.WaitForTime(CTim::CNT_END, 10);         //单次周期10ms
         }
-        
-        
     }
 }
 

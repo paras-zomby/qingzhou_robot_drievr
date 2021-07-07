@@ -34,8 +34,8 @@ CDebug::CDebug(CKey* const _key)
     {
         OLED_GPIO_Init();
         LED_GPIO_Init();
-        OLED_Init();
         LED_Control(LED_CLOSE);
+        OLED_Init();
         is_unique = 0;
     }
     else
@@ -237,7 +237,7 @@ void CDebug::OLED_Display_Off(void)
 //清屏函数,清完屏,整个屏幕是黑色的!和没点亮一样!!!
 void CDebug::OLED_Clear(void)
 {  
-    u8 i,n;  
+    u8 i,n;
     for(i=0;i<8;i++)for(n=0;n<128;n++)OLED_GRAM[n][i]=0X00;  
     //OLED_Refresh_Gram();//更新显示
 }

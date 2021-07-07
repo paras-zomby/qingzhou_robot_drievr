@@ -66,21 +66,16 @@ short CControl::Incremental_PI_Right(int Encoder,int Target)
  *
  */
 
-void CControl::Kinematic_Analysis(float velocity,float angle)
+void CControl::Kinematic_Analysis(float velocity,float angle, int Lencoder, int Rencoder)
 {
     INSHEREHOLD(-5500, velocity, 5500)  //为了保证差速的有效性而进行的限幅
     INSHEREHOLD(-36.0f, angle, 36.0f)   //同时限制了输入的电机速度和舵机角度。
     
-    int Lencoder,Rencoder;
     int velocity_lf,velocity_rt;
     
     
     double Tand = tan(angle/57.3);                 //Tand = tan(θ)，左转tan(θ)>0;右转tan(θ)<0。
                                                    //C是从舵机转角换算到小车转向角θ的转换参数。
-    
-    Lencoder = encoder->Read_LEncoder();
-    Rencoder = encoder->Read_REncoder();
-    
     
     //左右后轮的差速公式
     velocity_lf = velocity*(1-T*Tand/2/L);

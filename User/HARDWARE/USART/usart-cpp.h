@@ -11,9 +11,10 @@ private:
     
     CDebug* const debug;
 public:
-    const static u8 std[3], reverse_std[3];
+    const static u8 std_head[3], std_tail[3];
     struct Data_Sended{
         float data[9];
+        int Rencoder, Lencoder;
     };
     struct Data_Recieved{
         float Speed, Angle;

@@ -194,17 +194,15 @@ const float* CImu::ReadData() //读取 IMU 数据函数
     MPU9250_READ_GYRO(); //读取角速度
     MPU9250_READ_MAG(); //读取磁力计
     
-    data[0] = raw_data[0]*160/32767;
-    data[1] = raw_data[1]*160/32767;
-    data[2] = raw_data[2]*160/32767;
+    for(u8 i = 0; i <= 2; ++i)  //加速度计量程 ±16g (g = 9.8 m/s/s)
+        data[i] = raw_data[i] *9.8/2047.9375;
     
-    data[3] = raw_data[3]*200/32767;
-    data[4] = raw_data[4]*200/32767;
-    data[5] = raw_data[5]*200/32767;
+    for(u8 i = 3; i <= 5; ++i)  //陀螺仪量程 ±2000
+        data[i] = raw_data[i] /16.4/57.3;
     
-    data[6] = raw_data[6]/20;
-    data[7] = raw_data[7]/20;
-    data[8] = raw_data[8]/20;
+    for(u8 i = 6; i <= 8; ++i)
+        data[i] = raw_data[i]/0.14;
+    
     return data;
 }
 
