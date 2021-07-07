@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\STM32F103RCT6.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\STM32F103RCT6.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Jun 27 11:21:53 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Jul 07 20:11:48 2021
 <BR><P>
 <H3>Maximum Stack Usage =       1496 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -637,9 +637,9 @@ Global Symbols
 <P><STRONG><a name="[0]"></a>__rt_heap_expand</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
 <P><STRONG><a name="[8e]"></a>__rt_heap_descriptor</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_heap_descriptor_intlibspace.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
+<BR><BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_init_alloc
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
 </UL>
 
 <P><STRONG><a name="[1a2]"></a>__use_no_heap</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, hguard.o(.text), UNUSED)
@@ -665,10 +665,10 @@ Global Symbols
 <P><STRONG><a name="[7c]"></a>_init_alloc</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, init_alloc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = _init_alloc &rArr; __rt_SIGRTMEM &rArr; __rt_SIGRTMEM_inner &rArr; __default_signal_display &rArr; _ttywrch
 </UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_ProvideMemory
+<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_ProvideMemory
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_Initialize
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_heap_descriptor
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_heap_2
 </UL>
@@ -707,23 +707,23 @@ Global Symbols
 <P><STRONG><a name="[9d]"></a>_printf_pre_padding</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, _printf_pad.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _printf_pre_padding
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
+<BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_common
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_wctomb
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_str
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
 </UL>
 
 <P><STRONG><a name="[9e]"></a>_printf_post_padding</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, _printf_pad.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _printf_post_padding
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
+<BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_common
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_wctomb
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_str
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
 </UL>
 
 <P><STRONG><a name="[9f]"></a>_printf_truncate_signed</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, _printf_truncate.o(.text))
@@ -764,9 +764,9 @@ Global Symbols
 <P><STRONG><a name="[a2]"></a>_printf_wctomb</STRONG> (Thumb, 182 bytes, Stack size 56 bytes, _printf_wctomb.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = _printf_wctomb &rArr; _wcrtomb &rArr; __rt_ctype_table
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_wcrtomb
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_wcrtomb
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_lcs_common
 </UL>
@@ -909,12 +909,12 @@ Global Symbols
 <P><STRONG><a name="[af]"></a>_printf_fp_dec_real</STRONG> (Thumb, 620 bytes, Stack size 104 bytes, _printf_fp_dec.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 324<LI>Call Chain = _printf_fp_dec_real &rArr; _fp_digits &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
 </UL>
-<BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_locale
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec
 </UL>
@@ -922,10 +922,10 @@ Global Symbols
 <P><STRONG><a name="[b2]"></a>_printf_fp_hex_real</STRONG> (Thumb, 756 bytes, Stack size 72 bytes, _printf_fp_hex.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = _printf_fp_hex_real &rArr; _printf_fp_infnan &rArr; _printf_post_padding
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
 </UL>
 <BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex
 </UL>
@@ -1033,9 +1033,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[7e]"></a>__rt_locale</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_locale_intlibspace.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_ctype_table
+<BR><BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_ctype_table
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_lc_common
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
 </UL>
 
 <P><STRONG><a name="[b1]"></a>_printf_fp_infnan</STRONG> (Thumb, 112 bytes, Stack size 24 bytes, _printf_fp_infnan.o(.text))
@@ -1081,8 +1081,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[8c]"></a>_sys_exit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sig_exit
+<BR><BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sig_exit
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
 </UL>
 
 <P><STRONG><a name="[1a9]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
@@ -1100,8 +1100,8 @@ Global Symbols
 <P><STRONG><a name="[1ab]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, indicate_semi.o(.text), UNUSED)
 
 <P><STRONG><a name="[157]"></a>strcmp</STRONG> (Thumb, 128 bytes, Stack size 0 bytes, strcmpv7m.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_ctype
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_numeric
+<BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_numeric
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_ctype
 </UL>
 
 <P><STRONG><a name="[bc]"></a>_ttywrch</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, sys_wrch.o(.text))
@@ -1145,8 +1145,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_e2e
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__btod_div_common
 </UL>
-<BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
+<BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
 <P><STRONG><a name="[ae]"></a>_btod_emul</STRONG> (Thumb, 42 bytes, Stack size 28 bytes, btod.o(CL$$btod_emul))
@@ -1155,8 +1155,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__btod_mult_common
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_e2e
 </UL>
-<BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
+<BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
 <P><STRONG><a name="[c1]"></a>__btod_mult_common</STRONG> (Thumb, 580 bytes, Stack size 16 bytes, btod.o(CL$$btod_mult_common))
@@ -1178,23 +1178,23 @@ Global Symbols
 <P><STRONG><a name="[c6]"></a>GPIO_Init</STRONG> (Thumb, 278 bytes, Stack size 24 bytes, stm32f10x_gpio.o(i.GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_GPIO_Config()
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Servo_PWM_Init(unsigned short, unsigned short)
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM3()
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
+<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to debug_cpp]::OLED_GPIO_Init()
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to debug_cpp]::LED_GPIO_Init()
+<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_GPIO_Config()
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Servo_PWM_Init(unsigned short, unsigned short)
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Motor_PWM_Init(unsigned short, unsigned short)
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM3()
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM2()
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
 <LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::CControl(CDebug*, CEncoder*, CMotor*)
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::CKey()
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_GPIO_Init()
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_GPIO_Init()
 </UL>
 
-<P><STRONG><a name="[f1]"></a>GPIO_PinRemapConfig</STRONG> (Thumb, 138 bytes, Stack size 20 bytes, stm32f10x_gpio.o(i.GPIO_PinRemapConfig))
+<P><STRONG><a name="[f0]"></a>GPIO_PinRemapConfig</STRONG> (Thumb, 138 bytes, Stack size 20 bytes, stm32f10x_gpio.o(i.GPIO_PinRemapConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = GPIO_PinRemapConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
+<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM2()
 </UL>
 
 <P><STRONG><a name="[b]"></a>HardFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(i.HardFault_Handler))
@@ -1296,30 +1296,30 @@ Global Symbols
 <P><STRONG><a name="[11]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x_it.o(i.PendSV_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
-<P><STRONG><a name="[e0]"></a>RCC_APB1PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(i.RCC_APB1PeriphClockCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_Int_Init(unsigned short, unsigned short)
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM3()
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
+<P><STRONG><a name="[ee]"></a>RCC_APB1PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(i.RCC_APB1PeriphClockCmd))
+<BR><BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to timer_cpp]::TIM6_Int_Init(unsigned short, unsigned short)
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM3()
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM2()
 </UL>
 
 <P><STRONG><a name="[c5]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_GPIO_Config()
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Servo_PWM_Init(unsigned short, unsigned short)
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM3()
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
+<BR><BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to debug_cpp]::OLED_GPIO_Init()
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to debug_cpp]::LED_GPIO_Init()
+<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_GPIO_Config()
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Servo_PWM_Init(unsigned short, unsigned short)
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Motor_PWM_Init(unsigned short, unsigned short)
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM3()
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM2()
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
 <LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::CControl(CDebug*, CEncoder*, CMotor*)
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::CKey()
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_GPIO_Init()
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_GPIO_Init()
 </UL>
 
-<P><STRONG><a name="[db]"></a>RCC_GetClocksFreq</STRONG> (Thumb, 192 bytes, Stack size 12 bytes, stm32f10x_rcc.o(i.RCC_GetClocksFreq))
+<P><STRONG><a name="[da]"></a>RCC_GetClocksFreq</STRONG> (Thumb, 192 bytes, Stack size 12 bytes, stm32f10x_rcc.o(i.RCC_GetClocksFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = RCC_GetClocksFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
 </UL>
 
 <P><STRONG><a name="[11e]"></a>RCC_LSEConfig</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, stm32f10x_rcc.o(i.RCC_LSEConfig))
@@ -1330,160 +1330,160 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
 <P><STRONG><a name="[14c]"></a>SysTick_CLKSourceConfig</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, misc.o(i.SysTick_CLKSourceConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
+<BR><BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
 </UL>
 
 <P><STRONG><a name="[12]"></a>SysTick_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x_it.o(i.SysTick_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
 <P><STRONG><a name="[4f]"></a>SystemInit</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, system_stm32f10x.o(i.SystemInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = SystemInit &rArr; SetSysClock &rArr; SetSysClockTo72
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = SystemInit &rArr; [local to system_stm32f10x_c]::SetSysClock() &rArr; [local to system_stm32f10x_c]::SetSysClockTo72()
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
+<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to system_stm32f10x_c]::SetSysClock()
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(.text)
 </UL>
-<P><STRONG><a name="[ed]"></a>TIM_ARRPreloadConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_ARRPreloadConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Servo_PWM_Init(unsigned short, unsigned short)
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
+<P><STRONG><a name="[ea]"></a>TIM_ARRPreloadConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_ARRPreloadConfig))
+<BR><BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Servo_PWM_Init(unsigned short, unsigned short)
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Motor_PWM_Init(unsigned short, unsigned short)
 </UL>
 
-<P><STRONG><a name="[f5]"></a>TIM_ClearFlag</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_ClearFlag))
-<BR><BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM3()
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
+<P><STRONG><a name="[f4]"></a>TIM_ClearFlag</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_ClearFlag))
+<BR><BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM3()
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM2()
 </UL>
 
-<P><STRONG><a name="[e2]"></a>TIM_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_Cmd))
-<BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_Int_Init(unsigned short, unsigned short)
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Servo_PWM_Init(unsigned short, unsigned short)
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM3()
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
+<P><STRONG><a name="[eb]"></a>TIM_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_Cmd))
+<BR><BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to timer_cpp]::TIM6_Int_Init(unsigned short, unsigned short)
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Servo_PWM_Init(unsigned short, unsigned short)
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Motor_PWM_Init(unsigned short, unsigned short)
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM3()
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM2()
 </UL>
 
-<P><STRONG><a name="[e8]"></a>TIM_CtrlPWMOutputs</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_CtrlPWMOutputs))
-<BR><BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Servo_PWM_Init(unsigned short, unsigned short)
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
+<P><STRONG><a name="[e5]"></a>TIM_CtrlPWMOutputs</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_CtrlPWMOutputs))
+<BR><BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Servo_PWM_Init(unsigned short, unsigned short)
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Motor_PWM_Init(unsigned short, unsigned short)
 </UL>
 
-<P><STRONG><a name="[f3]"></a>TIM_EncoderInterfaceConfig</STRONG> (Thumb, 66 bytes, Stack size 20 bytes, stm32f10x_tim.o(i.TIM_EncoderInterfaceConfig))
+<P><STRONG><a name="[f2]"></a>TIM_EncoderInterfaceConfig</STRONG> (Thumb, 66 bytes, Stack size 20 bytes, stm32f10x_tim.o(i.TIM_EncoderInterfaceConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = TIM_EncoderInterfaceConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM3()
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
+<BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM3()
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM2()
 </UL>
 
-<P><STRONG><a name="[cf]"></a>TIM_ICInit</STRONG> (Thumb, 150 bytes, Stack size 16 bytes, stm32f10x_tim.o(i.TIM_ICInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = TIM_ICInit &rArr; TI4_Config
+<P><STRONG><a name="[ce]"></a>TIM_ICInit</STRONG> (Thumb, 150 bytes, Stack size 16 bytes, stm32f10x_tim.o(i.TIM_ICInit))
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = TIM_ICInit &rArr; [local to stm32f10x_tim_c]::TI4_Config(TIM_TypeDef*, unsigned short, unsigned short, unsigned short)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC4Prescaler
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC3Prescaler
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC2Prescaler
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC1Prescaler
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI4_Config
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI3_Config
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI2_Config
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI1_Config
+<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC4Prescaler
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC3Prescaler
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC2Prescaler
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC1Prescaler
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to stm32f10x_tim_c]::TI4_Config(TIM_TypeDef*, unsigned short, unsigned short, unsigned short)
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to stm32f10x_tim_c]::TI3_Config(TIM_TypeDef*, unsigned short, unsigned short, unsigned short)
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to stm32f10x_tim_c]::TI2_Config(TIM_TypeDef*, unsigned short, unsigned short, unsigned short)
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to stm32f10x_tim_c]::TI1_Config(TIM_TypeDef*, unsigned short, unsigned short, unsigned short)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM3()
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
-</UL>
-
-<P><STRONG><a name="[f4]"></a>TIM_ICStructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_ICStructInit))
-<BR><BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM3()
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
+<BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM3()
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM2()
 </UL>
 
-<P><STRONG><a name="[f6]"></a>TIM_ITConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_ITConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM3()
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
+<P><STRONG><a name="[f3]"></a>TIM_ICStructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_ICStructInit))
+<BR><BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM3()
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM2()
 </UL>
 
-<P><STRONG><a name="[e4]"></a>TIM_OC1Init</STRONG> (Thumb, 132 bytes, Stack size 16 bytes, stm32f10x_tim.o(i.TIM_OC1Init))
+<P><STRONG><a name="[f5]"></a>TIM_ITConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_ITConfig))
+<BR><BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM3()
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM2()
+</UL>
+
+<P><STRONG><a name="[e1]"></a>TIM_OC1Init</STRONG> (Thumb, 132 bytes, Stack size 16 bytes, stm32f10x_tim.o(i.TIM_OC1Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM_OC1Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Servo_PWM_Init(unsigned short, unsigned short)
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
+<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Servo_PWM_Init(unsigned short, unsigned short)
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Motor_PWM_Init(unsigned short, unsigned short)
 </UL>
 
-<P><STRONG><a name="[e9]"></a>TIM_OC1PreloadConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_OC1PreloadConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Servo_PWM_Init(unsigned short, unsigned short)
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
+<P><STRONG><a name="[e6]"></a>TIM_OC1PreloadConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_OC1PreloadConfig))
+<BR><BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Servo_PWM_Init(unsigned short, unsigned short)
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Motor_PWM_Init(unsigned short, unsigned short)
 </UL>
 
-<P><STRONG><a name="[e5]"></a>TIM_OC2Init</STRONG> (Thumb, 154 bytes, Stack size 16 bytes, stm32f10x_tim.o(i.TIM_OC2Init))
+<P><STRONG><a name="[e2]"></a>TIM_OC2Init</STRONG> (Thumb, 154 bytes, Stack size 16 bytes, stm32f10x_tim.o(i.TIM_OC2Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM_OC2Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Motor_PWM_Init(unsigned short, unsigned short)
 </UL>
 
-<P><STRONG><a name="[ea]"></a>TIM_OC2PreloadConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_OC2PreloadConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
+<P><STRONG><a name="[e7]"></a>TIM_OC2PreloadConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_OC2PreloadConfig))
+<BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Motor_PWM_Init(unsigned short, unsigned short)
 </UL>
 
-<P><STRONG><a name="[e6]"></a>TIM_OC3Init</STRONG> (Thumb, 150 bytes, Stack size 16 bytes, stm32f10x_tim.o(i.TIM_OC3Init))
+<P><STRONG><a name="[e3]"></a>TIM_OC3Init</STRONG> (Thumb, 150 bytes, Stack size 16 bytes, stm32f10x_tim.o(i.TIM_OC3Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM_OC3Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Motor_PWM_Init(unsigned short, unsigned short)
 </UL>
 
-<P><STRONG><a name="[eb]"></a>TIM_OC3PreloadConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_OC3PreloadConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
+<P><STRONG><a name="[e8]"></a>TIM_OC3PreloadConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_OC3PreloadConfig))
+<BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Motor_PWM_Init(unsigned short, unsigned short)
 </UL>
 
-<P><STRONG><a name="[e7]"></a>TIM_OC4Init</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, stm32f10x_tim.o(i.TIM_OC4Init))
+<P><STRONG><a name="[e4]"></a>TIM_OC4Init</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, stm32f10x_tim.o(i.TIM_OC4Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM_OC4Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Motor_PWM_Init(unsigned short, unsigned short)
 </UL>
 
-<P><STRONG><a name="[ec]"></a>TIM_OC4PreloadConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_OC4PreloadConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
+<P><STRONG><a name="[e9]"></a>TIM_OC4PreloadConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_OC4PreloadConfig))
+<BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Motor_PWM_Init(unsigned short, unsigned short)
 </UL>
 
-<P><STRONG><a name="[f7]"></a>TIM_SetCounter</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_SetCounter))
-<BR><BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM3()
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
+<P><STRONG><a name="[f6]"></a>TIM_SetCounter</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_SetCounter))
+<BR><BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM3()
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM2()
 </UL>
 
-<P><STRONG><a name="[d1]"></a>TIM_SetIC1Prescaler</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_SetIC1Prescaler))
-<BR><BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
+<P><STRONG><a name="[d0]"></a>TIM_SetIC1Prescaler</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_SetIC1Prescaler))
+<BR><BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
 </UL>
 
-<P><STRONG><a name="[d3]"></a>TIM_SetIC2Prescaler</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_SetIC2Prescaler))
-<BR><BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
+<P><STRONG><a name="[d2]"></a>TIM_SetIC2Prescaler</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_SetIC2Prescaler))
+<BR><BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
 </UL>
 
-<P><STRONG><a name="[d5]"></a>TIM_SetIC3Prescaler</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_SetIC3Prescaler))
-<BR><BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
+<P><STRONG><a name="[d4]"></a>TIM_SetIC3Prescaler</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_SetIC3Prescaler))
+<BR><BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
 </UL>
 
-<P><STRONG><a name="[d7]"></a>TIM_SetIC4Prescaler</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_SetIC4Prescaler))
-<BR><BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
+<P><STRONG><a name="[d6]"></a>TIM_SetIC4Prescaler</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_SetIC4Prescaler))
+<BR><BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
 </UL>
 
-<P><STRONG><a name="[e1]"></a>TIM_TimeBaseInit</STRONG> (Thumb, 122 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_TimeBaseInit))
-<BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_Int_Init(unsigned short, unsigned short)
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Servo_PWM_Init(unsigned short, unsigned short)
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM3()
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
+<P><STRONG><a name="[e0]"></a>TIM_TimeBaseInit</STRONG> (Thumb, 122 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_TimeBaseInit))
+<BR><BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to timer_cpp]::TIM6_Int_Init(unsigned short, unsigned short)
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Servo_PWM_Init(unsigned short, unsigned short)
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Motor_PWM_Init(unsigned short, unsigned short)
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM3()
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM2()
 </UL>
 
-<P><STRONG><a name="[f2]"></a>TIM_TimeBaseStructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_TimeBaseStructInit))
-<BR><BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM3()
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
+<P><STRONG><a name="[f1]"></a>TIM_TimeBaseStructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_TimeBaseStructInit))
+<BR><BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM3()
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM2()
 </UL>
 
 <P><STRONG><a name="[38]"></a>USART1_IRQHandler</STRONG> (Thumb, 244 bytes, Stack size 8 bytes, usart.o(i.USART1_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = USART1_IRQHandler &rArr; USART_GetITStatus
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetITStatus
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ClearITPendingBit
+<BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetITStatus
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ClearITPendingBit
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
-<P><STRONG><a name="[d9]"></a>USART_ClearITPendingBit</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, stm32f10x_usart.o(i.USART_ClearITPendingBit))
+<P><STRONG><a name="[d8]"></a>USART_ClearITPendingBit</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, stm32f10x_usart.o(i.USART_ClearITPendingBit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USART_ClearITPendingBit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
@@ -1498,7 +1498,7 @@ Global Symbols
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::SendData(const unsigned char*, unsigned short)
 </UL>
 
-<P><STRONG><a name="[d8]"></a>USART_GetITStatus</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, stm32f10x_usart.o(i.USART_GetITStatus))
+<P><STRONG><a name="[d7]"></a>USART_GetITStatus</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, stm32f10x_usart.o(i.USART_GetITStatus))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = USART_GetITStatus
 </UL>
 <BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
@@ -1510,10 +1510,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
 </UL>
 
-<P><STRONG><a name="[da]"></a>USART_Init</STRONG> (Thumb, 210 bytes, Stack size 56 bytes, stm32f10x_usart.o(i.USART_Init))
+<P><STRONG><a name="[d9]"></a>USART_Init</STRONG> (Thumb, 210 bytes, Stack size 56 bytes, stm32f10x_usart.o(i.USART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = USART_Init &rArr; RCC_GetClocksFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetClocksFreq
+<BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetClocksFreq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
 </UL>
@@ -1582,13 +1582,13 @@ Global Symbols
 <P><STRONG><a name="[ff]"></a>CImu::ReadData()</STRONG> (Thumb, 224 bytes, Stack size 40 bytes, imu.o(i._ZN4CImu8ReadDataEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = CImu::ReadData() &rArr; CImu::MPU9250_READ_ACCEL() &rArr; CImu::MPU9250_Read_Reg(unsigned char, unsigned char) &rArr; IIC_Read_Byte &rArr; IIC_NAck
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_ACCEL()
+<BR>[Calls]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_ACCEL()
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_GYRO()
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_MAG()
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1597,12 +1597,12 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 176 + Unknown Stack Size
 <LI>Call Chain = CImu::CImu(CDebug*) &rArr; asprintf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asprintf
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Write_Reg(unsigned char, unsigned char, unsigned char)
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_Read_Reg(unsigned char, unsigned char)
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asprintf
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1662,7 +1662,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_SetInit()
 </UL>
 
-<P><STRONG><a name="[153]"></a>CPS2::PS2_AnologData(unsigned char)</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, pstwo.o(i._ZN4CPS214PS2_AnologDataEh))
+<P><STRONG><a name="[153]"></a>CPS2::PS2_AnologData(PS2_POLL)</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, pstwo.o(i._ZN4CPS214PS2_AnologDataE8PS2_POLL))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1737,7 +1737,7 @@ Global Symbols
 <P><STRONG><a name="[112]"></a>CTim::CTim(CDebug*)</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, timer.o(i._ZN4CTimC1EP6CDebug))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = CTim::CTim(CDebug*) &rArr; CDebug::ErrorHandle(const char*, const char*) &rArr; CDebug::OLED_ShowString(unsigned char, unsigned char, const char*) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_Int_Init(unsigned short, unsigned short)
+<BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to timer_cpp]::TIM6_Int_Init(unsigned short, unsigned short)
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1748,11 +1748,11 @@ Global Symbols
 <P><STRONG><a name="[113]"></a>CDebug::OLED_Clear()</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, debug.o(i._ZN6CDebug10OLED_ClearEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CDebug::OLED_Clear()
 </UL>
-<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
+<BR>[Called By]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ShowInfo(const char*, const char*)
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
 </UL>
 
 <P><STRONG><a name="[105]"></a>CDebug::ErrorHandle(const char*, const char*)</STRONG> (Thumb, 66 bytes, Stack size 0 bytes, debug.o(i._ZN6CDebug11ErrorHandleEPKcS1_))
@@ -1779,8 +1779,8 @@ Global Symbols
 <P><STRONG><a name="[11a]"></a>CDebug::OLED_WR_Byte(unsigned char, unsigned char)</STRONG> (Thumb, 82 bytes, Stack size 12 bytes, debug.o(i._ZN6CDebug12OLED_WR_ByteEhh))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = CDebug::OLED_WR_Byte(unsigned char, unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Refresh_Gram()
-<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
+<BR>[Called By]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Refresh_Gram()
 </UL>
 
 <P><STRONG><a name="[116]"></a>CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)</STRONG> (Thumb, 170 bytes, Stack size 56 bytes, debug.o(i._ZN6CDebug13OLED_ShowCharEhhhhh))
@@ -1802,7 +1802,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = CDebug::OLED_ShowNumber(unsigned char, unsigned char, unsigned, unsigned char, unsigned char) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
-<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;oled_pow(unsigned char, unsigned char)
+<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to debug_cpp]::oled_pow(unsigned char, unsigned char)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1811,8 +1811,8 @@ Global Symbols
 <P><STRONG><a name="[114]"></a>CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)</STRONG> (Thumb, 76 bytes, Stack size 28 bytes, debug.o(i._ZN6CDebug15OLED_ShowStringEhhPKc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = CDebug::OLED_ShowString(unsigned char, unsigned char, const char*) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Clear()
-<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
+<BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Clear()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
 <LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
@@ -1850,9 +1850,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BKP_TamperPinCmd
 <LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_LSEConfig
 <LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWR_BackupAccessCmd
+<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_WR_Byte(unsigned char, unsigned char)
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Clear()
-<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_WR_Byte(unsigned char, unsigned char)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::CDebug(CKey*)
 </UL>
@@ -1860,11 +1860,11 @@ Global Symbols
 <P><STRONG><a name="[120]"></a>CDebug::CDebug(CKey*)</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, debug.o(i._ZN6CDebugC1EP4CKey))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = CDebug::CDebug(CKey*) &rArr; CDebug::ErrorHandle(const char*, const char*) &rArr; CDebug::OLED_ShowString(unsigned char, unsigned char, const char*) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
-<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
+<BR>[Calls]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::LED_Control(CDebug::LED_STATE, unsigned char)
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_GPIO_Init()
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_GPIO_Init()
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to debug_cpp]::OLED_GPIO_Init()
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to debug_cpp]::LED_GPIO_Init()
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1894,8 +1894,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = CMotor::CMotor(CDebug*) &rArr; CDebug::ErrorHandle(const char*, const char*) &rArr; CDebug::OLED_ShowString(unsigned char, unsigned char, const char*) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Servo_PWM_Init(unsigned short, unsigned short)
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_PWM_Init(unsigned short, unsigned short)
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Servo_PWM_Init(unsigned short, unsigned short)
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to motor_cpp]::Motor_PWM_Init(unsigned short, unsigned short)
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
 </UL>
@@ -1938,7 +1938,7 @@ Global Symbols
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
 <LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
 <LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
 </UL>
@@ -1963,7 +1963,10 @@ Global Symbols
 <P><STRONG><a name="[135]"></a>CControl::Kinematic_Analysis(float, float, int, int)</STRONG> (Thumb, 1248 bytes, Stack size 88 bytes, control.o(i._ZN8CControl18Kinematic_AnalysisEffii))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = CControl::Kinematic_Analysis(float, float, int, int) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
+<BR>[Calls]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Left(int, int)
+<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
 <LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::MotorSpeedSet(short, short)
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowString(unsigned char, unsigned char, const char*)
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowNumber(unsigned char, unsigned char, unsigned, unsigned char, unsigned char)
@@ -1977,9 +1980,6 @@ Global Symbols
 <LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Left(int, int)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -2028,8 +2028,8 @@ Global Symbols
 <P><STRONG><a name="[142]"></a>CEncoder::CEncoder(CDebug*)</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, encoder.o(i._ZN8CEncoderC1EP6CDebug))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = CEncoder::CEncoder(CDebug*) &rArr; CDebug::ErrorHandle(const char*, const char*) &rArr; CDebug::OLED_ShowString(unsigned char, unsigned char, const char*) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM3()
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init_TIM2()
+<BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM3()
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to encoder_cpp]::Encoder_Init_TIM2()
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -2046,14 +2046,14 @@ Global Symbols
 <P><STRONG><a name="[143]"></a>__ieee754_rem_pio2</STRONG> (Thumb, 828 bytes, Stack size 128 bytes, rred.o(i.__ieee754_rem_pio2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = __ieee754_rem_pio2 &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<BR>[Calls]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
 <LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 </UL>
 <BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tan
 </UL>
@@ -2061,8 +2061,8 @@ Global Symbols
 <P><STRONG><a name="[147]"></a>__kernel_poly</STRONG> (Thumb, 170 bytes, Stack size 24 bytes, poly.o(i.__kernel_poly))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = __kernel_poly &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<BR>[Calls]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 </UL>
 <BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
 </UL>
@@ -2070,17 +2070,17 @@ Global Symbols
 <P><STRONG><a name="[148]"></a>__kernel_tan</STRONG> (Thumb, 586 bytes, Stack size 80 bytes, tan_i.o(i.__kernel_tan))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = __kernel_tan &rArr; __kernel_poly &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
+<BR>[Calls]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
-<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 </UL>
 <BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tan
 </UL>
@@ -2109,18 +2109,18 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__printf
 </UL>
 
-<P><STRONG><a name="[dd]"></a>delay_init</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, delay.o(i.delay_init))
+<P><STRONG><a name="[dc]"></a>delay_init</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, delay.o(i.delay_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = delay_init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_CLKSourceConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_init()
+<BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to main_cpp]::System_init()
 </UL>
 
 <P><STRONG><a name="[fb]"></a>delay_ms</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(i.delay_ms))
-<BR><BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_MAG()
+<BR><BR>[Called By]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::MPU9250_READ_MAG()
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::CMotor(CDebug*)
-<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Init()
 </UL>
 
 <P><STRONG><a name="[c3]"></a>delay_us</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(i.delay_us))
@@ -2139,11 +2139,12 @@ Global Symbols
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ReadData()
 </UL>
 
-<P><STRONG><a name="[87]"></a>main</STRONG> (Thumb, 748 bytes, Stack size 1216 bytes, main.o(i.main))
+<P><STRONG><a name="[87]"></a>main</STRONG> (Thumb, 594 bytes, Stack size 1216 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1496 + Unknown Stack Size
 <LI>Call Chain = main &rArr; CControl::Kinematic_Analysis(float, float, int, int) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::CEncoder(CDebug*)
+<BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::CEncoder(CDebug*)
 <LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::Read_REncoder()
 <LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::Read_LEncoder()
 <LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::CControl(CDebug*, CEncoder*, CMotor*)
@@ -2166,18 +2167,15 @@ Global Symbols
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CTim::CTim(CDebug*)
 <LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CTim::WaitForTime(CTim::CNT_STATE, unsigned char)
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::CPS2(CDebug*)
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_AnologData(unsigned char)
+<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_AnologData(PS2_POLL)
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ReadData()
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::CKey()
 <LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::KEY_Click()
 <LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::KEY_Long_Press_Support()
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::CImu(CDebug*)
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ReadData()
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_init()
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to main_cpp]::System_init()
 <LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
-<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
@@ -2226,15 +2224,15 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
 <LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
-<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 </UL>
 
 <P><STRONG><a name="[15b]"></a>_dadd</STRONG> (Thumb, 332 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dretinf
+<BR><BR>[Calls]<UL><LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub1
+<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dretinf
 <LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
-<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub1
 </UL>
 
 <P><STRONG><a name="[15e]"></a>__fpl_dcheck_NaN1</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, dcheck1.o(x$fpl$dcheck1))
@@ -2298,9 +2296,9 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ReadData()
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
 <LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
-<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 </UL>
 
 <P><STRONG><a name="[163]"></a>_dmul</STRONG> (Thumb, 332 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul), UNUSED)
@@ -2309,13 +2307,13 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[15a]"></a>__fpl_dnaninf</STRONG> (Thumb, 156 bytes, Stack size 16 bytes, dnaninf.o(x$fpl$dnaninf), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
+<BR><BR>[Called By]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
 <LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dfixu
 <LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dfix
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ddiv
 <LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub
 <LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
-<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
 </UL>
 
 <P><STRONG><a name="[15d]"></a>__fpl_dretinf</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, dretinf.o(x$fpl$dretinf), UNUSED)
@@ -2346,8 +2344,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[166]"></a>_dsub</STRONG> (Thumb, 464 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd1
+<BR><BR>[Calls]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd1
+<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
 </UL>
 
 <P><STRONG><a name="[136]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
@@ -2392,8 +2390,7 @@ Global Symbols
 <P><STRONG><a name="[140]"></a>__aeabi_f2iz</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, ffix.o(x$fpl$ffix))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2iz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
+<BR>[Called By]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
 <LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Left(int, int)
 </UL>
 
@@ -2413,10 +2410,10 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[133]"></a>__aeabi_i2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt))
-<BR><BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::AnglePretreat(unsigned char)
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
+<BR><BR>[Called By]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
 <LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Left(int, int)
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::AnglePretreat(unsigned char)
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[1b7]"></a>_fflt</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt), UNUSED)
@@ -2426,7 +2423,6 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
 <LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int)
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[16e]"></a>_fcmple</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, fleqf.o(x$fpl$fleqf), UNUSED)
@@ -2441,9 +2437,9 @@ Global Symbols
 <P><STRONG><a name="[123]"></a>__aeabi_fmul</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
+<BR>[Called By]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
 <LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Left(int, int)
+<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
 </UL>
 
 <P><STRONG><a name="[170]"></a>_fmul</STRONG> (Thumb, 258 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul), UNUSED)
@@ -2463,10 +2459,10 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[159]"></a>__fpl_fretinf</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, fretinf.o(x$fpl$fretinf), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fmul
+<BR><BR>[Called By]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
+<LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fmul
 <LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fdiv
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd
-<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
 </UL>
 
 <P><STRONG><a name="[126]"></a>__aeabi_cfrcmple</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, frleqf.o(x$fpl$frleqf))
@@ -2534,139 +2530,139 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[cd]"></a>SetSysClock</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, system_stm32f10x.o(i.SetSysClock))
-<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = SetSysClock &rArr; SetSysClockTo72
+<P><STRONG><a name="[cd]"></a>[local to system_stm32f10x_c]::SetSysClock()</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, system_stm32f10x.o(i._ZN40_INTERNAL_18_system_stm32f10x_c_5d646a6711SetSysClockEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = [local to system_stm32f10x_c]::SetSysClock() &rArr; [local to system_stm32f10x_c]::SetSysClockTo72()
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClockTo72
+<BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to system_stm32f10x_c]::SetSysClockTo72()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 
-<P><STRONG><a name="[ce]"></a>SetSysClockTo72</STRONG> (Thumb, 214 bytes, Stack size 12 bytes, system_stm32f10x.o(i.SetSysClockTo72))
-<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = SetSysClockTo72
+<P><STRONG><a name="[f8]"></a>[local to system_stm32f10x_c]::SetSysClockTo72()</STRONG> (Thumb, 214 bytes, Stack size 12 bytes, system_stm32f10x.o(i._ZN40_INTERNAL_18_system_stm32f10x_c_5d646a6715SetSysClockTo72Ev))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = [local to system_stm32f10x_c]::SetSysClockTo72()
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
-</UL>
-
-<P><STRONG><a name="[d0]"></a>TI1_Config</STRONG> (Thumb, 108 bytes, Stack size 20 bytes, stm32f10x_tim.o(i.TI1_Config))
-<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = TI1_Config
-</UL>
-<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
+<BR>[Called By]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to system_stm32f10x_c]::SetSysClock()
 </UL>
 
-<P><STRONG><a name="[d2]"></a>TI2_Config</STRONG> (Thumb, 130 bytes, Stack size 20 bytes, stm32f10x_tim.o(i.TI2_Config))
-<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = TI2_Config
+<P><STRONG><a name="[cf]"></a>[local to stm32f10x_tim_c]::TI1_Config(TIM_TypeDef*, unsigned short, unsigned short, unsigned short)</STRONG> (Thumb, 108 bytes, Stack size 20 bytes, stm32f10x_tim.o(i._ZN37_INTERNAL_15_stm32f10x_tim_c_c458916b10TI1_ConfigEP11TIM_TypeDefttt))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = [local to stm32f10x_tim_c]::TI1_Config(TIM_TypeDef*, unsigned short, unsigned short, unsigned short)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
-</UL>
-
-<P><STRONG><a name="[d4]"></a>TI3_Config</STRONG> (Thumb, 122 bytes, Stack size 20 bytes, stm32f10x_tim.o(i.TI3_Config))
-<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = TI3_Config
-</UL>
-<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
+<BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
 </UL>
 
-<P><STRONG><a name="[d6]"></a>TI4_Config</STRONG> (Thumb, 130 bytes, Stack size 20 bytes, stm32f10x_tim.o(i.TI4_Config))
-<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = TI4_Config
+<P><STRONG><a name="[d1]"></a>[local to stm32f10x_tim_c]::TI2_Config(TIM_TypeDef*, unsigned short, unsigned short, unsigned short)</STRONG> (Thumb, 130 bytes, Stack size 20 bytes, stm32f10x_tim.o(i._ZN37_INTERNAL_15_stm32f10x_tim_c_c458916b10TI2_ConfigEP11TIM_TypeDefttt))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = [local to stm32f10x_tim_c]::TI2_Config(TIM_TypeDef*, unsigned short, unsigned short, unsigned short)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
+<BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
 </UL>
 
-<P><STRONG><a name="[dc]"></a>System_init()</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, main.o(i._Z11System_initv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = System_init() &rArr; delay_init
+<P><STRONG><a name="[d3]"></a>[local to stm32f10x_tim_c]::TI3_Config(TIM_TypeDef*, unsigned short, unsigned short, unsigned short)</STRONG> (Thumb, 122 bytes, Stack size 20 bytes, stm32f10x_tim.o(i._ZN37_INTERNAL_15_stm32f10x_tim_c_c458916b10TI3_ConfigEP11TIM_TypeDefttt))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = [local to stm32f10x_tim_c]::TI3_Config(TIM_TypeDef*, unsigned short, unsigned short, unsigned short)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
+<BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
+</UL>
+
+<P><STRONG><a name="[d5]"></a>[local to stm32f10x_tim_c]::TI4_Config(TIM_TypeDef*, unsigned short, unsigned short, unsigned short)</STRONG> (Thumb, 130 bytes, Stack size 20 bytes, stm32f10x_tim.o(i._ZN37_INTERNAL_15_stm32f10x_tim_c_c458916b10TI4_ConfigEP11TIM_TypeDefttt))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = [local to stm32f10x_tim_c]::TI4_Config(TIM_TypeDef*, unsigned short, unsigned short, unsigned short)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
+</UL>
+
+<P><STRONG><a name="[db]"></a>[local to main_cpp]::System_init()</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, main.o(i._ZN25_INTERNAL_8_main_cpp_main11System_initEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = [local to main_cpp]::System_init() &rArr; delay_init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f0]"></a>Encoder_Init_TIM2()</STRONG> (Thumb, 200 bytes, Stack size 32 bytes, encoder.o(i._Z17Encoder_Init_TIM2v))
-<BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = Encoder_Init_TIM2() &rArr; TIM_ICInit &rArr; TI4_Config
+<P><STRONG><a name="[ef]"></a>[local to encoder_cpp]::Encoder_Init_TIM2()</STRONG> (Thumb, 200 bytes, Stack size 32 bytes, encoder.o(i._ZN33_INTERNAL_11_encoder_cpp_c282109617Encoder_Init_TIM2Ev))
+<BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = [local to encoder_cpp]::Encoder_Init_TIM2() &rArr; TIM_ICInit &rArr; [local to stm32f10x_tim_c]::TI4_Config(TIM_TypeDef*, unsigned short, unsigned short, unsigned short)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinRemapConfig
+<BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinRemapConfig
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseStructInit
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCounter
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICStructInit
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_EncoderInterfaceConfig
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearFlag
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseStructInit
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCounter
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICStructInit
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_EncoderInterfaceConfig
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearFlag
 </UL>
 <BR>[Called By]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::CEncoder(CDebug*)
 </UL>
 
-<P><STRONG><a name="[f8]"></a>Encoder_Init_TIM3()</STRONG> (Thumb, 148 bytes, Stack size 32 bytes, encoder.o(i._Z17Encoder_Init_TIM3v))
-<BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = Encoder_Init_TIM3() &rArr; TIM_ICInit &rArr; TI4_Config
+<P><STRONG><a name="[f7]"></a>[local to encoder_cpp]::Encoder_Init_TIM3()</STRONG> (Thumb, 148 bytes, Stack size 32 bytes, encoder.o(i._ZN33_INTERNAL_11_encoder_cpp_c282109617Encoder_Init_TIM3Ev))
+<BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = [local to encoder_cpp]::Encoder_Init_TIM3() &rArr; TIM_ICInit &rArr; [local to stm32f10x_tim_c]::TI4_Config(TIM_TypeDef*, unsigned short, unsigned short, unsigned short)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseStructInit
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCounter
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICStructInit
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_EncoderInterfaceConfig
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearFlag
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseStructInit
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCounter
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICStructInit
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_EncoderInterfaceConfig
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearFlag
 </UL>
 <BR>[Called By]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::CEncoder(CDebug*)
 </UL>
 
-<P><STRONG><a name="[e3]"></a>Motor_PWM_Init(unsigned short, unsigned short)</STRONG> (Thumb, 192 bytes, Stack size 48 bytes, motor.o(i._Z14Motor_PWM_Inittt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = Motor_PWM_Init(unsigned short, unsigned short) &rArr; GPIO_Init
+<P><STRONG><a name="[df]"></a>[local to motor_cpp]::Motor_PWM_Init(unsigned short, unsigned short)</STRONG> (Thumb, 192 bytes, Stack size 48 bytes, motor.o(i._ZN30_INTERNAL_9_motor_cpp_0548bb2914Motor_PWM_InitEtt))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = [local to motor_cpp]::Motor_PWM_Init(unsigned short, unsigned short) &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4PreloadConfig
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4Init
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC3PreloadConfig
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC3Init
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2PreloadConfig
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2Init
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1PreloadConfig
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1Init
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_CtrlPWMOutputs
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ARRPreloadConfig
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4PreloadConfig
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4Init
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC3PreloadConfig
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC3Init
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2PreloadConfig
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2Init
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1PreloadConfig
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1Init
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_CtrlPWMOutputs
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ARRPreloadConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::CMotor(CDebug*)
 </UL>
 
-<P><STRONG><a name="[ef]"></a>Servo_PWM_Init(unsigned short, unsigned short)</STRONG> (Thumb, 148 bytes, Stack size 48 bytes, motor.o(i._Z14Servo_PWM_Inittt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = Servo_PWM_Init(unsigned short, unsigned short) &rArr; GPIO_Init
+<P><STRONG><a name="[ec]"></a>[local to motor_cpp]::Servo_PWM_Init(unsigned short, unsigned short)</STRONG> (Thumb, 148 bytes, Stack size 48 bytes, motor.o(i._ZN30_INTERNAL_9_motor_cpp_0548bb2914Servo_PWM_InitEtt))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = [local to motor_cpp]::Servo_PWM_Init(unsigned short, unsigned short) &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1PreloadConfig
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1Init
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_CtrlPWMOutputs
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ARRPreloadConfig
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1PreloadConfig
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1Init
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_CtrlPWMOutputs
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ARRPreloadConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::CMotor(CDebug*)
 </UL>
 
-<P><STRONG><a name="[df]"></a>TIM6_Int_Init(unsigned short, unsigned short)</STRONG> (Thumb, 50 bytes, Stack size 24 bytes, timer.o(i._Z13TIM6_Int_Inittt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = TIM6_Int_Init(unsigned short, unsigned short)
+<P><STRONG><a name="[ed]"></a>[local to timer_cpp]::TIM6_Int_Init(unsigned short, unsigned short)</STRONG> (Thumb, 50 bytes, Stack size 24 bytes, timer.o(i._ZN30_INTERNAL_9_timer_cpp_1e739adc13TIM6_Int_InitEtt))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = [local to timer_cpp]::TIM6_Int_Init(unsigned short, unsigned short)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
+<BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CTim::CTim(CDebug*)
 </UL>
 
-<P><STRONG><a name="[de]"></a>LED_GPIO_Init()</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, debug.o(i._Z13LED_GPIO_Initv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = LED_GPIO_Init() &rArr; GPIO_Init
+<P><STRONG><a name="[dd]"></a>[local to debug_cpp]::LED_GPIO_Init()</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, debug.o(i._ZN30_INTERNAL_9_debug_cpp_3bafe52b13LED_GPIO_InitEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = [local to debug_cpp]::LED_GPIO_Init() &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
@@ -2674,8 +2670,8 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::CDebug(CKey*)
 </UL>
 
-<P><STRONG><a name="[ee]"></a>OLED_GPIO_Init()</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, debug.o(i._Z14OLED_GPIO_Initv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = OLED_GPIO_Init() &rArr; GPIO_Init
+<P><STRONG><a name="[de]"></a>[local to debug_cpp]::OLED_GPIO_Init()</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, debug.o(i._ZN30_INTERNAL_9_debug_cpp_3bafe52b14OLED_GPIO_InitEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = [local to debug_cpp]::OLED_GPIO_Init() &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
@@ -2683,8 +2679,8 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::CDebug(CKey*)
 </UL>
 
-<P><STRONG><a name="[119]"></a>oled_pow(unsigned char, unsigned char)</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, debug.o(i._Z8oled_powhh))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = oled_pow(unsigned char, unsigned char)
+<P><STRONG><a name="[119]"></a>[local to debug_cpp]::oled_pow(unsigned char, unsigned char)</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, debug.o(i._ZN30_INTERNAL_9_debug_cpp_3bafe52b8oled_powEhh))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = [local to debug_cpp]::oled_pow(unsigned char, unsigned char)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowNumber(unsigned char, unsigned char, unsigned, unsigned char, unsigned char)
 </UL>
@@ -2712,11 +2708,11 @@ Local Symbols
 <P><STRONG><a name="[aa]"></a>_fp_digits</STRONG> (Thumb, 432 bytes, Stack size 96 bytes, _printf_fp_dec.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 220<LI>Call Chain = _fp_digits &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ll_udiv10
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_emul
+<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_emul
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_ediv
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_d2e
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ll_udiv10
 </UL>
 <BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
 </UL>

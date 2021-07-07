@@ -4,24 +4,6 @@
 
 bool CPS2::is_unique = 1;
 const u8 CPS2::Comd[2]={0x01,0x42};	//开始命令。请求数据
-const u16 CPS2::MASK[16]={
-        PSB_SELECT,
-        PSB_L3,
-        PSB_R3 ,
-        PSB_START,
-        PSB_PAD_UP,
-        PSB_PAD_RIGHT,
-        PSB_PAD_DOWN,
-        PSB_PAD_LEFT,
-        PSB_L2,
-        PSB_R2,
-        PSB_L1,
-        PSB_R1 ,
-        PSB_GREEN,
-        PSB_RED,
-        PSB_BLUE,
-        PSB_PINK
-        };  //按键值与按键明
 
 CPS2::CPS2(CDebug* const _debug)
     :debug(_debug)
@@ -121,21 +103,29 @@ void CPS2::PS2_ReadData(void)
     HandKey=(Data[4]<<8)|Data[3]; //这是16个按键，用与来存储在无符号16位数中
 }
 
-//对读出来的PS2的数据进行处理,只处理按键部分  
-//只有一个按键按下时按下为0， 未按下为1
- bool CPS2::PS2_KeyPressed(u16 key)
+//对按键进行处理，输入参数是想要检测的按键，可以！按位与！
+//所有输入按键只要有一个按下就会返回真
+//只检测上升沿，而且同时输入的按键分开计算第一次按下
+ bool CPS2::PS2_IfKeyBnClicked(enum PS2_KEY _key)
 {
-    static bool flag_key = 0; //按键标志
-    if(HandKey&key)
-        return flag_key?0:flag_key = 1;
+    u16 key = (u16)_key;
+    static u16 pressed_key = 0;
+    if((HandKey & key) && !(pressed_key & key))
+    {
+        pressed_key |= (key & HandKey);
+        return true;
+    }
     else
-        return flag_key = 0;
+    {
+        pressed_key &= HandKey;
+        return false;
+    }
 }
 
 //得到一个摇杆的模拟量  范围0~256
-u8 CPS2::PS2_AnologData(u8 button)
+u8 CPS2::PS2_AnologData(enum PS2_POLL _poll)
 {
-    return Data[button];
+    return Data[(u8)_poll];
 }
 
 //清除数据缓冲区

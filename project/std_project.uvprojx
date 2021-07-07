@@ -336,7 +336,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls></MiscControls>
+              <MiscControls>--cpp11</MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
               <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\imu;..\User\HARDWARE\key;..\User\HARDWARE\oled;..\User\Sys\delay;..\User\Sys\sys;..\User\Sys\usart;..\User\Sys\debug;..\User\Control;..\User\Communication;..\User\HARDWARE\ENCODER;..\User\HARDWARE\LED;..\User\HARDWARE\MOTOR;..\User\HARDWARE\PS2;..\User\HARDWARE\TIMER;..\User\HARDWARE\USART</IncludePath>

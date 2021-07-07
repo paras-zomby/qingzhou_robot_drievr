@@ -61,20 +61,20 @@ int main()
         {
             //读取遥控器按键
             ps2.PS2_ReadData();
-//            //如果select按键按下切换模式
-//            if(PSB_SELECT & ps2.PS2_ReturnPressedKey())
-//                debug.mode = 2;
+            //如果select按键按下切换模式
+//            if(ps2.PS2_IfKeyBnClicked())
+                debug.mode = 2;
             //执行遥控器命令
             int Lencoder = encoder.Read_LEncoder();
             int Rencoder = encoder.Read_REncoder();
-            control.Kinematic_Analysis(control.SpeedPretreat(ps2.PS2_AnologData(PSS_LY)),
-                                        control.AnglePretreat(ps2.PS2_AnologData(PSS_RX)),
+            control.Kinematic_Analysis(control.SpeedPretreat(ps2.PS2_AnologData(PS2_POLL::PSS_LY)),
+                                        control.AnglePretreat(ps2.PS2_AnologData(PS2_POLL::PSS_RX)),
                                          Lencoder, Rencoder);
             //=============第1行显示遥控器接收值=======================//
             debug.OLED_ShowString(00,00,"LY");
-            debug.OLED_ShowNumber(15,00,ps2.PS2_AnologData(PSS_LY),5,12);
+            debug.OLED_ShowNumber(15,00,ps2.PS2_AnologData(PS2_POLL::PSS_LY),5,12);
             debug.OLED_ShowString(80,00,"RX");
-            debug.OLED_ShowNumber(95,00,ps2.PS2_AnologData(PSS_RX),4,12);
+            debug.OLED_ShowNumber(95,00,ps2.PS2_AnologData(PS2_POLL::PSS_RX),4,12);
             
             debug.OLED_Refresh_Gram();
             debug.OLED_Clear();
@@ -93,27 +93,27 @@ int main()
 //                    debug.mode = 1;
 //            }
             
-//            if(time_flag%2 == 0)//20ms per time: 2,4,6,8,10
-//            {
-//                int Lencoder = encoder.Read_LEncoder();
-//                int Rencoder = encoder.Read_REncoder();
-//                control.Kinematic_Analysis(rdata.Speed, rdata.Angle, Lencoder, Rencoder);
-//                sdata.Lencoder += Lencoder;
-//                sdata.Rencoder += Rencoder;
-//            }
+            if(time_flag%2 == 0)//20ms per time: 2,4,6,8,10
+            {
+                int Lencoder = encoder.Read_LEncoder();
+                int Rencoder = encoder.Read_REncoder();
+                control.Kinematic_Analysis(rdata.Speed, rdata.Angle, Lencoder, Rencoder);
+                sdata.Lencoder += Lencoder;
+                sdata.Rencoder += Rencoder;
+            }
             if(time_flag == 3)// 100ms per time: 3
             {
                 //debug.ShowInfo("Nano Control", "");imu.ShowData_OLED();
-//                //第三行显示收到的Speed和Angle数据。
-                debug.OLED_ShowString(0,10,"Nano Control");
-                if(rdata.Angle<0) debug.OLED_ShowString(00,30,"-"),
-                     debug.OLED_ShowNumber(15,30,-(int)rdata.Angle,5,12);
-                else debug.OLED_ShowString(0,30,"+"),
-                     debug.OLED_ShowNumber(15,30, (int)rdata.Angle,5,12);
-                if(rdata.Speed<0) debug.OLED_ShowString(80,30,"-"),
-                      debug.OLED_ShowNumber(95,30,-(int)rdata.Speed,4,12);
-                else  debug.OLED_ShowString(80,30,"+"),
-                      debug.OLED_ShowNumber(95,30, (int)rdata.Speed,4,12);
+//                //第三行显示收到的Speed和Angle数据。如果开启上面的control类的控制函数就不用了。
+//                debug.OLED_ShowString(0,10,"Nano Control");
+//                if(rdata.Angle<0) debug.OLED_ShowString(00,30,"-"),
+//                     debug.OLED_ShowNumber(15,30,-(int)rdata.Angle,5,12);
+//                else debug.OLED_ShowString(0,30,"+"),
+//                     debug.OLED_ShowNumber(15,30, (int)rdata.Angle,5,12);
+//                if(rdata.Speed<0) debug.OLED_ShowString(80,30,"-"),
+//                      debug.OLED_ShowNumber(95,30,-(int)rdata.Speed,4,12);
+//                else  debug.OLED_ShowString(80,30,"+"),
+//                      debug.OLED_ShowNumber(95,30, (int)rdata.Speed,4,12);
                 
                 debug.OLED_Refresh_Gram();
                 debug.OLED_Clear();
@@ -129,12 +129,9 @@ int main()
             if(time_flag %5 == 2)//50ms per time: 2,7
             {
 //                debug.LED_Control(CDebug::LED_OPEN);
-                sdata.Lencoder = encoder.Read_LEncoder();
-                sdata.Rencoder = encoder.Read_REncoder();
                 usart.SendData(CUSART::std_head, sizeof(CUSART::std_head));
                 usart.SendData(sdata);
                 usart.SendData(CUSART::std_tail, sizeof(CUSART::std_tail));
-                sdata.Lencoder = sdata.Rencoder = 0;
 //                debug.LED_Control(CDebug::LED_CLOSE);
             }  
             
