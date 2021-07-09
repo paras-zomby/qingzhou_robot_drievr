@@ -5,10 +5,6 @@
 #define L 0.29f
 
 
-#define PRINT_DEBUG_INFO(...) {char* pstr=NULL;asprintf(&pstr,__VA_ARGS__);debug->InfoHandle("CONTROL",pstr);free(pstr);}
-#define PRINT_ERROR_INFO(...) {char* pstr=NULL;asprintf(&pstr,__VA_ARGS__);debug->ErrorHandle("CONTROL",pstr);free(pstr);}
-
-
 bool CControl::is_unique = 1;
 
 CControl::CControl(CDebug* const _debug,CEncoder* const _encoder, CMotor* const _motor)
@@ -28,6 +24,8 @@ CControl::CControl(CDebug* const _debug,CEncoder* const _encoder, CMotor* const 
         
         is_unique = 0;
     }
+    else
+        debug->ErrorHandle("Control", "Class has been redefined");
 }
 
 CControl::~CControl()

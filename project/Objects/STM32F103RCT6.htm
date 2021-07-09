@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\STM32F103RCT6.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\STM32F103RCT6.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Jul 09 11:50:02 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Jul 09 15:13:39 2021
 <BR><P>
 <H3>Maximum Stack Usage =       1496 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1773,6 +1773,7 @@ Global Symbols
 <LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Clear()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::CEncoder(CDebug*)
+<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::CControl(CDebug*, CEncoder*, CMotor*)
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::CMotor(CDebug*)
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::CDebug(CKey*)
@@ -2020,11 +2021,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
 </UL>
 
-<P><STRONG><a name="[142]"></a>CControl::CControl(CDebug*, CEncoder*, CMotor*)</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, control.o(i._ZN8CControlC1EP6CDebugP8CEncoderP6CMotor))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = CControl::CControl(CDebug*, CEncoder*, CMotor*) &rArr; GPIO_Init
+<P><STRONG><a name="[142]"></a>CControl::CControl(CDebug*, CEncoder*, CMotor*)</STRONG> (Thumb, 80 bytes, Stack size 24 bytes, control.o(i._ZN8CControlC1EP6CDebugP8CEncoderP6CMotor))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = CControl::CControl(CDebug*, CEncoder*, CMotor*) &rArr; CDebug::ErrorHandle(const char*, const char*) &rArr; CDebug::OLED_ShowString(unsigned char, unsigned char, const char*) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
