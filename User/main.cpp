@@ -83,7 +83,7 @@ int main()
             if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_PAD_DOWN))
                 control.Kinematic_Analysis(0, Angle, encoder.Read_LEncoder(), encoder.Read_REncoder());
             else
-                control.Kinematic_Analysis(Speed, Angle, encoder.Read_LEncoder(), encoder.Read_REncoder());
+                control.Kinematic_Analysis(Speed, Angle, encoder.Read_LEncoder(), encoder.Read_REncoder(), false);
             
             //=============第1行显示遥控器接收值=======================//
             debug.OLED_ShowString(00,00,"LY");
