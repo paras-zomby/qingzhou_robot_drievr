@@ -56,6 +56,7 @@ short CControl::Incremental_PI_Right(int Encoder,int Target)
     Pwm += Velocity_KP*(Bias-Last_bias) + Velocity_KI*Bias;   //增量式PI控制器
     INSHEREHOLD(-7200, Pwm, 7200)
     Last_bias=Bias;                   //保存上一次偏差
+    
     if(ABS(Encoder)<3&&Target==0) Pwm=0,Last_bias=0;
     
     return (short)Pwm;                         //增量输出
@@ -71,15 +72,15 @@ void CControl::Kinematic_Analysis(float velocity,float angle, int Lencoder, int 
     INSHEREHOLD(-5500, velocity, 5500)  //为了保证差速的有效性而进行的限幅
     INSHEREHOLD(-36.0f, angle, 36.0f)   //同时限制了输入的电机速度和舵机角度。
     
-    int velocity_lf,velocity_rt;
+    int velocity_lf, velocity_rt;
     
     
     double Tand = tan(angle/57.3);                 //Tand = tan(θ)，左转tan(θ)>0;右转tan(θ)<0。
                                                    //C是从舵机转角换算到小车转向角θ的转换参数。
     
     //左右后轮的差速公式
-    velocity_lf = velocity*(1-T*Tand/2/L);
-    velocity_rt = -velocity*(1+T*Tand/2/L);
+    velocity_lf = velocity*(1+T*Tand/2/L);
+    velocity_rt = -velocity*(1-T*Tand/2/L);
     
     
     //=============第2行显示左右电机速度理论值=======================//

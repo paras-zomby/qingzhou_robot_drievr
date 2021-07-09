@@ -62,7 +62,7 @@ int main()
             //读取遥控器按键
             ps2.PS2_ReadData();
             //如果select按键按下切换模式
-//            if(ps2.PS2_IfKeyBnClicked())
+            if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PSB_START))
                 debug.mode = 2;
             //执行遥控器命令
             int Lencoder = encoder.Read_LEncoder();
@@ -85,13 +85,13 @@ int main()
         {
             if(usart.IsDataRefreshed()) rdata = usart.RecvData();
             
-//            if(time_flag == 9)// 100ms per time: 9
-//            {
-//                ps2.PS2_ReadData();
-//                //如果select按键按下切换模式
-//                if(PSB_SELECT & ps2.PS2_ReturnPressedKey())
-//                    debug.mode = 1;
-//            }
+            if(time_flag == 9)// 100ms per time: 9
+            {
+                ps2.PS2_ReadData();
+                //如果select按键按下切换模式
+                if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PSB_START))
+                    debug.mode = 1;
+            }
             
             if(time_flag%2 == 0)//20ms per time: 2,4,6,8,10
             {
@@ -103,9 +103,8 @@ int main()
             }
             if(time_flag == 3)// 100ms per time: 3
             {
-                //debug.ShowInfo("Nano Control", "");imu.ShowData_OLED();
+                debug.OLED_ShowString(0,0,"Nano Control");
 //                //第三行显示收到的Speed和Angle数据。如果开启上面的control类的控制函数就不用了。
-//                debug.OLED_ShowString(0,10,"Nano Control");
 //                if(rdata.Angle<0) debug.OLED_ShowString(00,30,"-"),
 //                     debug.OLED_ShowNumber(15,30,-(int)rdata.Angle,5,12);
 //                else debug.OLED_ShowString(0,30,"+"),
@@ -132,6 +131,8 @@ int main()
                 usart.SendData(CUSART::std_head, sizeof(CUSART::std_head));
                 usart.SendData(sdata);
                 usart.SendData(CUSART::std_tail, sizeof(CUSART::std_tail));
+                sdata.Lencoder = 0;
+                sdata.Rencoder = 0;                
 //                debug.LED_Control(CDebug::LED_CLOSE);
             }  
             
