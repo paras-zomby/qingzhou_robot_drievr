@@ -50,26 +50,41 @@ int main()
         //按键和LED的支持函数
         key.KEY_Long_Press_Support();
         debug.LED_Flash_Support();
-        if(key.KEY_Click())
+        //判断遥控器切换模式的指令
+        //如果STM32板子按键按下或者SELECT按键按下，切换模式
+        if(key.KEY_Click() || ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_SELECT))
         {
             debug.mode = (debug.mode>=2)? 1:(debug.mode+1);
             time_flag = 1;
-            debug.OLED_Clear();
-            debug.OLED_Refresh_Gram();
         }
-            if(debug.mode == 1)
+        //如果CIRCLE按键按下切换Nano控制模式
+        if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_CIRCLE))
+        {
+            debug.mode = 2;time_flag = 1;
+            debug.LED_Control(LED_STATE::LED_OPEN);
+        }
+        //如果SQUARE按键按下切换手动控制模式
+        if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_SQUARE))
+        {
+            debug.mode = 1;
+            debug.LED_Control(LED_STATE::LED_CLOSE);
+        }
+        if(debug.mode == 1) //手动控制模式
         {
             //读取遥控器按键
             ps2.PS2_ReadData();
-            //如果select按键按下切换模式
-            if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PSB_START))
-                debug.mode = 2;
             //执行遥控器命令
-            int Lencoder = encoder.Read_LEncoder();
-            int Rencoder = encoder.Read_REncoder();
-            control.Kinematic_Analysis(control.SpeedPretreat(ps2.PS2_AnologData(PS2_POLL::PSS_LY)),
-                                        control.AnglePretreat(ps2.PS2_AnologData(PS2_POLL::PSS_RX)),
-                                         Lencoder, Rencoder);
+            float Speed = control.SpeedPretreat(ps2.PS2_AnologData(PS2_POLL::PSS_LY));
+            float Angle = control.AnglePretreat(ps2.PS2_AnologData(PS2_POLL::PSS_RX));
+            
+            if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L2)) Speed = 55;
+            if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_R2)) Speed = -55;
+            
+            if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_PAD_DOWN)) 
+                control.Kinematic_Analysis(0, Angle, encoder.Read_LEncoder(), encoder.Read_REncoder());
+            else
+                control.Kinematic_Analysis(Speed, Angle, encoder.Read_LEncoder(), encoder.Read_REncoder(), false);
+            
             //=============第1行显示遥控器接收值=======================//
             debug.OLED_ShowString(00,00,"LY");
             debug.OLED_ShowNumber(15,00,ps2.PS2_AnologData(PS2_POLL::PSS_LY),5,12);
@@ -88,9 +103,6 @@ int main()
             if(time_flag == 9)// 100ms per time: 9
             {
                 ps2.PS2_ReadData();
-                //如果select按键按下切换模式
-                if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PSB_START))
-                    debug.mode = 1;
             }
             
             if(time_flag%2 == 0)//20ms per time: 2,4,6,8,10

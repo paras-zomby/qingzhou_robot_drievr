@@ -34,7 +34,7 @@ CDebug::CDebug(CKey* const _key)
     {
         OLED_GPIO_Init();
         LED_GPIO_Init();
-        LED_Control(LED_CLOSE);
+        LED_Control(LED_STATE::LED_CLOSE);
         OLED_Init();
         is_unique = 0;
     }
@@ -105,11 +105,11 @@ void CDebug::DEBUG_GPIO_Change(void)
 **************************LED²¿·Ö******************************
 */
 
-void CDebug::LED_Control(LED_STATE state, u8 flashtime_100ms)
+void CDebug::LED_Control(enum LED_STATE state, u8 flashtime_100ms)
 {
-    if(state==LED_CLOSE || state==LED_OPEN)
+    if(state==LED_STATE::LED_CLOSE || state==LED_STATE::LED_OPEN)
     {
-        PBout(13) = state;flashtime = 0;
+        PBout(13) = (u8)state;flashtime = 0;
     }
     else
         flashtime = flashtime_100ms;

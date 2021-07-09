@@ -131,6 +131,6 @@ void CMotor::MotorBrake()
 void CMotor::ServoCompareSet(float angle)
 {
     float Servo = SERVO_INIT - angle*K;
-    INSHEREHOLD(1160,Servo,1880)
+    //INSHEREHOLD(1160,Servo,1880)
     SERVO = Servo;
 }

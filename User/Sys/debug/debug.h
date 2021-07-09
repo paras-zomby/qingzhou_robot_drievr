@@ -13,6 +13,12 @@
 #define INSHEREHOLD(left,tar,right) if(tar<(left))tar=(left);else if(tar>(right))tar=(right);
 #define ABS(a) ((a)>=0?(a):-(a))
 
+enum class LED_STATE:unsigned char{
+    LED_CLOSE = 1,
+    LED_OPEN = 0,
+    LED_FLASH = 2
+};//LED 开关状态的枚举
+
 //包括LED、OLED的底层和通过OLED打印INFO的调试函数
 class CDebug
 {
@@ -40,12 +46,7 @@ public:
     void DEBUG_GPIO_Init(void);
     void DEBUG_GPIO_Change(void);
     //LED部分
-    enum LED_STATE{
-        LED_CLOSE = 1,
-        LED_OPEN = 0,
-        LED_FLASH
-    };//LED 开关状态的枚举
-    void LED_Control(LED_STATE state, u8 flashtime_100ms = 10);
+    void LED_Control(enum LED_STATE state, u8 flashtime_100ms = 10);
     void LED_Flash_Support(void);
 
     //OLED部分

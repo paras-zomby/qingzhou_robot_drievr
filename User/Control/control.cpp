@@ -67,10 +67,10 @@ short CControl::Incremental_PI_Right(int Encoder,int Target)
  *
  */
 
-void CControl::Kinematic_Analysis(float velocity,float angle, int Lencoder, int Rencoder)
+void CControl::Kinematic_Analysis(float velocity,float angle, int Lencoder, int Rencoder, bool PID_swtich)
 {
-    INSHEREHOLD(-5500, velocity, 5500)  //为了保证差速的有效性而进行的限幅
-    INSHEREHOLD(-36.0f, angle, 36.0f)   //同时限制了输入的电机速度和舵机角度。
+    INSHEREHOLD(-60, velocity, 60)  //为了保证差速的有效性而进行的限幅,比直线电机速度最大值要小。
+    INSHEREHOLD(-36.0f, angle, 36.0f)  //同时限制了输入的电机速度和舵机角度。
     
     int velocity_lf, velocity_rt;
     
@@ -82,8 +82,7 @@ void CControl::Kinematic_Analysis(float velocity,float angle, int Lencoder, int 
     velocity_lf = velocity*(1+T*Tand/2/L);
     velocity_rt = -velocity*(1-T*Tand/2/L);
     
-    
-    //=============第2行显示左右电机速度理论值=======================//
+    //=============第2行显示左右电机差速后速度理论值=======================//
     if( velocity_lf<0)  debug->OLED_ShowString(00,10,"-"),
                        debug->OLED_ShowNumber(15,10,-velocity_lf,5,12);
     else                debug->OLED_ShowString(0,10,"+"),
@@ -92,23 +91,30 @@ void CControl::Kinematic_Analysis(float velocity,float angle, int Lencoder, int 
                        debug->OLED_ShowNumber(95,10,-velocity_rt,4,12);
     else                debug->OLED_ShowString(80,10,"+"),
                        debug->OLED_ShowNumber(95,10, velocity_rt,4,12);
+    
+    if(PID_swtich)
+    {
+        
+        velocity_lf = Incremental_PI_Left(Lencoder, velocity_lf);
+        velocity_rt = Incremental_PI_Right(Rencoder, velocity_rt);
 
-    velocity_lf = Incremental_PI_Left(Lencoder, velocity_lf);
-    velocity_rt = Incremental_PI_Right(Rencoder, velocity_rt);
-
-    motor->MotorSpeedSet(velocity_lf, velocity_rt);
+        motor->MotorSpeedSet(velocity_lf, velocity_rt);
+            //=============第3行显示PWM的实际设定值=======================//
+        if( velocity_lf<0)  debug->OLED_ShowString(00,20,"-"),
+                           debug->OLED_ShowNumber(15,20,-velocity_lf,5,12);
+        else                debug->OLED_ShowString(0,20,"+"),
+                           debug->OLED_ShowNumber(15,20, velocity_lf,5,12);
+        if( velocity_rt<0) debug->OLED_ShowString(80,20,"-"),
+                           debug->OLED_ShowNumber(95,20,-velocity_rt,4,12);
+        else                debug->OLED_ShowString(80,20,"+"),
+                           debug->OLED_ShowNumber(95,20, velocity_rt,4,12);
+    }
+    else
+        motor->MotorSpeedSet(velocity_lf*100, velocity_rt*100);
+    
     motor->ServoCompareSet(angle);
     
     //*************************************************************
-    //=============第3行显示PWM的实际设定值=======================//
-    if( velocity_lf<0)  debug->OLED_ShowString(00,20,"-"),
-                       debug->OLED_ShowNumber(15,20,-velocity_lf,5,12);
-    else                debug->OLED_ShowString(0,20,"+"),
-                       debug->OLED_ShowNumber(15,20, velocity_lf,5,12);
-    if( velocity_rt<0) debug->OLED_ShowString(80,20,"-"),
-                       debug->OLED_ShowNumber(95,20,-velocity_rt,4,12);
-    else                debug->OLED_ShowString(80,20,"+"),
-                       debug->OLED_ShowNumber(95,20, velocity_rt,4,12);
     //=============第4行显示编码器的状态=======================//
     if(Lencoder<0) debug->OLED_ShowString(00,30,"-"),
                         debug->OLED_ShowNumber(15,30,-Lencoder,5,12);
@@ -134,9 +140,13 @@ void CControl::Kinematic_Analysis(float velocity,float angle, int Lencoder, int 
                        debug->OLED_ShowNumber(95,50, angle,4,12);
 }
 
-int CControl::SpeedPretreat(u8 PSS)
+float CControl::SpeedPretreat(u8 PSS)
 {
-    return (PSS-127)*2/3;
+    if(ABS(PSS-128)>2)
+        return (127-PSS)*2/3.0f;
+    else
+        return 0.0f;
+    
 }
 
 float CControl::AnglePretreat(u8 PSS)

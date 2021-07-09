@@ -22,8 +22,8 @@ public:
     CControl(CDebug* const _debug, CEncoder* const _encoder, CMotor* const _motor);
     ~CControl();
     
-    void Kinematic_Analysis(float velocity,float angle, int Lencoder, int Rencoder);
-    int SpeedPretreat(u8 PSS);
+    void Kinematic_Analysis(float velocity,float angle, int Lencoder, int Rencoder, bool PID_swtich = true);
+    float SpeedPretreat(u8 PSS);
     float AnglePretreat(u8 PSS);
 
 };

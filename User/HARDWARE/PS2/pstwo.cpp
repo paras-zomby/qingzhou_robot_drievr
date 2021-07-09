@@ -85,7 +85,7 @@ void CPS2::PS2_ReadData(void)
     CS_L;
     PS2_Cmd(Comd[0]);  //开始命令
     PS2_Cmd(Comd[1]);  //请求数据
-    for(byte=2;byte<9;byte++)          //开始接受数据
+    for(byte=2;byte<9;++byte)          //开始接受数据
     {
         for(ref=0x01;ref<0x100;ref<<=1)
         {
@@ -100,7 +100,9 @@ void CPS2::PS2_ReadData(void)
         delay_us(16);
     }
     CS_H;
-    HandKey=(Data[4]<<8)|Data[3]; //这是16个按键，用与来存储在无符号16位数中
+    HandKey=~((Data[3]<<8)|Data[4]); //这是16个按键，用与来存储在无符号16位数中
+                                     //其中，原数据按下的按键对应位是0，没按下的按键对应位是1。
+                                     //通过取反操作，变成按下1松开0。
 }
 
 //对按键进行处理，输入参数是想要检测的按键，可以！按位与！
@@ -120,6 +122,11 @@ void CPS2::PS2_ReadData(void)
         pressed_key &= HandKey;
         return false;
     }
+}
+
+bool CPS2::PS2_IfKeyBnPressed(enum PS2_KEY _key)
+{
+    return (HandKey & (u16)_key);
 }
 
 //得到一个摇杆的模拟量  范围0~256

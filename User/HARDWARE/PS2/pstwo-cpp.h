@@ -54,22 +54,22 @@ enum class PS2_POLL:unsigned char{
 };
 
 enum class PS2_KEY:unsigned short{
-    PSB_L2      =   0x8000,
-    PSB_R2      =   0x4000,
-    PSB_L1      =   0x2000,
-    PSB_R1      =   0x1000,
-    PSB_TRIANGLE=   0x0800,
-    PSB_CIRCLE  =   0x0400,
-    PSB_CROSS   =   0x0200,
-    PSB_SQUARE  =   0x0100,
-    PSB_SELECT  =   0x0080,
-    PSB_L3      =   0x0040,
-    PSB_R3      =   0x0020,
-    PSB_START   =   0x0010,
-    PSB_PAD_UP  =   0x0008,
-    PSB_PAD_RIGHT=  0x0004,
-    PSB_PAD_DOWN=   0x0002,
-    PSB_PAD_LEFT=   0x0001
+    PS2B_PAD_LEFT   =   0x8000,//LEFT
+    PS2B_PAD_DOWN   =   0x4000,//DOWN
+    PS2B_PAD_RIGHT  =   0x2000,//RIGHT
+    PS2B_PAD_UP     =   0x1000,//UP
+    PS2B_START      =   0x0800,//START
+    PS2B_R3         =   0x0400,//R3
+    PS2B_L3         =   0x0200,//L3
+    PS2B_SELECT     =   0x0100,//SELECT
+    PS2B_SQUARE     =   0x0080,//SQUARE
+    PS2B_CROSS      =   0x0040,//CROSS
+    PS2B_CIRCLE      =   0x0020,//CIRCLE
+    PS2B_TRIANGLE    =   0x0010,//TRIANGLE
+    PS2B_R1         =   0x0008,//R1
+    PS2B_L1         =   0x0004,//L1
+    PS2B_R2         =   0x0002,//R2
+    PS2B_L2         =   0x0001 //L2
 };
 
 class CPS2
@@ -97,6 +97,7 @@ public:
     ~CPS2();
     void PS2_ReadData(void); //读手柄数据
     bool PS2_IfKeyBnClicked(enum PS2_KEY _key);   //指定按键是否按下
+    bool PS2_IfKeyBnPressed(enum PS2_KEY _key);   //指定按键是否正在按下
     u8 PS2_AnologData(enum PS2_POLL _poll); //得到一个摇杆的模拟量
 };
 
