@@ -37,12 +37,12 @@ CControl::~CControl()
 short CControl::Incremental_PI_Left(int Encoder,int Target)
 {
     static int Pwm,Last_bias;
-    int Bias = Encoder-Target;                //计算偏差
+    int Bias = Target - Encoder;                //计算偏差
     Pwm += Velocity_KP*(Bias-Last_bias)+Velocity_KI*Bias;   //增量式PI控制器
     INSHEREHOLD(-7200, Pwm, 7200)
-    Last_bias=Bias;	                   //保存上一次偏差
+    Last_bias=Bias;                    //保存上一次偏差
     
-    if(ABS(Encoder)<3&&Target==0) Pwm=0,Last_bias=0;
+    if(ABS(Encoder)<3 && Target==0) Pwm=0,Last_bias=0;
     
     return (short)Pwm;                         //增量输出
 }
@@ -50,12 +50,12 @@ short CControl::Incremental_PI_Left(int Encoder,int Target)
 short CControl::Incremental_PI_Right(int Encoder,int Target)
 {
     static int Bias,Pwm,Last_bias;
-    Bias = Encoder-Target;                //计算偏差
+    Bias = Target - Encoder;                //计算偏差
     Pwm += Velocity_KP*(Bias-Last_bias) + Velocity_KI*Bias;   //增量式PI控制器
     INSHEREHOLD(-7200, Pwm, 7200)
     Last_bias=Bias;                   //保存上一次偏差
     
-    if(ABS(Encoder)<3&&Target==0) Pwm=0,Last_bias=0;
+    if(ABS(Encoder)<3 && Target==0) Pwm=0,Last_bias=0;
     
     return (short)Pwm;                         //增量输出
 }
@@ -67,7 +67,7 @@ short CControl::Incremental_PI_Right(int Encoder,int Target)
 
 void CControl::Kinematic_Analysis(float velocity,float angle, int Lencoder, int Rencoder, bool PID_swtich)
 {
-    INSHEREHOLD(-60, velocity, 60)  //为了保证差速的有效性而进行的限幅,比直线电机速度最大值要小。
+    INSHEREHOLD(-70, velocity, 70)  //为了保证差速的有效性而进行的限幅,比直线电机速度最大值要小。
     INSHEREHOLD(-36.0f, angle, 36.0f)  //同时限制了输入的电机速度和舵机角度。
     
     int velocity_lf, velocity_rt;
@@ -78,7 +78,7 @@ void CControl::Kinematic_Analysis(float velocity,float angle, int Lencoder, int 
     
     //左右后轮的差速公式
     velocity_lf = velocity*(1+T*Tand/2/L);
-    velocity_rt = -velocity*(1-T*Tand/2/L);
+    velocity_rt = velocity*(1-T*Tand/2/L);
     
     //=============第2行显示左右电机差速后速度理论值=======================//
     if( velocity_lf<0)  debug->OLED_ShowString(00,10,"-"),

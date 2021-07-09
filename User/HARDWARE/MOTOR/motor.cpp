@@ -114,8 +114,8 @@ void CMotor::MotorSpeedSet(short l_speed, short r_speed)
     if(l_speed>0) PWMA1=7200,PWMA2=7200-l_speed;
     else          PWMA2=7200,PWMA1=7200+l_speed;
 
-    if(r_speed>0) PWMB1=7200,PWMB2=7200-r_speed;
-    else          PWMB2=7200,PWMB1=7200+r_speed;
+    if(r_speed>0) PWMB2=7200,PWMB1=7200-r_speed;
+    else          PWMB1=7200,PWMB2=7200+r_speed;
 }
 
 //电机设置为刹车

@@ -13,8 +13,6 @@ INSHEREHOLD(-36.0f, angle, 36.0f)   //同时限制了输入的电机速度和舵机角度。
 
 
 前进时：        左 右
-set_velocity    ++ --
-   PWM          ++ --
-   encoder      -- ++
-
-在前进时，左侧编码器读数为负，右侧为正。
+set_velocity    ++ ++
+   PWM          ++ ++
+   encoder      ++ ++

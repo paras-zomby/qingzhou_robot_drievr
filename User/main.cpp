@@ -77,13 +77,13 @@ int main()
             float Speed = control.SpeedPretreat(ps2.PS2_AnologData(PS2_POLL::PSS_LY));
             float Angle = control.AnglePretreat(ps2.PS2_AnologData(PS2_POLL::PSS_RX));
             
-            if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L2)) Speed = 55;
-            if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_R2)) Speed = -55;
+            if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L2)) Speed = 55.0f;
+            if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_R2)) Speed = -55.0f;
             
-            if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_PAD_DOWN)) 
+            if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_PAD_DOWN))
                 control.Kinematic_Analysis(0, Angle, encoder.Read_LEncoder(), encoder.Read_REncoder());
             else
-                control.Kinematic_Analysis(Speed, Angle, encoder.Read_LEncoder(), encoder.Read_REncoder(), false);
+                control.Kinematic_Analysis(Speed, Angle, encoder.Read_LEncoder(), encoder.Read_REncoder());
             
             //=============第1行显示遥控器接收值=======================//
             debug.OLED_ShowString(00,00,"LY");
@@ -116,15 +116,15 @@ int main()
             if(time_flag == 3)// 100ms per time: 3
             {
                 debug.OLED_ShowString(0,0,"Nano Control");
-//                //第三行显示收到的Speed和Angle数据。如果开启上面的control类的控制函数就不用了。
+                //第三行显示收到的Speed和Angle数据。如果开启上面的control类的控制函数就不用了。
 //                if(rdata.Angle<0) debug.OLED_ShowString(00,30,"-"),
-//                     debug.OLED_ShowNumber(15,30,-(int)rdata.Angle,5,12);
+//                     debug.OLED_ShowNumber(15,30,-(int)rdata.Speed,5,12);
 //                else debug.OLED_ShowString(0,30,"+"),
-//                     debug.OLED_ShowNumber(15,30, (int)rdata.Angle,5,12);
+//                     debug.OLED_ShowNumber(15,30, (int)rdata.Speed,5,12);
 //                if(rdata.Speed<0) debug.OLED_ShowString(80,30,"-"),
-//                      debug.OLED_ShowNumber(95,30,-(int)rdata.Speed,4,12);
+//                      debug.OLED_ShowNumber(95,30,-(int)rdata.Angle,4,12);
 //                else  debug.OLED_ShowString(80,30,"+"),
-//                      debug.OLED_ShowNumber(95,30, (int)rdata.Speed,4,12);
+//                      debug.OLED_ShowNumber(95,30, (int)rdata.Angle,4,12);
                 
                 debug.OLED_Refresh_Gram();
                 debug.OLED_Clear();
@@ -144,7 +144,7 @@ int main()
                 usart.SendData(sdata);
                 usart.SendData(CUSART::std_tail, sizeof(CUSART::std_tail));
                 sdata.Lencoder = 0;
-                sdata.Rencoder = 0;                
+                sdata.Rencoder = 0;
 //                debug.LED_Control(CDebug::LED_CLOSE);
             }  
             

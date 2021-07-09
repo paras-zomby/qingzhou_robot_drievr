@@ -102,7 +102,7 @@ int CEncoder::Read_LEncoder()
 {
     int tmp = (((short)TIM2->CNT)*11/17);
     TIM2->CNT = 0;
-    return tmp;
+    return -tmp;
 }
 
 int CEncoder::Read_REncoder()
