@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\STM32F103RCT6.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\STM32F103RCT6.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Jul 09 16:36:18 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Jul 09 22:00:28 2021
 <BR><P>
 <H3>Maximum Stack Usage =       1496 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1662,7 +1662,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_SetInit()
 </UL>
 
-<P><STRONG><a name="[153]"></a>CPS2::PS2_AnologData(PS2_POLL)</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, pstwo.o(i._ZN4CPS214PS2_AnologDataE8PS2_POLL))
+<P><STRONG><a name="[155]"></a>CPS2::PS2_AnologData(PS2_POLL)</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, pstwo.o(i._ZN4CPS214PS2_AnologDataE8PS2_POLL))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1699,7 +1699,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[154]"></a>CPS2::PS2_IfKeyBnPressed(PS2_KEY)</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, pstwo.o(i._ZN4CPS218PS2_IfKeyBnPressedE7PS2_KEY))
+<P><STRONG><a name="[156]"></a>CPS2::PS2_IfKeyBnPressed(PS2_KEY)</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, pstwo.o(i._ZN4CPS218PS2_IfKeyBnPressedE7PS2_KEY))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -2033,11 +2033,11 @@ Global Symbols
 
 <P><STRONG><a name="[1b5]"></a>CControl::CControl__sub_object(CDebug*, CEncoder*, CMotor*)</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, control.o(i._ZN8CControlC1EP6CDebugP8CEncoderP6CMotor), UNUSED)
 
-<P><STRONG><a name="[156]"></a>CEncoder::Read_LEncoder()</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, encoder.o(i._ZN8CEncoder13Read_LEncoderEv))
+<P><STRONG><a name="[153]"></a>CEncoder::Read_LEncoder()</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, encoder.o(i._ZN8CEncoder13Read_LEncoderEv))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[155]"></a>CEncoder::Read_REncoder()</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, encoder.o(i._ZN8CEncoder13Read_REncoderEv))
+<P><STRONG><a name="[154]"></a>CEncoder::Read_REncoder()</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, encoder.o(i._ZN8CEncoder13Read_REncoderEv))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -2155,14 +2155,14 @@ Global Symbols
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ReadData()
 </UL>
 
-<P><STRONG><a name="[87]"></a>main</STRONG> (Thumb, 748 bytes, Stack size 1216 bytes, main.o(i.main))
+<P><STRONG><a name="[87]"></a>main</STRONG> (Thumb, 846 bytes, Stack size 1216 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1496 + Unknown Stack Size
 <LI>Call Chain = main &rArr; CControl::Kinematic_Analysis(float, float, int, int, bool) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::CEncoder(CDebug*)
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::Read_REncoder()
-<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::Read_LEncoder()
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::Read_REncoder()
+<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::Read_LEncoder()
 <LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::CControl(CDebug*, CEncoder*, CMotor*)
 <LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
 <LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::SpeedPretreat(unsigned char)
@@ -2184,9 +2184,9 @@ Global Symbols
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CTim::CTim(CDebug*)
 <LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CTim::WaitForTime(CTim::CNT_STATE, unsigned char)
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::CPS2(CDebug*)
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_IfKeyBnPressed(PS2_KEY)
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_IfKeyBnPressed(PS2_KEY)
 <LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_IfKeyBnClicked(PS2_KEY)
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_AnologData(PS2_POLL)
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_AnologData(PS2_POLL)
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ReadData()
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::CKey()
 <LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::KEY_Click()

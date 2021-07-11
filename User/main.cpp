@@ -66,35 +66,64 @@ int main()
         //如果SQUARE按键按下切换手动控制模式
         if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_SQUARE))
         {
-            debug.mode = 1;
+            debug.mode = 1;time_flag = 1;
             debug.LED_Control(LED_STATE::LED_CLOSE);
         }
         if(debug.mode == 1) //手动控制模式
         {
-            //读取遥控器按键
-            ps2.PS2_ReadData();
-            //执行遥控器命令
-            float Speed = control.SpeedPretreat(ps2.PS2_AnologData(PS2_POLL::PSS_LY));
-            float Angle = control.AnglePretreat(ps2.PS2_AnologData(PS2_POLL::PSS_RX));
+//            if(time_flag == 9)// 100ms per time: 9
+//            {
+//                
+//            }
+//            if(time_flag == 3)// 100ms per time: 3
+//            {
+//                
+//            }
+            if(time_flag%2 == 0)//20ms per time: 2,4,6,8,10
+            {
+                ps2.PS2_ReadData();
+                //执行遥控器命令
+                int Lencoder = encoder.Read_LEncoder();
+                int Rencoder = encoder.Read_REncoder();
+                float Speed = control.SpeedPretreat(ps2.PS2_AnologData(PS2_POLL::PSS_LY));
+                float Angle = control.AnglePretreat(ps2.PS2_AnologData(PS2_POLL::PSS_RX));
+                if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L2)) Speed = 55.0f;
+                if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L1)) Speed = -55.0f;
+                
+                if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_PAD_DOWN))
+                    control.Kinematic_Analysis(0, Angle, Lencoder, Rencoder);
+                else
+                    control.Kinematic_Analysis(Speed, Angle, Lencoder, Rencoder, false);
+                sdata.Lencoder += Lencoder;
+                sdata.Rencoder += Rencoder;
+            }
             
-            if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L2)) Speed = 55.0f;
-            if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_R2)) Speed = -55.0f;
+            if(time_flag == 1 || time_flag == 5)// ~~50ms per time: 1,5
+            {
+                const float* p = imu.ReadData();
+                for(u8 i = 0; i < 9; ++i)
+                    sdata.data[i] = p[i];
+            }
             
-            if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_PAD_DOWN))
-                control.Kinematic_Analysis(0, Angle, encoder.Read_LEncoder(), encoder.Read_REncoder());
-            else
-                control.Kinematic_Analysis(Speed, Angle, encoder.Read_LEncoder(), encoder.Read_REncoder(), false);
+            if(time_flag %5 == 2)//50ms per time: 2,7
+            {
+                usart.SendData(CUSART::std_head, sizeof(CUSART::std_head));
+                usart.SendData(sdata);
+                usart.SendData(CUSART::std_tail, sizeof(CUSART::std_tail));
+                sdata.Lencoder = 0;
+                sdata.Rencoder = 0;
+            }
             
-            //=============第1行显示遥控器接收值=======================//
-            debug.OLED_ShowString(00,00,"LY");
-            debug.OLED_ShowNumber(15,00,ps2.PS2_AnologData(PS2_POLL::PSS_LY),5,12);
-            debug.OLED_ShowString(80,00,"RX");
-            debug.OLED_ShowNumber(95,00,ps2.PS2_AnologData(PS2_POLL::PSS_RX),4,12);
-            
-            debug.OLED_Refresh_Gram();
-            debug.OLED_Clear();
-            
-            tim.WaitForTime(CTim::CNT_END, 20);         //总周期20ms
+            if(time_flag == 3)
+            {
+                //=============第1行显示遥控器接收值=======================//
+                debug.OLED_ShowString(00,00,"LY");
+                debug.OLED_ShowNumber(15,00,ps2.PS2_AnologData(PS2_POLL::PSS_LY),5,12);
+                debug.OLED_ShowString(80,00,"RX");
+                debug.OLED_ShowNumber(95,00,ps2.PS2_AnologData(PS2_POLL::PSS_RX),4,12);
+                debug.OLED_Refresh_Gram();
+                debug.OLED_Clear();
+            }
         }
         else if(debug.mode == 2)
         {
@@ -139,18 +168,15 @@ int main()
             
             if(time_flag %5 == 2)//50ms per time: 2,7
             {
-//                debug.LED_Control(CDebug::LED_OPEN);
                 usart.SendData(CUSART::std_head, sizeof(CUSART::std_head));
                 usart.SendData(sdata);
                 usart.SendData(CUSART::std_tail, sizeof(CUSART::std_tail));
                 sdata.Lencoder = 0;
                 sdata.Rencoder = 0;
-//                debug.LED_Control(CDebug::LED_CLOSE);
-            }  
-            
-            time_flag = time_flag>=10?1:time_flag+1;
-            tim.WaitForTime(CTim::CNT_END, 10);         //单次周期10ms
+            }    
         }
+        time_flag = time_flag>=10?1:time_flag+1;
+        tim.WaitForTime(CTim::CNT_END, 10);         //单次周期10ms
     }
 }
 
