@@ -93,13 +93,12 @@ int main()
                 int Rencoder = encoder.Read_REncoder();
                 float Speed = control.SpeedPretreat(ps2.PS2_AnologData(PS2_POLL::PSS_LY));
                 float Angle = control.AnglePretreat(ps2.PS2_AnologData(PS2_POLL::PSS_RX));
-                if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L2)) Speed = 55.0f;
-                if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L1)) Speed = -55.0f;
+                if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_R2)) Speed = 55.0f;
+                if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_R1)) Speed = -55.0f;
+                if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L2)) Speed = 25.0f;
+                if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L1)) Speed = -25.0f;
                 
-                if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_PAD_DOWN))
-                    control.Kinematic_Analysis(0, Angle, Lencoder, Rencoder);
-                else
-                    control.Kinematic_Analysis(Speed, Angle, Lencoder, Rencoder, PID_swtich);
+                control.Kinematic_Analysis(Speed, Angle, Lencoder, Rencoder, PID_swtich);
                 sdata.Lencoder += Lencoder;
                 sdata.Rencoder += Rencoder;
             }
@@ -142,8 +141,8 @@ int main()
             
             if(time_flag%2 == 0)//20ms per time: 2,4,6,8,10
             {
-                int Lencoder = encoder.Read_LEncoder();
-                int Rencoder = encoder.Read_REncoder();
+                int Lencoder = control.kallman_filtering_left(encoder.Read_LEncoder());
+                int Rencoder = control.kallman_filtering_right(encoder.Read_REncoder());
                 control.Kinematic_Analysis(rdata.Speed, rdata.Angle, Lencoder, Rencoder);
                 sdata.Lencoder += Lencoder;
                 sdata.Rencoder += Rencoder;
@@ -172,7 +171,7 @@ int main()
                     sdata.data[i] = p[i];
             }
             
-            if(time_flag %5 == 2)//50ms per time: 2,7
+            if(time_flag %5 == 2)//50ms per time: 2,7°É
             {
                 usart.SendData(CUSART::std_head, sizeof(CUSART::std_head));
                 usart.SendData(sdata);

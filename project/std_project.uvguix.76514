@@ -89,8 +89,8 @@
       <flags>2</flags>
       <showCmd>3</showCmd>
       <MinPosition>
-        <xPos>-1</xPos>
-        <yPos>-1</yPos>
+        <xPos>-32000</xPos>
+        <yPos>-32000</yPos>
       </MinPosition>
       <MaxPosition>
         <xPos>-1</xPos>
@@ -3602,9 +3602,9 @@
       <ActiveTab>0</ActiveTab>
       <Doc>
         <Name>..\User\main.cpp</Name>
-        <ColumnNumber>91</ColumnNumber>
-        <TopLine>90</TopLine>
-        <CurrentLine>102</CurrentLine>
+        <ColumnNumber>35</ColumnNumber>
+        <TopLine>1</TopLine>
+        <CurrentLine>90</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
@@ -3620,52 +3620,52 @@
       </Doc>
       <Doc>
         <Name>..\User\HARDWARE\USART\usart.cpp</Name>
-        <ColumnNumber>35</ColumnNumber>
+        <ColumnNumber>5</ColumnNumber>
         <TopLine>8</TopLine>
-        <CurrentLine>9</CurrentLine>
+        <CurrentLine>89</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
         <Name>..\User\HARDWARE\USART\usart-cpp.h</Name>
-        <ColumnNumber>20</ColumnNumber>
-        <TopLine>2</TopLine>
-        <CurrentLine>17</CurrentLine>
+        <ColumnNumber>16</ColumnNumber>
+        <TopLine>1</TopLine>
+        <CurrentLine>1</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
         <Name>..\User\HARDWARE\ENCODER\encoder.cpp</Name>
-        <ColumnNumber>23</ColumnNumber>
-        <TopLine>88</TopLine>
-        <CurrentLine>108</CurrentLine>
+        <ColumnNumber>4</ColumnNumber>
+        <TopLine>37</TopLine>
+        <CurrentLine>111</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
         <Name>..\Doc\Readme.txt</Name>
-        <ColumnNumber>21</ColumnNumber>
+        <ColumnNumber>13</ColumnNumber>
         <TopLine>1</TopLine>
-        <CurrentLine>18</CurrentLine>
+        <CurrentLine>25</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
         <Name>..\User\Control\control.cpp</Name>
-        <ColumnNumber>31</ColumnNumber>
-        <TopLine>74</TopLine>
-        <CurrentLine>40</CurrentLine>
+        <ColumnNumber>11</ColumnNumber>
+        <TopLine>100</TopLine>
+        <CurrentLine>69</CurrentLine>
         <Folding>0</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
         <Name>..\User\Control\control.h</Name>
-        <ColumnNumber>32</ColumnNumber>
+        <ColumnNumber>46</ColumnNumber>
         <TopLine>5</TopLine>
         <CurrentLine>26</CurrentLine>
         <Folding>1</Folding>
@@ -3675,7 +3675,7 @@
       <Doc>
         <Name>..\User\HARDWARE\MOTOR\motor.cpp</Name>
         <ColumnNumber>1</ColumnNumber>
-        <TopLine>110</TopLine>
+        <TopLine>80</TopLine>
         <CurrentLine>119</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>

@@ -60,10 +60,47 @@ short CControl::Incremental_PI_Right(int Encoder,int Target)
     return (short)Pwm;                         //增量输出
 }
 
-/*
- *
- *
- */
+float CControl::kallman_filtering_left(float N_t)
+{
+    static int N;
+
+    static double P = 0;
+
+    float K,R=0.5,Q=0.10;//R=0.5,Q=0.1
+
+    N=N;//+a*t   //速度获得，由于智能车全程中以匀速运动居多，估计值
+
+    P=P+Q;  // 当前预估计值的协方差矩阵
+
+    K=P/(P+R);// 卡尔曼系数
+
+    N=N+K*(N_t-N);//矫正——得到最优质
+
+    P=(1-K);//最优值的协方差矩阵
+    
+    return N;
+}
+
+float CControl::kallman_filtering_right(float N_t)
+{
+    static int N;
+
+    static double P = 0;
+
+    float K,R=0.5,Q=0.10;//R=0.5,Q=0.1
+
+    N=N;//+a*t   //速度获得，由于智能车全程中以匀速运动居多，估计值
+
+    P=P+Q;  // 当前预估计值的协方差矩阵
+
+    K=P/(P+R);// 卡尔曼系数
+
+    N=N+K*(N_t-N);//矫正——得到最优质
+
+    P=(1-K);//最优值的协方差矩阵
+    
+    return N;
+}
 
 void CControl::Kinematic_Analysis(float velocity,float angle, int Lencoder, int Rencoder, bool PID_swtich)
 {
@@ -86,9 +123,9 @@ void CControl::Kinematic_Analysis(float velocity,float angle, int Lencoder, int 
     else                debug->OLED_ShowString(0,10,"+"),
                        debug->OLED_ShowNumber(15,10, velocity_lf,5,12);
     if( velocity_rt<0) debug->OLED_ShowString(80,10,"-"),
-                       debug->OLED_ShowNumber(95,10,-velocity_rt,4,12);
+                       debug->OLED_ShowNumber(95,10,-velocity_rt,5,12);
     else                debug->OLED_ShowString(80,10,"+"),
-                       debug->OLED_ShowNumber(95,10, velocity_rt,4,12);
+                       debug->OLED_ShowNumber(95,10, velocity_rt,5,12);
     
     if(PID_swtich)
     {
@@ -103,9 +140,9 @@ void CControl::Kinematic_Analysis(float velocity,float angle, int Lencoder, int 
         else                debug->OLED_ShowString(0,20,"+"),
                            debug->OLED_ShowNumber(15,20, velocity_lf,5,12);
         if( velocity_rt<0) debug->OLED_ShowString(80,20,"-"),
-                           debug->OLED_ShowNumber(95,20,-velocity_rt,4,12);
+                           debug->OLED_ShowNumber(95,20,-velocity_rt,5,12);
         else                debug->OLED_ShowString(80,20,"+"),
-                           debug->OLED_ShowNumber(95,20, velocity_rt,4,12);
+                           debug->OLED_ShowNumber(95,20, velocity_rt,5,12);
     }
     else
         motor->MotorSpeedSet(velocity_lf*100, velocity_rt*100);
@@ -119,9 +156,9 @@ void CControl::Kinematic_Analysis(float velocity,float angle, int Lencoder, int 
     else                    debug->OLED_ShowString(0,30,"+"),
                            debug->OLED_ShowNumber(15,30, Lencoder,5,12);
     if( Rencoder<0)    debug->OLED_ShowString(80,30,"-"),
-                           debug->OLED_ShowNumber(95,30,-Rencoder,4,12);
+                           debug->OLED_ShowNumber(95,30,-Rencoder,5,12);
     else                    debug->OLED_ShowString(80,30,"+"),
-                           debug->OLED_ShowNumber(95,30, Rencoder,4,12);
+                           debug->OLED_ShowNumber(95,30, Rencoder,5,12);
 
     //=============第5行显示舵机的状态=======================//
     debug->OLED_ShowString(00,40, "Servo:"),                //舵机状态
@@ -133,9 +170,9 @@ void CControl::Kinematic_Analysis(float velocity,float angle, int Lencoder, int 
     else                debug->OLED_ShowString(0,50,"+"),
                        debug->OLED_ShowNumber(15,50, velocity,5,12);
     if( angle<0) debug->OLED_ShowString(80,50,"-"),
-                       debug->OLED_ShowNumber(95,50,-angle,4,12);
+                       debug->OLED_ShowNumber(95,50,-angle,5,12);
     else                debug->OLED_ShowString(80,50,"+"),
-                       debug->OLED_ShowNumber(95,50, angle,4,12);
+                       debug->OLED_ShowNumber(95,50, angle,5,12);
 }
 
 float CControl::SpeedPretreat(u8 PSS)
