@@ -14,6 +14,7 @@ public:
     const static u8 std_head[3], std_tail[3];
     struct Data_Sended{
         float data[9];
+        float Angle;
         int Rencoder, Lencoder;
     };
     struct Data_Recieved{

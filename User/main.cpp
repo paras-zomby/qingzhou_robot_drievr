@@ -40,9 +40,10 @@ int main()
     
     //临时变量初始化
     CUSART::Data_Recieved rdata = {0.0f, 0.0f};
-    CUSART::Data_Sended sdata = {0};
+    CUSART::Data_Sended sdata = {0.0f};
     u8 time_flag = 1;
-
+    bool PID_swtich = false;
+    
     debug.ShowInfo("debug", "Into While");
     while(1)
     {
@@ -69,6 +70,11 @@ int main()
             debug.mode = 1;time_flag = 1;
             debug.LED_Control(LED_STATE::LED_CLOSE);
         }
+        if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_TRIANGLE))
+            PID_swtich = true;
+        if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_CROSS))
+            PID_swtich = false;
+        
         if(debug.mode == 1) //手动控制模式
         {
 //            if(time_flag == 9)// 100ms per time: 9
@@ -93,7 +99,7 @@ int main()
                 if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_PAD_DOWN))
                     control.Kinematic_Analysis(0, Angle, Lencoder, Rencoder);
                 else
-                    control.Kinematic_Analysis(Speed, Angle, Lencoder, Rencoder, false);
+                    control.Kinematic_Analysis(Speed, Angle, Lencoder, Rencoder, PID_swtich);
                 sdata.Lencoder += Lencoder;
                 sdata.Rencoder += Rencoder;
             }
