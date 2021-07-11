@@ -42,7 +42,9 @@ int main()
     CUSART::Data_Recieved rdata = {0.0f, 0.0f};
     CUSART::Data_Sended sdata = {0.0f};
     u8 time_flag = 1;
-    bool PID_swtich = false;
+    int Lencoder, Rencoder;
+    bool PID_switch = false;
+    bool KF_switch = false;
     
     debug.ShowInfo("debug", "Into While");
     while(1)
@@ -70,11 +72,14 @@ int main()
             debug.mode = 1;time_flag = 1;
             debug.LED_Control(LED_STATE::LED_CLOSE);
         }
+//        if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_TRIANGLE))
+//            PID_switch = true;
+//        if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_CROSS))
+//            PID_switch = false;
         if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_TRIANGLE))
-            PID_swtich = true;
+            KF_switch = true;
         if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_CROSS))
-            PID_swtich = false;
-        
+            KF_switch = false;
         if(debug.mode == 1) //手动控制模式
         {
 //            if(time_flag == 9)// 100ms per time: 9
@@ -89,8 +94,8 @@ int main()
             {
                 ps2.PS2_ReadData();
                 //执行遥控器命令
-                int Lencoder = encoder.Read_LEncoder();
-                int Rencoder = encoder.Read_REncoder();
+                Lencoder = KF_switch?control.kallman_filtering_left(encoder.Read_LEncoder()):encoder.Read_LEncoder();
+                Rencoder = KF_switch?control.kallman_filtering_right(encoder.Read_REncoder()):encoder.Read_REncoder();
                 float Speed = control.SpeedPretreat(ps2.PS2_AnologData(PS2_POLL::PSS_LY));
                 float Angle = control.AnglePretreat(ps2.PS2_AnologData(PS2_POLL::PSS_RX));
                 if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_R2)) Speed = 55.0f;
@@ -98,7 +103,7 @@ int main()
                 if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L2)) Speed = 25.0f;
                 if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L1)) Speed = -25.0f;
                 
-                control.Kinematic_Analysis(Speed, Angle, Lencoder, Rencoder, PID_swtich);
+                control.Kinematic_Analysis(Speed, Angle, Lencoder, Rencoder, PID_switch);
                 sdata.Lencoder += Lencoder;
                 sdata.Rencoder += Rencoder;
             }
@@ -141,8 +146,8 @@ int main()
             
             if(time_flag%2 == 0)//20ms per time: 2,4,6,8,10
             {
-                int Lencoder = control.kallman_filtering_left(encoder.Read_LEncoder());
-                int Rencoder = control.kallman_filtering_right(encoder.Read_REncoder());
+                Lencoder = KF_switch?control.kallman_filtering_left(encoder.Read_LEncoder()):encoder.Read_LEncoder();
+                Rencoder = KF_switch?control.kallman_filtering_right(encoder.Read_REncoder()):encoder.Read_REncoder();
                 control.Kinematic_Analysis(rdata.Speed, rdata.Angle, Lencoder, Rencoder);
                 sdata.Lencoder += Lencoder;
                 sdata.Rencoder += Rencoder;
