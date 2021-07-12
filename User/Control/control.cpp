@@ -105,7 +105,7 @@ float CControl::kallman_filtering_right(float N_t)
 void CControl::Kinematic_Analysis(float velocity,float angle, int Lencoder, int Rencoder, bool PID_swtich)
 {
     INSHEREHOLD(-70, velocity, 70)  //为了保证差速的有效性而进行的限幅,比直线电机速度最大值要小。
-    INSHEREHOLD(-36.0f, angle, 36.0f)  //同时限制了输入的电机速度和舵机角度。
+    INSHEREHOLD(-23.3f, angle, 23.3f)  //同时限制了输入的电机速度和舵机角度。
     
     int velocity_lf, velocity_rt;
     
@@ -187,7 +187,7 @@ float CControl::SpeedPretreat(u8 PSS)
 float CControl::AnglePretreat(u8 PSS)
 {
     if(ABS(PSS-128)>3)
-        return (PSS-128)/3.6f;
+        return (PSS-128)/5.45f;
     else
         return 0.0f;
 }

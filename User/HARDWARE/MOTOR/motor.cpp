@@ -10,7 +10,7 @@
 #define SERVO   TIM1->CCR1  //舵机引脚
 
 #define SERVO_INIT 1510
-#define K 10.00f
+#define K 15.15f
 
 static void Motor_PWM_Init(u16 arr,u16 psc)
 {
@@ -130,7 +130,7 @@ void CMotor::MotorBrake()
 //设定舵机转向角度
 void CMotor::ServoCompareSet(float angle)
 {
-    float Servo = SERVO_INIT - angle*K;
-    //INSHEREHOLD(1160,Servo,1880)
+    u16 Servo = SERVO_INIT - angle*K;
+    //INSHEREHOLD(1155,Servo,1870)
     SERVO = Servo;
 }

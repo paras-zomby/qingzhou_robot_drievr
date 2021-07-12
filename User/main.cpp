@@ -50,9 +50,9 @@ int main()
     while(1)
     {
         tim.WaitForTime(CTim::CNT_START);
-        //按键和LED的支持函数
-        key.KEY_Long_Press_Support();
-        debug.LED_Flash_Support();
+//        //按键和LED的支持函数
+//        key.KEY_Long_Press_Support();
+//        debug.LED_Flash_Support();
         //判断遥控器切换模式的指令
         //如果STM32板子按键按下或者SELECT按键按下，切换模式
         if(key.KEY_Click() || ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_SELECT))
@@ -72,13 +72,13 @@ int main()
             debug.mode = 1;time_flag = 1;
             debug.LED_Control(LED_STATE::LED_CLOSE);
         }
-//        if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_TRIANGLE))
-//            PID_switch = true;
-//        if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_CROSS))
-//            PID_switch = false;
         if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_TRIANGLE))
-            KF_switch = true;
+            PID_switch = true;
         if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_CROSS))
+            PID_switch = false;
+        if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_PAD_UP))
+            KF_switch = true;
+        if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_PAD_DOWN))
             KF_switch = false;
         if(debug.mode == 1) //手动控制模式
         {
@@ -93,7 +93,7 @@ int main()
             if(time_flag%2 == 0)//20ms per time: 2,4,6,8,10
             {
                 ps2.PS2_ReadData();
-                //执行遥控器命令
+                //执行遥控器命令 
                 Lencoder = KF_switch?control.kallman_filtering_left(encoder.Read_LEncoder()):encoder.Read_LEncoder();
                 Rencoder = KF_switch?control.kallman_filtering_right(encoder.Read_REncoder()):encoder.Read_REncoder();
                 float Speed = control.SpeedPretreat(ps2.PS2_AnologData(PS2_POLL::PSS_LY));
