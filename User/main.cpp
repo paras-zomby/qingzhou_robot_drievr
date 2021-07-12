@@ -82,14 +82,13 @@ int main()
             KF_switch = false;
         if(debug.mode == 1) //手动控制模式
         {
-//            if(time_flag == 9)// 100ms per time: 9
-//            {
-//                
-//            }
-//            if(time_flag == 3)// 100ms per time: 3
-//            {
-//                
-//            }
+            int l = KF_switch?control.kallman_filtering_left(encoder.Read_LEncoder()):encoder.Read_LEncoder();
+            int r = KF_switch?control.kallman_filtering_right(encoder.Read_REncoder()):encoder.Read_REncoder();
+            Lencoder += l;
+            Rencoder += r;
+            sdata.Lencoder += l;
+            sdata.Rencoder += r;
+            
             if(time_flag%2 == 0)//20ms per time: 2,4,6,8,10
             {
                 ps2.PS2_ReadData();
@@ -104,8 +103,8 @@ int main()
                 if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L1)) Speed = -25.0f;
                 
                 control.Kinematic_Analysis(Speed, Angle, Lencoder, Rencoder, PID_switch);
-                sdata.Lencoder += Lencoder;
-                sdata.Rencoder += Rencoder;
+                Lencoder = 0;
+                Rencoder = 0;
             }
             
             if(time_flag == 1 || time_flag == 5)// ~~50ms per time: 1,5
@@ -139,6 +138,13 @@ int main()
         {
             if(usart.IsDataRefreshed()) rdata = usart.RecvData();
             
+            int l = KF_switch?control.kallman_filtering_left(encoder.Read_LEncoder()):encoder.Read_LEncoder();
+            int r = KF_switch?control.kallman_filtering_right(encoder.Read_REncoder()):encoder.Read_REncoder();
+            Lencoder += l;
+            Rencoder += r;
+            sdata.Lencoder += l;
+            sdata.Rencoder += r;
+            
             if(time_flag == 9)// 100ms per time: 9
             {
                 ps2.PS2_ReadData();
@@ -146,11 +152,9 @@ int main()
             
             if(time_flag%2 == 0)//20ms per time: 2,4,6,8,10
             {
-                Lencoder = KF_switch?control.kallman_filtering_left(encoder.Read_LEncoder()):encoder.Read_LEncoder();
-                Rencoder = KF_switch?control.kallman_filtering_right(encoder.Read_REncoder()):encoder.Read_REncoder();
                 control.Kinematic_Analysis(rdata.Speed, rdata.Angle, Lencoder, Rencoder);
-                sdata.Lencoder += Lencoder;
-                sdata.Rencoder += Rencoder;
+                Lencoder = 0;
+                Rencoder = 0;
             }
             if(time_flag == 3)// 100ms per time: 3
             {
@@ -176,14 +180,14 @@ int main()
                     sdata.data[i] = p[i];
             }
             
-            if(time_flag %5 == 2)//50ms per time: 2,7吧
+            if(time_flag %5 == 2)//50ms per time: 2,7
             {
                 usart.SendData(CUSART::std_head, sizeof(CUSART::std_head));
                 usart.SendData(sdata);
                 usart.SendData(CUSART::std_tail, sizeof(CUSART::std_tail));
                 sdata.Lencoder = 0;
                 sdata.Rencoder = 0;
-            }    
+            }
         }
         time_flag = time_flag>=10?1:time_flag+1;
         tim.WaitForTime(CTim::CNT_END, 10);         //单次周期10ms

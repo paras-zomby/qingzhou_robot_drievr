@@ -11,8 +11,8 @@ CControl::CControl(CDebug* const _debug,CEncoder* const _encoder, CMotor* const 
     :debug(_debug)
     ,encoder(_encoder)
     ,motor(_motor)
-    ,Velocity_KP(62)
-    ,Velocity_KI(62)
+    ,Velocity_KP(45)
+    ,Velocity_KI(73)
 {
     if (is_unique)
     {
@@ -162,7 +162,7 @@ void CControl::Kinematic_Analysis(float velocity,float angle, int Lencoder, int 
 
     //=============第5行显示舵机的状态=======================//
     debug->OLED_ShowString(00,40, "Servo:"),                //舵机状态
-    debug->OLED_ShowNumber(60,40, 1510-10.00*angle,4,12);
+    debug->OLED_ShowNumber(60,40, 1510-15.15*angle,4,12);
     //
         //=============第6行显示速度设定值和打角的设定值=======================//
     if( velocity<0)  debug->OLED_ShowString(00,50,"-"),
