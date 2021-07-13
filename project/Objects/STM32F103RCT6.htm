@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Objects\STM32F103RCT6.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\STM32F103RCT6.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Jul 13 19:28:19 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Jul 13 20:27:17 2021
 <BR><P>
-<H3>Maximum Stack Usage =       1504 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =       1496 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; CControl::Kinematic_Analysis(float, float, int, int, bool) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
+__rt_entry_main &rArr; main &rArr; CControl::Kinematic_Analysis(float, float, int, int, bool, bool) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
 <P>
 <H3>
 Functions with no stack information
@@ -386,8 +386,8 @@ Global Symbols
 <P><STRONG><a name="[19d]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[86]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1504 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; CControl::Kinematic_Analysis(float, float, int, int, bool) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
+<BR><BR>[Stack]<UL><LI>Max Depth = 1496 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; CControl::Kinematic_Analysis(float, float, int, int, bool, bool) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -1658,7 +1658,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_SetInit()
 </UL>
 
-<P><STRONG><a name="[156]"></a>CPS2::PS2_AnologData(PS2_POLL)</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, pstwo.o(i._ZN4CPS214PS2_AnologDataE8PS2_POLL))
+<P><STRONG><a name="[154]"></a>CPS2::PS2_AnologData(PS2_POLL)</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, pstwo.o(i._ZN4CPS214PS2_AnologDataE8PS2_POLL))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1695,7 +1695,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[157]"></a>CPS2::PS2_IfKeyBnPressed(PS2_KEY)</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, pstwo.o(i._ZN4CPS218PS2_IfKeyBnPressedE7PS2_KEY))
+<P><STRONG><a name="[155]"></a>CPS2::PS2_IfKeyBnPressed(PS2_KEY)</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, pstwo.o(i._ZN4CPS218PS2_IfKeyBnPressedE7PS2_KEY))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1732,7 +1732,7 @@ Global Symbols
 
 <P><STRONG><a name="[1b1]"></a>CPS2::CPS2__sub_object(CDebug*)</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, pstwo.o(i._ZN4CPS2C1EP6CDebug), UNUSED)
 
-<P><STRONG><a name="[111]"></a>CTim::WaitForTime(CTim::CNT_STATE, unsigned char)</STRONG> (Thumb, 112 bytes, Stack size 16 bytes, timer.o(i._ZN4CTim11WaitForTimeENS_9CNT_STATEEh))
+<P><STRONG><a name="[111]"></a>CTim::WaitForTime(CTim::CNT_STATE, unsigned char)</STRONG> (Thumb, 144 bytes, Stack size 16 bytes, timer.o(i._ZN4CTim11WaitForTimeENS_9CNT_STATEEh))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = CTim::WaitForTime(CTim::CNT_STATE, unsigned char) &rArr; CDebug::ErrorHandle(const char*, const char*) &rArr; CDebug::OLED_ShowString(unsigned char, unsigned char, const char*) &rArr; CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) &rArr; CDebug::OLED_DrawPoint(unsigned char, unsigned char, unsigned char)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
@@ -1812,7 +1812,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_ShowChar(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;[local to debug_cpp]::oled_pow(unsigned char, unsigned char)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1823,7 +1823,7 @@ Global Symbols
 <LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::OLED_Clear()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ErrorHandle(const char*, const char*)
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDebug::ShowInfo(const char*, const char*)
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1878,7 +1878,7 @@ Global Symbols
 <P><STRONG><a name="[13e]"></a>CMotor::MotorSpeedSet(short, short)</STRONG> (Thumb, 126 bytes, Stack size 8 bytes, motor.o(i._ZN6CMotor13MotorSpeedSetEss))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CMotor::MotorSpeedSet(short, short)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 </UL>
 
 <P><STRONG><a name="[122]"></a>CMotor::ServoCompareSet(float)</STRONG> (Thumb, 40 bytes, Stack size 24 bytes, motor.o(i._ZN6CMotor15ServoCompareSetEf))
@@ -1888,7 +1888,7 @@ Global Symbols
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::CMotor(CDebug*)
 </UL>
 
@@ -1967,8 +1967,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[134]"></a>CControl::Kinematic_Analysis(float, float, int, int, bool)</STRONG> (Thumb, 1288 bytes, Stack size 88 bytes, control.o(i._ZN8CControl18Kinematic_AnalysisEffiib))
-<BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = CControl::Kinematic_Analysis(float, float, int, int, bool) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
+<P><STRONG><a name="[134]"></a>CControl::Kinematic_Analysis(float, float, int, int, bool, bool)</STRONG> (Thumb, 1312 bytes, Stack size 88 bytes, control.o(i._ZN8CControl18Kinematic_AnalysisEffiibb))
+<BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = CControl::Kinematic_Analysis(float, float, int, int, bool, bool) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Right(int, int)
 <LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Incremental_PI_Left(int, int)
@@ -1999,7 +1999,7 @@ Global Symbols
 <LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 </UL>
 
 <P><STRONG><a name="[13d]"></a>CControl::Incremental_PI_Right(int, int)</STRONG> (Thumb, 170 bytes, Stack size 40 bytes, control.o(i._ZN8CControl20Incremental_PI_RightEii))
@@ -2010,7 +2010,7 @@ Global Symbols
 <LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 </UL>
 
 <P><STRONG><a name="[142]"></a>CControl::kallman_filtering_left(float)</STRONG> (Thumb, 170 bytes, Stack size 48 bytes, control.o(i._ZN8CControl22kallman_filtering_leftEf))
@@ -2059,11 +2059,11 @@ Global Symbols
 
 <P><STRONG><a name="[1b6]"></a>CControl::CControl__sub_object(CDebug*, CEncoder*, CMotor*)</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, control.o(i._ZN8CControlC1EP6CDebugP8CEncoderP6CMotor), UNUSED)
 
-<P><STRONG><a name="[154]"></a>CEncoder::Read_LEncoder()</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, encoder.o(i._ZN8CEncoder13Read_LEncoderEv))
+<P><STRONG><a name="[156]"></a>CEncoder::Read_LEncoder()</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, encoder.o(i._ZN8CEncoder13Read_LEncoderEv))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[155]"></a>CEncoder::Read_REncoder()</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, encoder.o(i._ZN8CEncoder13Read_REncoderEv))
+<P><STRONG><a name="[157]"></a>CEncoder::Read_REncoder()</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, encoder.o(i._ZN8CEncoder13Read_REncoderEv))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -2181,18 +2181,18 @@ Global Symbols
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ReadData()
 </UL>
 
-<P><STRONG><a name="[87]"></a>main</STRONG> (Thumb, 1168 bytes, Stack size 1224 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1504 + Unknown Stack Size
-<LI>Call Chain = main &rArr; CControl::Kinematic_Analysis(float, float, int, int, bool) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
+<P><STRONG><a name="[87]"></a>main</STRONG> (Thumb, 1216 bytes, Stack size 1216 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1496 + Unknown Stack Size
+<LI>Call Chain = main &rArr; CControl::Kinematic_Analysis(float, float, int, int, bool, bool) &rArr; tan &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::CEncoder(CDebug*)
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::Read_REncoder()
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::Read_LEncoder()
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::Read_REncoder()
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CEncoder::Read_LEncoder()
 <LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::CControl(CDebug*, CEncoder*, CMotor*)
 <LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::kallman_filtering_right(float)
 <LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::kallman_filtering_left(float)
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 <LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::SpeedPretreat(unsigned char)
 <LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::AnglePretreat(unsigned char)
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CUSART::CUSART(CDebug*)
@@ -2211,9 +2211,9 @@ Global Symbols
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CTim::CTim(CDebug*)
 <LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CTim::WaitForTime(CTim::CNT_STATE, unsigned char)
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::CPS2(CDebug*)
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_IfKeyBnPressed(PS2_KEY)
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_IfKeyBnPressed(PS2_KEY)
 <LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_IfKeyBnClicked(PS2_KEY)
-<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_AnologData(PS2_POLL)
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_AnologData(PS2_POLL)
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPS2::PS2_ReadData()
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::CKey()
 <LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CKey::KEY_Click()
@@ -2235,7 +2235,7 @@ Global Symbols
 <LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 </UL>
 
 <P><STRONG><a name="[81]"></a>_get_lc_numeric</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, lc_numeric_c.o(locale$$code))
@@ -2273,7 +2273,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::kallman_filtering_right(float)
 <LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::kallman_filtering_left(float)
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 <LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
 <LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
@@ -2296,7 +2296,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::kallman_filtering_right(float)
 <LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::kallman_filtering_left(float)
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ReadData()
 <LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
 <LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
@@ -2310,7 +2310,7 @@ Global Symbols
 <P><STRONG><a name="[13a]"></a>__aeabi_d2iz</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dfix.o(x$fpl$dfix))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2iz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 <LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
 <LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 </UL>
@@ -2322,7 +2322,7 @@ Global Symbols
 <P><STRONG><a name="[13f]"></a>__aeabi_d2uiz</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dfixu.o(x$fpl$dfixu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2uiz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 </UL>
 
 <P><STRONG><a name="[165]"></a>_dfixu</STRONG> (Thumb, 90 bytes, Stack size 32 bytes, dfixu.o(x$fpl$dfixu), UNUSED)
@@ -2346,7 +2346,7 @@ Global Symbols
 <P><STRONG><a name="[101]"></a>__aeabi_dmul</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CImu::ReadData()
 <LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
@@ -2378,7 +2378,7 @@ Global Symbols
 <P><STRONG><a name="[13b]"></a>__aeabi_drsub</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, daddsub_clz.o(x$fpl$drsb))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_drsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 <LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_tan
 <LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 </UL>
@@ -2405,7 +2405,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::kallman_filtering_right(float)
 <LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::kallman_filtering_left(float)
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 </UL>
 
 <P><STRONG><a name="[16a]"></a>_f2d</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d), UNUSED)
@@ -2462,7 +2462,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2uiz
 </UL>
 <BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMotor::ServoCompareSet(float)
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 </UL>
 
 <P><STRONG><a name="[170]"></a>_ffixu</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, ffixu.o(x$fpl$ffixu), UNUSED)
@@ -2484,7 +2484,7 @@ Global Symbols
 <P><STRONG><a name="[135]"></a>__aeabi_cfcmple</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fleqf.o(x$fpl$fleqf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_cfcmple
 </UL>
-<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 </UL>
 
 <P><STRONG><a name="[171]"></a>_fcmple</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, fleqf.o(x$fpl$fleqf), UNUSED)
@@ -2530,7 +2530,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[136]"></a>__aeabi_cfrcmple</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, frleqf.o(x$fpl$frleqf))
-<BR><BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool)
+<BR><BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CControl::Kinematic_Analysis(float, float, int, int, bool, bool)
 </UL>
 
 <P><STRONG><a name="[174]"></a>_frcmple</STRONG> (Thumb, 98 bytes, Stack size 0 bytes, frleqf.o(x$fpl$frleqf), UNUSED)

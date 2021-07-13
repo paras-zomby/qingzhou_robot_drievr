@@ -19,7 +19,8 @@ public:
     enum CNT_STATE{
         CNT_START = 0,
         CNT_END = 1,
-        CNT_END_AND_RESTART = 2
+        CNT_END_AND_RESTART = 2,
+        CNT_WAIT_UNTILL = 3
     };
     
     bool DelayForTime(u8 ms);

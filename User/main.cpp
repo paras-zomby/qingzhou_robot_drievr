@@ -41,7 +41,6 @@ int main()
     //临时变量初始化
     CUSART::Data_Recieved rdata = {0.0f, 0.0f};
     CUSART::Data_Sended sdata = {0.0f};
-    u8 time_flag = 1;
     int Lencoder = 0, Rencoder = 0;
     bool PID_switch = false;
     bool KF_switch = false;
@@ -55,18 +54,17 @@ int main()
         if(key.KEY_Click() || ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_SELECT))
         {
             debug.mode = (debug.mode>=2)? 1:(debug.mode+1);
-            time_flag = 1;
         }
         //如果CIRCLE按键按下切换Nano控制模式
         if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_CIRCLE))
         {
-            debug.mode = 2;time_flag = 1;
+            debug.mode = 2;
             debug.LED_Control(LED_STATE::LED_OPEN);
         }
         //如果SQUARE按键按下切换手动控制模式
         if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_SQUARE))
         {
-            debug.mode = 1;time_flag = 1;
+            debug.mode = 1;
             debug.LED_Control(LED_STATE::LED_CLOSE);
         }
         if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_TRIANGLE))
@@ -79,114 +77,101 @@ int main()
             KF_switch = false;
         if(debug.mode == 1) //手动控制模式
         {
-            int l = KF_switch?control.kallman_filtering_left(encoder.Read_LEncoder()):encoder.Read_LEncoder();
-            int r = KF_switch?control.kallman_filtering_right(encoder.Read_REncoder()):encoder.Read_REncoder();
-            Lencoder += l;
-            Rencoder += r;
-            sdata.Lencoder += l;
-            sdata.Rencoder += r;
+            float Speed = control.SpeedPretreat(ps2.PS2_AnologData(PS2_POLL::PSS_LY));
+            float Angle = control.AnglePretreat(ps2.PS2_AnologData(PS2_POLL::PSS_RX));
+            if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_R2)) Speed = 55.0f;
+            if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_R1)) Speed = -55.0f;
+            if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L2)) Speed = 25.0f;
+            if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L1)) Speed = -25.0f;
             
-            if(time_flag%2 == 0)//20ms per time: 2,4,6,8,10
-            {
-                ps2.PS2_ReadData();
-                
-                float Speed = control.SpeedPretreat(ps2.PS2_AnologData(PS2_POLL::PSS_LY));
-                float Angle = control.AnglePretreat(ps2.PS2_AnologData(PS2_POLL::PSS_RX));
-                if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_R2)) Speed = 55.0f;
-                if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_R1)) Speed = -55.0f;
-                if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L2)) Speed = 25.0f;
-                if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L1)) Speed = -25.0f;
-                
-                control.Kinematic_Analysis(Speed, Angle, Lencoder/2, Rencoder/2, PID_switch);
-                Lencoder = 0;
-                Rencoder = 0;
-            }
+            Lencoder = encoder.Read_LEncoder();
+            Rencoder = encoder.Read_REncoder();
+            sdata.Lencoder += Lencoder;
+            sdata.Rencoder += Rencoder;
             
-            if(time_flag == 1 || time_flag == 5)// ~~50ms per time: 1,5!!!!!2600
-            {
-                const float* p = imu.ReadData();
-                for(u8 i = 0; i < 9; ++i)
-                    sdata.data[i] = p[i];
-            }
+            if(KF_switch)   Lencoder = control.kallman_filtering_left(Lencoder),
+                            Rencoder = control.kallman_filtering_right(Rencoder);
+            control.Kinematic_Analysis(Speed, Angle, Lencoder, Rencoder, PID_switch, false);
             
-            if(time_flag %5 == 2)//50ms per time: 2,7!!!!!1100,437
-            {
-                usart.SendData(CUSART::std_head, sizeof(CUSART::std_head));
-                usart.SendData(sdata);
-                usart.SendData(CUSART::std_tail, sizeof(CUSART::std_tail));
-                sdata.Lencoder = 0;
-                sdata.Rencoder = 0;
-            }
+            const float* p = imu.ReadData();
+            for(u8 i = 0; i < 9; ++i)
+                sdata.data[i] = p[i];
+            tim.WaitForTime(CTim::CNT_WAIT_UNTILL, 25);
             
-            if(time_flag == 3)
-            {
-                //=============第1行显示遥控器接收值=======================//
-                debug.OLED_ShowString(00,00,"LY");
-                debug.OLED_ShowNumber(15,00,ps2.PS2_AnologData(PS2_POLL::PSS_LY),5,12);
-                debug.OLED_ShowString(80,00,"RX");
-                debug.OLED_ShowNumber(95,00,ps2.PS2_AnologData(PS2_POLL::PSS_RX),4,12);
-                debug.OLED_Refresh_Gram();
-                debug.OLED_Clear();
-            }
+            Lencoder = encoder.Read_LEncoder();
+            Rencoder = encoder.Read_REncoder();
+            sdata.Lencoder += Lencoder;
+            sdata.Rencoder += Rencoder;
+            
+            if(KF_switch)   Lencoder = control.kallman_filtering_left(Lencoder),
+                            Rencoder = control.kallman_filtering_right(Rencoder);
+            control.Kinematic_Analysis(Speed, Angle, Lencoder, Rencoder, PID_switch, true);
+            
+            ps2.PS2_ReadData();
+            
+            usart.SendData(CUSART::std_head, sizeof(CUSART::std_head));
+            usart.SendData(sdata);
+            usart.SendData(CUSART::std_tail, sizeof(CUSART::std_tail));
+            sdata.Lencoder = 0;
+            sdata.Rencoder = 0;
+            
+            //=============第1行显示遥控器接收值=======================//
+            debug.OLED_ShowString(00,00,"LY");
+            debug.OLED_ShowNumber(15,00,ps2.PS2_AnologData(PS2_POLL::PSS_LY),5,12);
+            debug.OLED_ShowString(80,00,"RX");
+            debug.OLED_ShowNumber(95,00,ps2.PS2_AnologData(PS2_POLL::PSS_RX),4,12);
+            
+            if(KF_switch) debug.OLED_ShowString(90,40,"KF_ON");
+            
+            debug.OLED_Refresh_Gram();
+            debug.OLED_Clear();
+            tim.WaitForTime(CTim::CNT_END, 50);
         }
         else if(debug.mode == 2)
         {
             if(usart.IsDataRefreshed()) rdata = usart.RecvData();
             
-            int l = KF_switch?control.kallman_filtering_left(encoder.Read_LEncoder()):encoder.Read_LEncoder();
-            int r = KF_switch?control.kallman_filtering_right(encoder.Read_REncoder()):encoder.Read_REncoder();
-            Lencoder += l;
-            Rencoder += r;
-            sdata.Lencoder += l;
-            sdata.Rencoder += r;
+            Lencoder = encoder.Read_LEncoder();
+            Rencoder = encoder.Read_REncoder();
+            sdata.Lencoder += Lencoder;
+            sdata.Rencoder += Rencoder;
             
-            if(time_flag == 9)// 100ms per time: 9
-            {
-                ps2.PS2_ReadData(); 
-            }
+            if(KF_switch)   Lencoder = control.kallman_filtering_left(Lencoder),
+                            Rencoder = control.kallman_filtering_right(Rencoder);
+            control.Kinematic_Analysis(rdata.Speed, rdata.Angle, Lencoder, Rencoder, PID_switch, false);
             
-            if(time_flag%2 == 0)//20ms per time: 2,4,6,8,10
-            {
-                control.Kinematic_Analysis(rdata.Speed, rdata.Angle, Lencoder/2, Rencoder/2);
-                Lencoder = 0;
-                Rencoder = 0;
-            }
-            if(time_flag == 3)// 100ms per time: 3
-            {
-                debug.OLED_ShowString(0,0,"Nano Control");
-                //第三行显示收到的Speed和Angle数据。如果开启上面的control类的控制函数就不用了。
-//                if(rdata.Angle<0) debug.OLED_ShowString(00,30,"-"),
-//                     debug.OLED_ShowNumber(15,30,-(int)rdata.Speed,5,12);
-//                else debug.OLED_ShowString(0,30,"+"),
-//                     debug.OLED_ShowNumber(15,30, (int)rdata.Speed,5,12);
-//                if(rdata.Speed<0) debug.OLED_ShowString(80,30,"-"),
-//                      debug.OLED_ShowNumber(95,30,-(int)rdata.Angle,4,12);
-//                else  debug.OLED_ShowString(80,30,"+"),
-//                      debug.OLED_ShowNumber(95,30, (int)rdata.Angle,4,12);
-                
-                debug.OLED_Refresh_Gram();
-                debug.OLED_Clear();
-            }
+            const float* p = imu.ReadData();
+            for(u8 i = 0; i < 9; ++i)
+                sdata.data[i] = p[i];
             
-             if(time_flag == 1 || time_flag == 5)// ~~50ms per time: 1,5!!!!2631
-            {
-                const float* p = imu.ReadData();
-                for(u8 i = 0; i < 9; ++i)
-                    sdata.data[i] = p[i];
-            }
+            tim.WaitForTime(CTim::CNT_WAIT_UNTILL, 25);
             
-            if(time_flag %5 == 2)//50ms per time: 2,7!!!!1147,437
-            {
-                usart.SendData(CUSART::std_head, sizeof(CUSART::std_head));
-                usart.SendData(sdata);
-                usart.SendData(CUSART::std_tail, sizeof(CUSART::std_tail));
-                sdata.Lencoder = 0;
-                sdata.Rencoder = 0;
-            }
+            Lencoder = encoder.Read_LEncoder();
+            Rencoder = encoder.Read_REncoder();
+            sdata.Lencoder += Lencoder;
+            sdata.Rencoder += Rencoder;
+            
+            if(KF_switch)   Lencoder = control.kallman_filtering_left(Lencoder),
+                            Rencoder = control.kallman_filtering_right(Rencoder);
+            control.Kinematic_Analysis(rdata.Speed, rdata.Angle, Lencoder, Rencoder, PID_switch, true);
+            
+            ps2.PS2_ReadData();
+            
+            usart.SendData(CUSART::std_head, sizeof(CUSART::std_head));
+            usart.SendData(sdata);
+            usart.SendData(CUSART::std_tail, sizeof(CUSART::std_tail));
+            sdata.Lencoder = 0;
+            sdata.Rencoder = 0;
+            
+            debug.OLED_ShowString(0,0,"Nano Control");
+            
+            if(KF_switch) debug.OLED_ShowString(90,40,"KF_ON");
+            
+            debug.OLED_Refresh_Gram();
+            debug.OLED_Clear();
+            
+            tim.WaitForTime(CTim::CNT_END, 50);
         }
-
-        time_flag = time_flag>=10?1:time_flag+1;
-        tim.WaitForTime(CTim::CNT_END, 10);         //单次周期10ms
     }
 }
 

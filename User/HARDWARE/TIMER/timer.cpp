@@ -60,13 +60,18 @@ bool CTim::WaitForTime(CNT_STATE state, u8 ms)
     if( (is_used && state==CNT_START)   //已经被占用无法开始新计时
       ||(!is_used && state==CNT_END) //没有开始直接结束了
       ||(!is_used && state==CNT_END_AND_RESTART) //没有开始直接重新开始了
-      ||((state==CNT_END_AND_RESTART||state==CNT_END) && ms==0) ) //设定要结束但是没有给延时时间
+      ||((state==CNT_END_AND_RESTART||state==CNT_END||state==CNT_WAIT_UNTILL) && ms==0) //设定要结束但是没有给延时时间
+      ||(state==CNT_WAIT_UNTILL && !is_used)) //等待时间到但是根本没有开始计时
         debug->ErrorHandle("TIM6", "WaitForTime Error");//return false; //返回false
     
     if(state==CNT_START)
     {
         TIME = 0;
         is_used = true;
+    }
+    else if(state==CNT_WAIT_UNTILL)
+    {
+        while(TIME < 100*ms);
     }
     else if(state==CNT_END_AND_RESTART)
     {
