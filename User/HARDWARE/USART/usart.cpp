@@ -105,6 +105,32 @@ void CUSART::SendData(const Data_Sended& data)
     while(USART_GetFlagStatus(USART1,USART_FLAG_TC)==RESET);
 }
 
+void CUSART::SendData_VS(enum USART_VS_CMD cmd, void* data)
+{
+    if(cmd == USART_VS_CMD::HEAD)
+    {
+        USART_SendData(USART1, 0x03);
+        while(USART_GetFlagStatus(USART1, USART_FLAG_TXE)==RESET);
+        USART_SendData(USART1, 0xfc);
+        while(USART_GetFlagStatus(USART1, USART_FLAG_TXE)==RESET);
+    }
+    else if (cmd == USART_VS_CMD::TAIL)
+    {
+        USART_SendData(USART1, 0xfc);
+        while(USART_GetFlagStatus(USART1, USART_FLAG_TXE)==RESET);
+        USART_SendData(USART1, 0x03);
+        while(USART_GetFlagStatus(USART1, USART_FLAG_TXE)==RESET);
+    }
+    else if(data != NULL)
+    {
+        for(u8* ptr = (u8*)data; ptr <= (u8*)data + (u8)cmd; ++ptr)
+        {
+            USART_SendData(USART1, *ptr);
+            while(USART_GetFlagStatus(USART1, USART_FLAG_TXE)==RESET);
+        }
+    }
+}
+
 CUSART::Data_Recieved CUSART::RecvData(void)
 {
     is_datarefreshed = 0;

@@ -4,6 +4,15 @@
 #include "sys.h"
 #include "debug.h"
 
+enum class USART_VS_CMD:unsigned char{
+    HEAD = 4,
+    TAIL = 5,
+    DATA_8 = 0,
+    DATA_16 = 1,
+    DATA_32 = 3,
+    DATA_64 = 7
+};
+
 class CUSART
 {
 private:
@@ -25,6 +34,7 @@ public:
     
     void SendData(const Data_Sended& data);
     void SendData(const u8* dataptr, u16 datasize = 0);
+    void SendData_VS(enum USART_VS_CMD cmd, void* data = NULL);
     
     Data_Recieved RecvData(void);
     bool IsDataRefreshed(void);

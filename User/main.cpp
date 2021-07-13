@@ -42,7 +42,7 @@ int main()
     CUSART::Data_Recieved rdata = {0.0f, 0.0f};
     CUSART::Data_Sended sdata = {0.0f};
     u8 time_flag = 1;
-    int Lencoder, Rencoder;
+    int Lencoder = 0, Rencoder = 0;
     bool PID_switch = false;
     bool KF_switch = false;
     
@@ -50,9 +50,6 @@ int main()
     while(1)
     {
         tim.WaitForTime(CTim::CNT_START);
-//        //按键和LED的支持函数
-//        key.KEY_Long_Press_Support();
-//        debug.LED_Flash_Support();
         //判断遥控器切换模式的指令
         //如果STM32板子按键按下或者SELECT按键按下，切换模式
         if(key.KEY_Click() || ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_SELECT))
@@ -92,9 +89,7 @@ int main()
             if(time_flag%2 == 0)//20ms per time: 2,4,6,8,10
             {
                 ps2.PS2_ReadData();
-                //执行遥控器命令 
-                Lencoder = KF_switch?control.kallman_filtering_left(encoder.Read_LEncoder()):encoder.Read_LEncoder();
-                Rencoder = KF_switch?control.kallman_filtering_right(encoder.Read_REncoder()):encoder.Read_REncoder();
+                
                 float Speed = control.SpeedPretreat(ps2.PS2_AnologData(PS2_POLL::PSS_LY));
                 float Angle = control.AnglePretreat(ps2.PS2_AnologData(PS2_POLL::PSS_RX));
                 if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_R2)) Speed = 55.0f;
@@ -102,19 +97,19 @@ int main()
                 if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L2)) Speed = 25.0f;
                 if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L1)) Speed = -25.0f;
                 
-                control.Kinematic_Analysis(Speed, Angle, Lencoder, Rencoder, PID_switch);
+                control.Kinematic_Analysis(Speed, Angle, Lencoder/2, Rencoder/2, PID_switch);
                 Lencoder = 0;
                 Rencoder = 0;
             }
             
-            if(time_flag == 1 || time_flag == 5)// ~~50ms per time: 1,5
+            if(time_flag == 1 || time_flag == 5)// ~~50ms per time: 1,5!!!!!2600
             {
                 const float* p = imu.ReadData();
                 for(u8 i = 0; i < 9; ++i)
                     sdata.data[i] = p[i];
             }
             
-            if(time_flag %5 == 2)//50ms per time: 2,7
+            if(time_flag %5 == 2)//50ms per time: 2,7!!!!!1100,437
             {
                 usart.SendData(CUSART::std_head, sizeof(CUSART::std_head));
                 usart.SendData(sdata);
@@ -147,12 +142,12 @@ int main()
             
             if(time_flag == 9)// 100ms per time: 9
             {
-                ps2.PS2_ReadData();
+                ps2.PS2_ReadData(); 
             }
             
             if(time_flag%2 == 0)//20ms per time: 2,4,6,8,10
             {
-                control.Kinematic_Analysis(rdata.Speed, rdata.Angle, Lencoder, Rencoder);
+                control.Kinematic_Analysis(rdata.Speed, rdata.Angle, Lencoder/2, Rencoder/2);
                 Lencoder = 0;
                 Rencoder = 0;
             }
@@ -173,14 +168,14 @@ int main()
                 debug.OLED_Clear();
             }
             
-             if(time_flag == 1 || time_flag == 5)// ~~50ms per time: 1,5
+             if(time_flag == 1 || time_flag == 5)// ~~50ms per time: 1,5!!!!2631
             {
                 const float* p = imu.ReadData();
                 for(u8 i = 0; i < 9; ++i)
                     sdata.data[i] = p[i];
             }
             
-            if(time_flag %5 == 2)//50ms per time: 2,7
+            if(time_flag %5 == 2)//50ms per time: 2,7!!!!1147,437
             {
                 usart.SendData(CUSART::std_head, sizeof(CUSART::std_head));
                 usart.SendData(sdata);
@@ -189,6 +184,7 @@ int main()
                 sdata.Rencoder = 0;
             }
         }
+
         time_flag = time_flag>=10?1:time_flag+1;
         tim.WaitForTime(CTim::CNT_END, 10);         //单次周期10ms
     }
