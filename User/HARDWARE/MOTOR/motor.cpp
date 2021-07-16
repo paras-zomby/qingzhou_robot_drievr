@@ -9,8 +9,8 @@
 
 #define SERVO   TIM1->CCR1  //¶æ»úÒý½Å
 
-#define SERVO_INIT 1510
-#define K 15.15f
+#define SERVO_INIT 1670
+#define K 17.5f
 
 static void Motor_PWM_Init(u16 arr,u16 psc)
 {

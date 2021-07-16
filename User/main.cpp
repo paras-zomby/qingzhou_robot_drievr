@@ -60,6 +60,8 @@ int main()
         {
             debug.mode = 2;
             debug.LED_Control(LED_STATE::LED_OPEN);
+            rdata.Angle = rdata.Speed = 0;
+            sdata.Lencoder = sdata.Rencoder = 0;
         }
         //如果SQUARE按键按下切换手动控制模式
         if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_SQUARE))

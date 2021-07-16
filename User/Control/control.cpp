@@ -1,8 +1,8 @@
 #include "control.h"
 
 #define PI 3.141592654
-#define T 0.245f
-#define L 0.29f
+#define T 0.33f
+#define L 0.30f
 
 
 bool CControl::is_unique = 1;
@@ -11,8 +11,8 @@ CControl::CControl(CDebug* const _debug,CEncoder* const _encoder, CMotor* const 
     :debug(_debug)
     ,encoder(_encoder)
     ,motor(_motor)
-    ,Velocity_KP(43)
-    ,Velocity_KI(73)
+    ,Velocity_KP(30)
+    ,Velocity_KI(60)
 {
     if (is_unique)
     {
@@ -168,7 +168,7 @@ void CControl::Kinematic_Analysis(float velocity,float angle, int Lencoder, int 
 
         //=============第5行显示舵机的状态=======================//
         debug->OLED_ShowString(00,40, "Servo:"),                //舵机状态
-        debug->OLED_ShowNumber(60,40, 1510-15.15*angle,4,12);
+        debug->OLED_ShowNumber(60,40, 1670-17.5*angle,4,12);
         //
             //=============第6行显示速度设定值和打角的设定值=======================//
         if( velocity<0)  debug->OLED_ShowString(00,50,"-"),
