@@ -44,6 +44,7 @@ int main()
     int Lencoder = 0, Rencoder = 0;
     bool PID_switch = false;
     bool KF_switch = false;
+    bool POLL_switch = true;
     
     debug.ShowInfo("debug", "Into While");
     while(1)
@@ -77,10 +78,14 @@ int main()
             KF_switch = true;
         if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_PAD_DOWN))
             KF_switch = false;
+        if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_L3))
+            POLL_switch = true;
+        if(ps2.PS2_IfKeyBnClicked(PS2_KEY::PS2B_R3))
+            POLL_switch = false;
         if(debug.mode == 1) //手动控制模式
         {
-            float Speed = control.SpeedPretreat(ps2.PS2_AnologData(PS2_POLL::PSS_LY));
-            float Angle = control.AnglePretreat(ps2.PS2_AnologData(PS2_POLL::PSS_RX));
+            float Speed = POLL_switch?control.SpeedPretreat(ps2.PS2_AnologData(PS2_POLL::PSS_LY)):0;
+            float Angle = POLL_switch?control.AnglePretreat(ps2.PS2_AnologData(PS2_POLL::PSS_RX)):0;
             if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_R2)) Speed = 55.0f;
             if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_R1)) Speed = -55.0f;
             if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L2)) Speed = 25.0f;
