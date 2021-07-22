@@ -33,9 +33,9 @@ int main()
     CPS2 ps2(&debug);
     CMotor motor(&debug);
     CUSART usart(&debug);
+    CImu imu(&debug);
     
     //上层控制类的对象构建
-    CImu imu(&debug);
     CControl control(&debug, &encoder, &motor);
     
     //临时变量初始化
@@ -85,7 +85,7 @@ int main()
         if(debug.mode == 1) //手动控制模式
         {
             float Speed = POLL_switch?control.SpeedPretreat(ps2.PS2_AnologData(PS2_POLL::PSS_LY)):0;
-            float Angle = POLL_switch?control.AnglePretreat(ps2.PS2_AnologData(PS2_POLL::PSS_RX)):0;
+            float Angle = control.AnglePretreat(ps2.PS2_AnologData(PS2_POLL::PSS_RX));
             if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_R2)) Speed = 55.0f;
             if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_R1)) Speed = -55.0f;
             if(ps2.PS2_IfKeyBnPressed(PS2_KEY::PS2B_L2)) Speed = 25.0f;

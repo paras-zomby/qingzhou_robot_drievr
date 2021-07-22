@@ -108,7 +108,7 @@ void CPS2::PS2_ReadData(void)
 //对按键进行处理，输入参数是想要检测的按键，可以！按位与！
 //所有输入按键只要有一个按下就会返回真
 //只检测上升沿，而且同时输入的按键分开计算第一次按下
- bool CPS2::PS2_IfKeyBnClicked(enum PS2_KEY _key)
+bool CPS2::PS2_IfKeyBnClicked(enum PS2_KEY _key)
 {
     u16 key = (u16)_key;
     static u16 pressed_key = 0;
